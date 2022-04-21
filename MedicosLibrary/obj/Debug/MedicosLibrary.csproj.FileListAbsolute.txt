@@ -1,0 +1,5 @@
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\bin\Debug\MedicosLibrary.dll
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\bin\Debug\MedicosLibrary.pdb
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.dll
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.pdb
