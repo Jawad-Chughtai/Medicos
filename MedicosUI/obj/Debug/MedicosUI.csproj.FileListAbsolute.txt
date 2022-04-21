@@ -1,0 +1,11 @@
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\bin\Debug\MedicosUI.exe.config
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\bin\Debug\MedicosUI.exe
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\bin\Debug\MedicosUI.pdb
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.csprojResolveAssemblyReference.cache
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.DashboardForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.Properties.Resources.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.csproj.GenerateResource.Cache
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.exe
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.pdb
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.DashboardChildForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.UserForm.resources
