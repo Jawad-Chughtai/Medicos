@@ -15,10 +15,12 @@ namespace MedicosUI
         Form activeForm = null;
         public DashboardForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            DashboardChildForm formObj = new DashboardChildForm();
+            openChildForm(formObj);
         }
 
-        //Left menu onClick methods to display respective child forms
+        //method to open child forms inside parent form
         private void openChildForm(Form formObj)
         {
             if (activeForm != null)
@@ -33,6 +35,7 @@ namespace MedicosUI
             formObj.TopLevel = false;
             activeForm = formObj;
         }
+        //Left navigation menu onClick methods to display respective child forms
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DashboardChildForm formObj = new DashboardChildForm();
@@ -42,6 +45,77 @@ namespace MedicosUI
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UserForm formObj = new UserForm();
+            openChildForm(formObj);
+        }
+
+        private void distributorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DistributorForm formObj = new DistributorForm();
+            openChildForm(formObj);
+        }
+
+        private void companyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CompanyForm formObj = new CompanyForm();
+            openChildForm(formObj);
+        }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CategoryForm formObj = new CategoryForm();
+            openChildForm(formObj);
+        }
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomerForm formObj = new CustomerForm();
+            openChildForm(formObj);
+        }
+
+        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ItemForm formObj = new ItemForm();
+            openChildForm(formObj);
+        }
+        private void invoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InvoiceForm formObj = new InvoiceForm();
+            openChildForm(formObj);
+        }
+
+        private void batchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BatchForm formObj = new BatchForm();
+            openChildForm(formObj);
+        }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalesForm formObj = new SalesForm();
+            openChildForm(formObj);
+        }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BackupForm formObj = new BackupForm();
+            openChildForm(formObj);
+        }
+
+        private void newPurchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewPurchaseForm formObj = new NewPurchaseForm();
+            openChildForm(formObj);
+        }
+
+        private void viewPurchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewPurchaseForm formObj = new ViewPurchaseForm();
+            openChildForm(formObj);
+        }
+
+        private void pointOfSaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            POSForm formObj = new POSForm();
             openChildForm(formObj);
         }
     }

@@ -9,3 +9,15 @@ C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.pdb
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.DashboardChildForm.resources
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.UserForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.CompanyForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.DistributorForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.CategoryForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.CustomerForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.ItemForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.InvoiceForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.BatchForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.SalesForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.BackupForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.NewPurchaseForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.POSForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.ViewPurchaseForm.resources

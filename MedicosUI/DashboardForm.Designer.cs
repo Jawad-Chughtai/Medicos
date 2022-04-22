@@ -32,23 +32,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStripNavigation = new System.Windows.Forms.MenuStrip();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.menuStripUserInfo = new System.Windows.Forms.MenuStrip();
-            this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.weeklyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UserinfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointOfSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchasetoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPurchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPurchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dailyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.weeklyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.monthlyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,14 +47,22 @@
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.menuStripUserInfo = new System.Windows.Forms.MenuStrip();
+            this.UserinfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.weeklyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripNavigation.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.menuStripUserInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -110,92 +107,9 @@
             this.menuStripNavigation.Location = new System.Drawing.Point(0, 0);
             this.menuStripNavigation.Name = "menuStripNavigation";
             this.menuStripNavigation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.menuStripNavigation.Size = new System.Drawing.Size(180, 644);
+            this.menuStripNavigation.Size = new System.Drawing.Size(180, 663);
             this.menuStripNavigation.TabIndex = 0;
             this.menuStripNavigation.Text = "menuStrip1";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 73);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
-            this.panel4.Controls.Add(this.menuStripUserInfo);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(180, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1170, 61);
-            this.panel4.TabIndex = 1;
-            // 
-            // menuStripUserInfo
-            // 
-            this.menuStripUserInfo.BackColor = System.Drawing.Color.Transparent;
-            this.menuStripUserInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menuStripUserInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.UserinfotoolStripMenuItem});
-            this.menuStripUserInfo.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuStripUserInfo.Location = new System.Drawing.Point(956, 0);
-            this.menuStripUserInfo.Name = "menuStripUserInfo";
-            this.menuStripUserInfo.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.menuStripUserInfo.Size = new System.Drawing.Size(214, 61);
-            this.menuStripUserInfo.TabIndex = 1;
-            this.menuStripUserInfo.Text = "menuStripUserInfo";
-            // 
-            // monthlyToolStripMenuItem
-            // 
-            this.monthlyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.monthlyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
-            this.monthlyToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
-            this.monthlyToolStripMenuItem.Text = "Monthly";
-            // 
-            // weeklyToolStripMenuItem
-            // 
-            this.weeklyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.weeklyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.weeklyToolStripMenuItem.Name = "weeklyToolStripMenuItem";
-            this.weeklyToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
-            this.weeklyToolStripMenuItem.Text = "Weekly";
-            // 
-            // dailyToolStripMenuItem
-            // 
-            this.dailyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.dailyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
-            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
-            this.dailyToolStripMenuItem.Text = "Daily";
-            // 
-            // UserinfotoolStripMenuItem
-            // 
-            this.UserinfotoolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
-            this.UserinfotoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logoutToolStripMenuItem});
-            this.UserinfotoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserinfotoolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.UserinfotoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("UserinfotoolStripMenuItem.Image")));
-            this.UserinfotoolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UserinfotoolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.UserinfotoolStripMenuItem.Name = "UserinfotoolStripMenuItem";
-            this.UserinfotoolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.UserinfotoolStripMenuItem.Size = new System.Drawing.Size(192, 61);
-            this.UserinfotoolStripMenuItem.Text = " UserInformation";
-            this.UserinfotoolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
-            this.logoutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(144, 28);
-            this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // dashboardToolStripMenuItem
             // 
@@ -225,6 +139,7 @@
             this.pointOfSaleToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.pointOfSaleToolStripMenuItem.Text = "  Point of Sale";
             this.pointOfSaleToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pointOfSaleToolStripMenuItem.Click += new System.EventHandler(this.pointOfSaleToolStripMenuItem_Click);
             // 
             // purchasetoolStripMenuItem
             // 
@@ -252,6 +167,7 @@
             this.newPurchaseToolStripMenuItem.Size = new System.Drawing.Size(207, 34);
             this.newPurchaseToolStripMenuItem.Text = "New Purchase";
             this.newPurchaseToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.newPurchaseToolStripMenuItem.Click += new System.EventHandler(this.newPurchaseToolStripMenuItem_Click);
             // 
             // viewPurchaseToolStripMenuItem
             // 
@@ -262,14 +178,11 @@
             this.viewPurchaseToolStripMenuItem.Size = new System.Drawing.Size(207, 34);
             this.viewPurchaseToolStripMenuItem.Text = "View Purchase";
             this.viewPurchaseToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.viewPurchaseToolStripMenuItem.Click += new System.EventHandler(this.viewPurchaseToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dailyToolStripMenuItem1,
-            this.weeklyToolStripMenuItem1,
-            this.monthlyToolStripMenuItem1});
             this.salesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.salesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salesToolStripMenuItem.Image")));
@@ -280,36 +193,7 @@
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.salesToolStripMenuItem.Text = "  Sales";
             this.salesToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dailyToolStripMenuItem1
-            // 
-            this.dailyToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.dailyToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.dailyToolStripMenuItem1.Name = "dailyToolStripMenuItem1";
-            this.dailyToolStripMenuItem1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.dailyToolStripMenuItem1.Size = new System.Drawing.Size(157, 34);
-            this.dailyToolStripMenuItem1.Text = "Daily";
-            this.dailyToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // weeklyToolStripMenuItem1
-            // 
-            this.weeklyToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.weeklyToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.weeklyToolStripMenuItem1.Name = "weeklyToolStripMenuItem1";
-            this.weeklyToolStripMenuItem1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.weeklyToolStripMenuItem1.Size = new System.Drawing.Size(157, 34);
-            this.weeklyToolStripMenuItem1.Text = "Weekly";
-            this.weeklyToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // monthlyToolStripMenuItem1
-            // 
-            this.monthlyToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.monthlyToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.monthlyToolStripMenuItem1.Name = "monthlyToolStripMenuItem1";
-            this.monthlyToolStripMenuItem1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.monthlyToolStripMenuItem1.Size = new System.Drawing.Size(157, 34);
-            this.monthlyToolStripMenuItem1.Text = "Monthly";
-            this.monthlyToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // batchToolStripMenuItem
             // 
@@ -324,6 +208,7 @@
             this.batchToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.batchToolStripMenuItem.Text = "  Batch";
             this.batchToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
             // 
             // itemsToolStripMenuItem
             // 
@@ -338,6 +223,7 @@
             this.itemsToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.itemsToolStripMenuItem.Text = "  Items";
             this.itemsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
@@ -352,6 +238,7 @@
             this.customerToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.customerToolStripMenuItem.Text = "  Customer";
             this.customerToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
             // 
             // categoryToolStripMenuItem
             // 
@@ -366,6 +253,7 @@
             this.categoryToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.categoryToolStripMenuItem.Text = "  Category";
             this.categoryToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.categoryToolStripMenuItem.Click += new System.EventHandler(this.categoryToolStripMenuItem_Click);
             // 
             // distributorToolStripMenuItem
             // 
@@ -380,6 +268,7 @@
             this.distributorToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.distributorToolStripMenuItem.Text = "  Distributor";
             this.distributorToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.distributorToolStripMenuItem.Click += new System.EventHandler(this.distributorToolStripMenuItem_Click);
             // 
             // companyToolStripMenuItem
             // 
@@ -394,6 +283,7 @@
             this.companyToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.companyToolStripMenuItem.Text = "  Company";
             this.companyToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.companyToolStripMenuItem.Click += new System.EventHandler(this.companyToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
@@ -423,6 +313,7 @@
             this.invoiceToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.invoiceToolStripMenuItem.Text = "  Invoice";
             this.invoiceToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.invoiceToolStripMenuItem.Click += new System.EventHandler(this.invoiceToolStripMenuItem_Click);
             // 
             // backupToolStripMenuItem
             // 
@@ -437,6 +328,17 @@
             this.backupToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.backupToolStripMenuItem.Text = "  Backup";
             this.backupToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(180, 73);
+            this.panel2.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -447,6 +349,79 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.panel4.Controls.Add(this.menuStripUserInfo);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(180, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1170, 61);
+            this.panel4.TabIndex = 1;
+            // 
+            // menuStripUserInfo
+            // 
+            this.menuStripUserInfo.BackColor = System.Drawing.Color.Transparent;
+            this.menuStripUserInfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.menuStripUserInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.UserinfotoolStripMenuItem});
+            this.menuStripUserInfo.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuStripUserInfo.Location = new System.Drawing.Point(956, 0);
+            this.menuStripUserInfo.Name = "menuStripUserInfo";
+            this.menuStripUserInfo.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.menuStripUserInfo.Size = new System.Drawing.Size(214, 61);
+            this.menuStripUserInfo.TabIndex = 1;
+            this.menuStripUserInfo.Text = "menuStripUserInfo";
+            // 
+            // UserinfotoolStripMenuItem
+            // 
+            this.UserinfotoolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.UserinfotoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logoutToolStripMenuItem});
+            this.UserinfotoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserinfotoolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.UserinfotoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("UserinfotoolStripMenuItem.Image")));
+            this.UserinfotoolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UserinfotoolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.UserinfotoolStripMenuItem.Name = "UserinfotoolStripMenuItem";
+            this.UserinfotoolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.UserinfotoolStripMenuItem.Size = new System.Drawing.Size(192, 61);
+            this.UserinfotoolStripMenuItem.Text = " UserInformation";
+            this.UserinfotoolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.logoutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(144, 28);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
+            // monthlyToolStripMenuItem
+            // 
+            this.monthlyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.monthlyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.monthlyToolStripMenuItem.Name = "monthlyToolStripMenuItem";
+            this.monthlyToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
+            this.monthlyToolStripMenuItem.Text = "Monthly";
+            // 
+            // weeklyToolStripMenuItem
+            // 
+            this.weeklyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.weeklyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.weeklyToolStripMenuItem.Name = "weeklyToolStripMenuItem";
+            this.weeklyToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
+            this.weeklyToolStripMenuItem.Text = "Weekly";
+            // 
+            // dailyToolStripMenuItem
+            // 
+            this.dailyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.dailyToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
+            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
+            this.dailyToolStripMenuItem.Text = "Daily";
             // 
             // DashboardForm
             // 
@@ -470,11 +445,11 @@
             this.menuStripNavigation.ResumeLayout(false);
             this.menuStripNavigation.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.menuStripUserInfo.ResumeLayout(false);
             this.menuStripUserInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -508,9 +483,6 @@
         private System.Windows.Forms.ToolStripMenuItem monthlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem weeklyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dailyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dailyToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem weeklyToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem monthlyToolStripMenuItem1;
 
 
 

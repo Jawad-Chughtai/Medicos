@@ -42,6 +42,10 @@
             this.userGridView = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.deleteUserButton = new System.Windows.Forms.Button();
+            this.fullNameError = new System.Windows.Forms.Label();
+            this.usernameError = new System.Windows.Forms.Label();
+            this.passwordError = new System.Windows.Forms.Label();
+            this.confirmPasswordError = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +64,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.confirmPasswordError);
+            this.panel2.Controls.Add(this.passwordError);
+            this.panel2.Controls.Add(this.usernameError);
+            this.panel2.Controls.Add(this.fullNameError);
             this.panel2.Controls.Add(this.addUserButton);
             this.panel2.Controls.Add(this.confirmPasswordText);
             this.panel2.Controls.Add(this.label4);
@@ -73,7 +81,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(322, 431);
             this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // addUserButton
             // 
@@ -81,7 +88,7 @@
             this.addUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addUserButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addUserButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.addUserButton.Location = new System.Drawing.Point(182, 335);
+            this.addUserButton.Location = new System.Drawing.Point(182, 338);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(123, 39);
             this.addUserButton.TabIndex = 9;
@@ -91,7 +98,7 @@
             // confirmPasswordText
             // 
             this.confirmPasswordText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.confirmPasswordText.Location = new System.Drawing.Point(22, 268);
+            this.confirmPasswordText.Location = new System.Drawing.Point(22, 272);
             this.confirmPasswordText.Name = "confirmPasswordText";
             this.confirmPasswordText.PasswordChar = '*';
             this.confirmPasswordText.Size = new System.Drawing.Size(284, 29);
@@ -102,7 +109,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(18, 245);
+            this.label4.Location = new System.Drawing.Point(18, 249);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(142, 21);
             this.label4.TabIndex = 7;
@@ -111,7 +118,7 @@
             // passwordText
             // 
             this.passwordText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passwordText.Location = new System.Drawing.Point(22, 196);
+            this.passwordText.Location = new System.Drawing.Point(22, 200);
             this.passwordText.Name = "passwordText";
             this.passwordText.PasswordChar = '*';
             this.passwordText.Size = new System.Drawing.Size(284, 29);
@@ -122,7 +129,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(18, 173);
+            this.label3.Location = new System.Drawing.Point(18, 177);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 21);
             this.label3.TabIndex = 5;
@@ -131,7 +138,7 @@
             // usernameText
             // 
             this.usernameText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.usernameText.Location = new System.Drawing.Point(22, 124);
+            this.usernameText.Location = new System.Drawing.Point(22, 127);
             this.usernameText.Name = "usernameText";
             this.usernameText.Size = new System.Drawing.Size(284, 29);
             this.usernameText.TabIndex = 4;
@@ -141,7 +148,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(18, 101);
+            this.label2.Location = new System.Drawing.Point(18, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 21);
             this.label2.TabIndex = 3;
@@ -199,6 +206,50 @@
             this.deleteUserButton.Text = "Delete User";
             this.deleteUserButton.UseVisualStyleBackColor = false;
             // 
+            // fullNameError
+            // 
+            this.fullNameError.AutoSize = true;
+            this.fullNameError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullNameError.ForeColor = System.Drawing.Color.Red;
+            this.fullNameError.Location = new System.Drawing.Point(19, 84);
+            this.fullNameError.Name = "fullNameError";
+            this.fullNameError.Size = new System.Drawing.Size(94, 17);
+            this.fullNameError.TabIndex = 10;
+            this.fullNameError.Text = "Full name error";
+            // 
+            // usernameError
+            // 
+            this.usernameError.AutoSize = true;
+            this.usernameError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameError.ForeColor = System.Drawing.Color.Red;
+            this.usernameError.Location = new System.Drawing.Point(19, 159);
+            this.usernameError.Name = "usernameError";
+            this.usernameError.Size = new System.Drawing.Size(96, 17);
+            this.usernameError.TabIndex = 11;
+            this.usernameError.Text = "Username error";
+            // 
+            // passwordError
+            // 
+            this.passwordError.AutoSize = true;
+            this.passwordError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordError.ForeColor = System.Drawing.Color.Red;
+            this.passwordError.Location = new System.Drawing.Point(19, 231);
+            this.passwordError.Name = "passwordError";
+            this.passwordError.Size = new System.Drawing.Size(92, 17);
+            this.passwordError.TabIndex = 12;
+            this.passwordError.Text = "Password Error";
+            // 
+            // confirmPasswordError
+            // 
+            this.confirmPasswordError.AutoSize = true;
+            this.confirmPasswordError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.confirmPasswordError.Location = new System.Drawing.Point(19, 303);
+            this.confirmPasswordError.Name = "confirmPasswordError";
+            this.confirmPasswordError.Size = new System.Drawing.Size(141, 17);
+            this.confirmPasswordError.TabIndex = 13;
+            this.confirmPasswordError.Text = "Confirm Password error";
+            // 
             // UserForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -241,5 +292,9 @@
         private System.Windows.Forms.DataGridView userGridView;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button deleteUserButton;
+        private System.Windows.Forms.Label confirmPasswordError;
+        private System.Windows.Forms.Label passwordError;
+        private System.Windows.Forms.Label usernameError;
+        private System.Windows.Forms.Label fullNameError;
     }
 }

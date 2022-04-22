@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MedicosUI
 {
-    public partial class UserForm : Form
+    public partial class BatchForm : Form
     {
-        public UserForm()
+        public BatchForm()
         {
             InitializeComponent();
         }

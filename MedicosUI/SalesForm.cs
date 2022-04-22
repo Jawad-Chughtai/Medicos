@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace MedicosUI
 {
-    public partial class UserForm : Form
+    public partial class SalesForm : Form
     {
-        public UserForm()
+        public SalesForm()
         {
             InitializeComponent();
+        }
+
+        private void SalesForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
