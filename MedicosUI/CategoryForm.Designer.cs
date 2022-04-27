@@ -93,9 +93,8 @@
             this.categoryTitleError.ForeColor = System.Drawing.Color.Red;
             this.categoryTitleError.Location = new System.Drawing.Point(19, 84);
             this.categoryTitleError.Name = "categoryTitleError";
-            this.categoryTitleError.Size = new System.Drawing.Size(117, 17);
+            this.categoryTitleError.Size = new System.Drawing.Size(0, 17);
             this.categoryTitleError.TabIndex = 10;
-            this.categoryTitleError.Text = "Category Title error";
             // 
             // addCategoryButton
             // 
@@ -109,6 +108,7 @@
             this.addCategoryButton.TabIndex = 9;
             this.addCategoryButton.Text = "Add Category";
             this.addCategoryButton.UseVisualStyleBackColor = false;
+            this.addCategoryButton.Click += new System.EventHandler(this.addCategoryButton_Click);
             // 
             // categoryTitleTextbox
             // 

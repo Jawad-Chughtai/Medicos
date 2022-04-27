@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicosLibrary", "MedicosLibrary\MedicosLibrary.csproj", "{FADB2827-EC17-417B-A9BC-88B3CB8F1DEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicosUI", "MedicosUI\MedicosUI.csproj", "{FFD97D37-8248-41F1-9D81-F80165307A79}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FADB2827-EC17-417B-A9BC-88B3CB8F1DEC} = {FADB2827-EC17-417B-A9BC-88B3CB8F1DEC}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

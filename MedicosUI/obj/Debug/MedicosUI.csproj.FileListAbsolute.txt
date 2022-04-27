@@ -21,3 +21,5 @@ C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.NewPurchaseForm.resources
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.POSForm.resources
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.ViewPurchaseForm.resources
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\bin\Debug\MedicosLibrary.dll
+C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\bin\Debug\MedicosLibrary.pdb

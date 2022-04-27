@@ -213,6 +213,15 @@
   <ItemGroup>
     <None Include="Resources\POS.png" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedicosLibrary\MedicosLibrary.csproj">
+      <Project>{fadb2827-ec17-417b-a9bc-88b3cb8f1dec}</Project>
+      <Name>MedicosLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
