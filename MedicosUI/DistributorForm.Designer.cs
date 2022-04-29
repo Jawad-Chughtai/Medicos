@@ -37,6 +37,9 @@
             this.distributorTitleTextbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.contactError = new System.Windows.Forms.Label();
+            this.contactTextbox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,9 +64,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gray;
             this.label1.Location = new System.Drawing.Point(591, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 30);
+            this.label1.Size = new System.Drawing.Size(215, 30);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Existing Companies";
+            this.label1.Text = "Existing Distributors";
             // 
             // companyGridView
             // 
@@ -77,6 +80,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.contactError);
+            this.panel2.Controls.Add(this.contactTextbox);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.distributorTitleError);
             this.panel2.Controls.Add(this.addDistributorButton);
             this.panel2.Controls.Add(this.distributorTitleTextbox);
@@ -93,9 +99,8 @@
             this.distributorTitleError.ForeColor = System.Drawing.Color.Red;
             this.distributorTitleError.Location = new System.Drawing.Point(19, 84);
             this.distributorTitleError.Name = "distributorTitleError";
-            this.distributorTitleError.Size = new System.Drawing.Size(126, 17);
+            this.distributorTitleError.Size = new System.Drawing.Size(0, 17);
             this.distributorTitleError.TabIndex = 10;
-            this.distributorTitleError.Text = "Distributor Title error";
             // 
             // addDistributorButton
             // 
@@ -103,12 +108,13 @@
             this.addDistributorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addDistributorButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addDistributorButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.addDistributorButton.Location = new System.Drawing.Point(171, 121);
+            this.addDistributorButton.Location = new System.Drawing.Point(171, 184);
             this.addDistributorButton.Name = "addDistributorButton";
             this.addDistributorButton.Size = new System.Drawing.Size(135, 39);
             this.addDistributorButton.TabIndex = 9;
             this.addDistributorButton.Text = "Add Distributor";
             this.addDistributorButton.UseVisualStyleBackColor = false;
+            this.addDistributorButton.Click += new System.EventHandler(this.addDistributorButton_Click);
             // 
             // distributorTitleTextbox
             // 
@@ -139,6 +145,35 @@
             this.label7.Size = new System.Drawing.Size(172, 30);
             this.label7.TabIndex = 20;
             this.label7.Text = "New Distributor";
+            // 
+            // contactError
+            // 
+            this.contactError.AutoSize = true;
+            this.contactError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactError.ForeColor = System.Drawing.Color.Red;
+            this.contactError.Location = new System.Drawing.Point(19, 156);
+            this.contactError.Name = "contactError";
+            this.contactError.Size = new System.Drawing.Size(0, 17);
+            this.contactError.TabIndex = 13;
+            // 
+            // contactTextbox
+            // 
+            this.contactTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contactTextbox.Location = new System.Drawing.Point(22, 124);
+            this.contactTextbox.Name = "contactTextbox";
+            this.contactTextbox.Size = new System.Drawing.Size(284, 29);
+            this.contactTextbox.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(18, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 21);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Distributor Contact";
             // 
             // DistributorForm
             // 
@@ -178,5 +213,8 @@
         private System.Windows.Forms.TextBox distributorTitleTextbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label contactError;
+        private System.Windows.Forms.TextBox contactTextbox;
+        private System.Windows.Forms.Label label3;
     }
 }

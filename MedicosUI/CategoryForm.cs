@@ -22,12 +22,53 @@ namespace MedicosUI
         {
             CategoryModel model = new CategoryModel();
 
-            if(validateCategroy(model))
+            if(validateForm(model))
             {
-                //TODO
+                try
+                {
+                    model.accessDatabase(); 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Something went wrong. Data could not be saved");
+                }
+                finally
+                {
+                    resetForm();
+                }
             }
         }
 
-        //method to validate categroy
+
+        //method to validate category
+        private bool validateForm(CategoryModel model)
+        {
+            categoryTitleError.Text = "";
+            if (categoryTitleTextbox.Text == "")
+            {
+                categoryTitleError.Text = "Enter Category Title";
+                return false;
+            }
+
+            else if(categoryTitleTextbox.Text.Length < 3)
+            {
+                categoryTitleError.Text = "Invalid Category Title";
+                return false;
+            }
+            else
+            {
+                model.CategoryName = categoryTitleTextbox.Text;
+                return true;
+            }
+        }
+
+
+        //method to reset the form
+        private void resetForm()
+        {
+            categoryTitleTextbox.Text = "";
+            categoryTitleError.Text = "";
+        }
     }
 }

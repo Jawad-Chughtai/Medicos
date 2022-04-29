@@ -21,7 +21,7 @@ namespace MedicosUI
         private void addUserButton_Click(object sender, EventArgs e)
         {
             UserModel model = new UserModel();
-            if (validateUser(model))
+            if (validateForm(model))
             {
                 try
                 {
@@ -40,7 +40,7 @@ namespace MedicosUI
         }
 
         //method to validate user details
-        private bool validateUser(UserModel model)
+        private bool validateForm(UserModel model)
         {
             fullNameError.Text = "";
             usernameError.Text = "";
@@ -89,6 +89,7 @@ namespace MedicosUI
                 return true;
             }
         }
+
 
         //method to reset the form
         private void resetForm()

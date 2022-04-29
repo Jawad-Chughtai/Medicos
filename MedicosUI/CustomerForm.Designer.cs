@@ -126,6 +126,7 @@
             this.addCustomerButton.TabIndex = 9;
             this.addCustomerButton.Text = "Add Customer";
             this.addCustomerButton.UseVisualStyleBackColor = false;
+            this.addCustomerButton.Click += new System.EventHandler(this.addCustomerButton_Click);
             // 
             // contactTextbox
             // 

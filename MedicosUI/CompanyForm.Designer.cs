@@ -117,9 +117,8 @@
             this.companyTitleError.ForeColor = System.Drawing.Color.Red;
             this.companyTitleError.Location = new System.Drawing.Point(19, 84);
             this.companyTitleError.Name = "companyTitleError";
-            this.companyTitleError.Size = new System.Drawing.Size(120, 17);
+            this.companyTitleError.Size = new System.Drawing.Size(0, 17);
             this.companyTitleError.TabIndex = 10;
-            this.companyTitleError.Text = "Company Title error";
             // 
             // addCompanyButton
             // 
@@ -133,6 +132,7 @@
             this.addCompanyButton.TabIndex = 9;
             this.addCompanyButton.Text = "Add Company";
             this.addCompanyButton.UseVisualStyleBackColor = false;
+            this.addCompanyButton.Click += new System.EventHandler(this.addCompanyButton_Click);
             // 
             // companyTitleTextbox
             // 
