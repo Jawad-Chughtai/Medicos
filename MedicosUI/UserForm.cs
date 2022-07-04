@@ -16,8 +16,12 @@ namespace MedicosUI
         public UserForm()
         {
             InitializeComponent();
+            WireupGridView();
         }
 
+        //
+        // this method is executed on clicking add user button
+        //
         private void addUserButton_Click(object sender, EventArgs e)
         {
             UserModel model = new UserModel();
@@ -25,7 +29,7 @@ namespace MedicosUI
             {
                 try
                 {
-                    model.accessDatabase();
+                    model.CreateUser();
                 }
                 catch(Exception ex)
                 {
@@ -34,12 +38,14 @@ namespace MedicosUI
                 }
                 finally
                 {
+                    WireupGridView();
                     resetForm();
                 }
             }
         }
-
-        //method to validate user details
+        //
+        // method to validate user details
+        //
         private bool validateForm(UserModel model)
         {
             fullNameError.Text = "";
@@ -81,6 +87,11 @@ namespace MedicosUI
                 confirmPasswordError.Text = "Passwords do not match.";
                 return false;
             }
+            else if(UsernameTaken())
+            {
+                usernameError.Text = "Username already exists. Try another.";
+                return false;
+            }
             else
             {
                 model.UserFullName = fullNameText.Text;
@@ -90,8 +101,9 @@ namespace MedicosUI
             }
         }
 
-
-        //method to reset the form
+        //
+        // method to reset the form
+        //
         private void resetForm()
         {
             //reset the textboxes
@@ -105,6 +117,82 @@ namespace MedicosUI
             usernameError.Text = "";
             passwordError.Text = "";
             confirmPasswordError.Text = "";
+        }
+
+        //
+        // this method populates the grid view
+        //
+        private void WireupGridView()
+        {
+            try
+            {
+                userGridView.Rows.Clear();
+                UserModel model = new UserModel();
+                List<UserModel> Users = model.GetUsers();
+                userGridView.ColumnCount = 3;
+                userGridView.Columns[0].Name = "ID";
+                userGridView.Columns[1].Name = "Full Name";
+                userGridView.Columns[2].Name = "Username";
+                userGridView.Columns[0].Width = 50;
+
+                foreach (UserModel user in Users)
+                {
+                    string id = user.Id.ToString();
+                    string name = user.UserFullName.ToString();
+                    string username = user.Username.ToString();
+
+                    userGridView.Rows.Add(id, name, username);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading the existing users from database.");
+            }
+        }
+
+        //
+        // this method deletes the selected user completely
+        //
+        private void deleteUserButton_Click(object sender, EventArgs e)
+        {
+            UserModel model = new UserModel();
+            string name = userGridView.SelectedCells[2].Value.ToString();
+            var confirmResult = MessageBox.Show("Are you sure to delete " + name + " ?","", MessageBoxButtons.YesNo);
+            if(confirmResult == DialogResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                model.DeleteUser(int.Parse(userGridView.SelectedCells[0].Value.ToString()));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong. User cannot be deleted.");
+            }
+            finally
+            {
+                WireupGridView();
+            }
+        }
+
+        //
+        // this method checks if username already exists in the database
+        //
+        private bool UsernameTaken()
+        {
+            UserModel model = new UserModel();
+            var exist = model.CheckUsername(usernameText.Text);
+
+            if (exist)
+            {
+                return true;
+            }
+
+            else return false;
         }
     }
 }

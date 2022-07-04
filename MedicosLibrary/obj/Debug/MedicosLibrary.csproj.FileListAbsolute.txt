@@ -3,3 +3,9 @@ C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\bin\
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.csprojResolveAssemblyReference.cache
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.dll
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.pdb
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosLibrary\bin\Debug\MedicosLibrary.dll
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosLibrary\bin\Debug\MedicosLibrary.pdb
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.csproj.AssemblyReference.cache
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.dll
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosLibrary\obj\Debug\MedicosLibrary.pdb

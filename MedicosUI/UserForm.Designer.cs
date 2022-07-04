@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelUser = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.confirmPasswordError = new System.Windows.Forms.Label();
@@ -131,7 +134,7 @@
             this.addUserButton.Location = new System.Drawing.Point(182, 338);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(123, 39);
-            this.addUserButton.TabIndex = 9;
+            this.addUserButton.TabIndex = 5;
             this.addUserButton.Text = "Add User";
             this.addUserButton.UseVisualStyleBackColor = false;
             this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
@@ -143,7 +146,7 @@
             this.confirmPasswordText.Name = "confirmPasswordText";
             this.confirmPasswordText.PasswordChar = '*';
             this.confirmPasswordText.Size = new System.Drawing.Size(284, 29);
-            this.confirmPasswordText.TabIndex = 8;
+            this.confirmPasswordText.TabIndex = 4;
             // 
             // label4
             // 
@@ -163,7 +166,7 @@
             this.passwordText.Name = "passwordText";
             this.passwordText.PasswordChar = '*';
             this.passwordText.Size = new System.Drawing.Size(284, 29);
-            this.passwordText.TabIndex = 6;
+            this.passwordText.TabIndex = 3;
             // 
             // label3
             // 
@@ -182,7 +185,7 @@
             this.usernameText.Location = new System.Drawing.Point(22, 127);
             this.usernameText.Name = "usernameText";
             this.usernameText.Size = new System.Drawing.Size(284, 29);
-            this.usernameText.TabIndex = 4;
+            this.usernameText.TabIndex = 2;
             // 
             // label2
             // 
@@ -201,7 +204,7 @@
             this.fullNameText.Location = new System.Drawing.Point(22, 52);
             this.fullNameText.Name = "fullNameText";
             this.fullNameText.Size = new System.Drawing.Size(284, 29);
-            this.fullNameText.TabIndex = 2;
+            this.fullNameText.TabIndex = 1;
             // 
             // label1
             // 
@@ -216,12 +219,46 @@
             // 
             // userGridView
             // 
+            this.userGridView.AllowUserToAddRows = false;
+            this.userGridView.AllowUserToDeleteRows = false;
+            this.userGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.userGridView.BackgroundColor = System.Drawing.Color.White;
+            this.userGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.userGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.userGridView.Location = new System.Drawing.Point(597, 107);
+            this.userGridView.MultiSelect = false;
             this.userGridView.Name = "userGridView";
+            this.userGridView.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.userGridView.RowTemplate.Height = 24;
+            this.userGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.userGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.userGridView.ShowEditingIcon = false;
             this.userGridView.Size = new System.Drawing.Size(456, 431);
-            this.userGridView.TabIndex = 3;
+            this.userGridView.TabIndex = 6;
             // 
             // label5
             // 
@@ -243,9 +280,10 @@
             this.deleteUserButton.Location = new System.Drawing.Point(930, 558);
             this.deleteUserButton.Name = "deleteUserButton";
             this.deleteUserButton.Size = new System.Drawing.Size(123, 39);
-            this.deleteUserButton.TabIndex = 10;
+            this.deleteUserButton.TabIndex = 7;
             this.deleteUserButton.Text = "Delete User";
             this.deleteUserButton.UseVisualStyleBackColor = false;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
             // 
             // UserForm
             // 

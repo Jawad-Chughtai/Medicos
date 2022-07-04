@@ -23,3 +23,31 @@ C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\obj\Debug\MedicosUI.ViewPurchaseForm.resources
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\bin\Debug\MedicosLibrary.dll
 C:\Users\Jaduu\documents\visual studio 2013\Projects\Medicos\MedicosUI\bin\Debug\MedicosLibrary.pdb
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\MedicosUI.exe.config
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\MedicosUI.exe
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\MedicosUI.pdb
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\MedicosLibrary.dll
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\MedicosLibrary.pdb
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.csproj.AssemblyReference.cache
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.BackupForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.BatchForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.CategoryForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.CompanyForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.CustomerForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.DashboardChildForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.DashboardForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.DistributorForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.InvoiceForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.ItemForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.NewPurchaseForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.POSForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.Properties.Resources.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.SalesForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.UserForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.ViewPurchaseForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.csproj.GenerateResource.cache
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.csproj.CoreCompileInputs.cache
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.csproj.CopyComplete
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.exe
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.pdb
