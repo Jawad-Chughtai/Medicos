@@ -56,6 +56,7 @@
             this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weeklyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripNavigation.SuspendLayout();
@@ -107,7 +108,7 @@
             this.menuStripNavigation.Location = new System.Drawing.Point(0, 0);
             this.menuStripNavigation.Name = "menuStripNavigation";
             this.menuStripNavigation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.menuStripNavigation.Size = new System.Drawing.Size(180, 663);
+            this.menuStripNavigation.Size = new System.Drawing.Size(180, 644);
             this.menuStripNavigation.TabIndex = 0;
             this.menuStripNavigation.Text = "menuStrip1";
             // 
@@ -423,11 +424,21 @@
             this.dailyToolStripMenuItem.Size = new System.Drawing.Size(157, 30);
             this.dailyToolStripMenuItem.Text = "Daily";
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(180, 726);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1170, 3);
+            this.panel5.TabIndex = 3;
+            // 
             // DashboardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -435,10 +446,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximizeBox = false;
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ayaz Medicos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -483,9 +494,7 @@
         private System.Windows.Forms.ToolStripMenuItem monthlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem weeklyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dailyToolStripMenuItem;
-
-
-
+        private System.Windows.Forms.Panel panel5;
     }
 }
 

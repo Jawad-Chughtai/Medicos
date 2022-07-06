@@ -118,5 +118,36 @@ namespace MedicosLibrary.Models
                 con.Close();
             }
         }
+
+        //************ This method searches for user in the databases ******************
+        public List<UserModel> SearchUser(string name)
+        {
+            List<UserModel> UserList = new List<UserModel>();
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spUser_Search", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@name", name));
+            con.Open();
+            try
+            {
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    UserModel model = new UserModel();
+                    model.Id = Convert.ToInt32(rd["id"]);
+                    model.UserFullName = rd["userFullName"].ToString();
+                    model.Username = rd["username"].ToString();
+                    UserList.Add(model);
+                }
+                return UserList;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

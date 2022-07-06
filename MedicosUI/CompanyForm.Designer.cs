@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label5 = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
             this.deleteCompanyButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.companyGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.companyTitleError = new System.Windows.Forms.Label();
             this.addCompanyButton = new System.Windows.Forms.Button();
             this.companyTitleTextbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).BeginInit();
+            this.companyGridView = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -77,6 +80,7 @@
             this.deleteCompanyButton.TabIndex = 19;
             this.deleteCompanyButton.Text = "Delete Company";
             this.deleteCompanyButton.UseVisualStyleBackColor = false;
+            this.deleteCompanyButton.Click += new System.EventHandler(this.deleteCompanyButton_Click);
             // 
             // label1
             // 
@@ -88,15 +92,6 @@
             this.label1.Size = new System.Drawing.Size(206, 30);
             this.label1.TabIndex = 18;
             this.label1.Text = "Existing Companies";
-            // 
-            // companyGridView
-            // 
-            this.companyGridView.BackgroundColor = System.Drawing.Color.White;
-            this.companyGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.companyGridView.Location = new System.Drawing.Point(596, 104);
-            this.companyGridView.Name = "companyGridView";
-            this.companyGridView.Size = new System.Drawing.Size(456, 431);
-            this.companyGridView.TabIndex = 17;
             // 
             // panel2
             // 
@@ -164,6 +159,49 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "New Company";
             // 
+            // companyGridView
+            // 
+            this.companyGridView.AllowUserToAddRows = false;
+            this.companyGridView.AllowUserToDeleteRows = false;
+            this.companyGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.companyGridView.BackgroundColor = System.Drawing.Color.White;
+            this.companyGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.companyGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.companyGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.companyGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.companyGridView.Location = new System.Drawing.Point(596, 104);
+            this.companyGridView.MultiSelect = false;
+            this.companyGridView.Name = "companyGridView";
+            this.companyGridView.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.companyGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.companyGridView.RowTemplate.Height = 24;
+            this.companyGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.companyGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.companyGridView.ShowEditingIcon = false;
+            this.companyGridView.Size = new System.Drawing.Size(456, 431);
+            this.companyGridView.TabIndex = 20;
+            // 
             // CompanyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -171,9 +209,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1165, 665);
             this.ControlBox = false;
+            this.Controls.Add(this.companyGridView);
             this.Controls.Add(this.deleteCompanyButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.companyGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -186,9 +224,9 @@
             this.Name = "CompanyForm";
             this.ShowIcon = false;
             this.Text = "CompanyForm";
-            ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,12 +238,12 @@
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Button deleteCompanyButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView companyGridView;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label companyTitleError;
         private System.Windows.Forms.Button addCompanyButton;
         private System.Windows.Forms.TextBox companyTitleTextbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView companyGridView;
     }
 }

@@ -194,5 +194,34 @@ namespace MedicosUI
 
             else return false;
         }
+
+        private void searchUserTextbox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                userGridView.Rows.Clear();
+                UserModel model = new UserModel();
+                List<UserModel> Users = model.SearchUser(searchUserTextbox.Text);
+                userGridView.ColumnCount = 3;
+                userGridView.Columns[0].Name = "ID";
+                userGridView.Columns[1].Name = "Full Name";
+                userGridView.Columns[2].Name = "Username";
+                userGridView.Columns[0].Width = 50;
+
+                foreach (UserModel user in Users)
+                {
+                    string id = user.Id.ToString();
+                    string name = user.UserFullName.ToString();
+                    string username = user.Username.ToString();
+
+                    userGridView.Rows.Add(id, name, username);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading the existing users from database.");
+            }
+        }
     }
 }

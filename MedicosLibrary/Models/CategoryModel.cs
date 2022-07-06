@@ -10,6 +10,7 @@ namespace MedicosLibrary.Models
 {
     public class CategoryModel
     {
+        public int Id { get; set; }
         public string CategoryName { get; set; }
 
         public void accessDatabase()
@@ -25,6 +26,52 @@ namespace MedicosLibrary.Models
                 cmd.ExecuteNonQuery();
             }
 
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<CategoryModel> GetCategories()
+        {
+            List<CategoryModel> Categories = new List<CategoryModel>();
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCategory_GetAll", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    CategoryModel category = new CategoryModel();
+                    category.Id = Convert.ToInt32(rd["id"]);
+                    category.CategoryName = rd["categoryTitle"].ToString();
+                    Categories.Add(category);
+                }
+
+                return Categories;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void DeleteCategory(int id) 
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCategory_DeleteById", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            con.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
             finally
             {
                 con.Close();

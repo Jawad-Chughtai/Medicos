@@ -16,6 +16,7 @@ namespace MedicosUI
         public DistributorForm()
         {
             InitializeComponent();
+            WireupGridView();
         }
 
         private void addDistributorButton_Click(object sender, EventArgs e)
@@ -26,7 +27,7 @@ namespace MedicosUI
             {
                 try
                 {
-                    model.accessDatabase();
+                    model.AddDistributor();
                 }
                 catch (Exception ex)
                 {
@@ -36,6 +37,7 @@ namespace MedicosUI
                 finally
                 {
                     resetForm();
+                    WireupGridView();
                 }
             }
         }
@@ -80,6 +82,58 @@ namespace MedicosUI
             distributorTitleError.Text = "";
             contactTextbox.Text = "";
             contactError.Text = "";
+        }
+
+        private void WireupGridView()
+        {
+            try
+            {
+                distributorGridView.Rows.Clear();
+                List<DistributorModel> distributors = new List<DistributorModel>();
+                DistributorModel model = new DistributorModel();
+
+                distributors = model.GetDistributors();
+
+                distributorGridView.ColumnCount = 3;
+                distributorGridView.Columns[0].Name = "Id";
+                distributorGridView.Columns[1].Name = "Company Name";
+                distributorGridView.Columns[2].Name = "Contact";
+                distributorGridView.Columns[0].Width = 50;
+
+                foreach (DistributorModel distributor in distributors)
+                {
+                    distributorGridView.Rows.Add(distributor.Id, distributor.DistributorName, distributor.Contact);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading the existing distributors from database.");
+            }
+        }
+
+        private void deleteDistributorButton_Click(object sender, EventArgs e)
+        {
+            DistributorModel model = new DistributorModel();
+            string name = distributorGridView.SelectedCells[1].Value.ToString();
+            var confirmResult = MessageBox.Show("Are you sure to delete " + name + " ?", "", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.No)
+            {
+                return;
+            }
+            try
+            {
+                model.DeleteDistributor(int.Parse(distributorGridView.SelectedCells[0].Value.ToString()));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong. Distributor could not be deleted.");
+            }
+            finally
+            {
+                WireupGridView();
+            }
         }
     }
 }

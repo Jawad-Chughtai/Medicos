@@ -16,6 +16,7 @@ namespace MedicosUI
         public CategoryForm()
         {
             InitializeComponent();
+            WireupGridView();
         }
 
         private void addCategoryButton_Click(object sender, EventArgs e)
@@ -36,6 +37,7 @@ namespace MedicosUI
                 finally
                 {
                     resetForm();
+                    WireupGridView();
                 }
             }
         }
@@ -69,6 +71,56 @@ namespace MedicosUI
         {
             categoryTitleTextbox.Text = "";
             categoryTitleError.Text = "";
+        }
+
+        private void WireupGridView()
+        {
+            categoryGridView.Rows.Clear();
+            try 
+            {
+                CategoryModel model = new CategoryModel();
+                List<CategoryModel> Categories = model.GetCategories();
+
+                categoryGridView.ColumnCount = 2;
+                categoryGridView.Columns[0].Name = "Id";
+                categoryGridView.Columns[1].Name = "Category";
+                categoryGridView.Columns[0].Width = 50;
+
+                foreach(CategoryModel category in Categories)
+                {
+                    categoryGridView.Rows.Add(category.Id, category.CategoryName);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading the existing companies from the database.");
+            }
+        }
+
+        private void deleteCategoryButton_Click(object sender, EventArgs e)
+        {
+            CategoryModel model = new CategoryModel();
+            string name = categoryGridView.SelectedCells[1].Value.ToString();
+            var confirmResult = MessageBox.Show("Are you sure to delete " + name + " ?", "", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.No)
+            {
+                return;
+            }
+            try
+            {
+                model.DeleteCategory(int.Parse(categoryGridView.SelectedCells[0].Value.ToString()));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong. Category could not be deleted.");
+            }
+            finally
+            {
+                WireupGridView();
+            }
         }
     }
 }

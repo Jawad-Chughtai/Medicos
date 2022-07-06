@@ -16,6 +16,7 @@ namespace MedicosUI
         public CompanyForm()
         {
             InitializeComponent();
+            WireupGridView();
         }
 
         private void addCompanyButton_Click(object sender, EventArgs e)
@@ -34,6 +35,7 @@ namespace MedicosUI
                 }
                 finally
                 {
+                    WireupGridView();
                     resetForm();
                 }
             }
@@ -65,6 +67,58 @@ namespace MedicosUI
         {
             companyTitleError.Text = "";
             companyTitleTextbox.Text = "";
+        }
+
+        private void WireupGridView()
+        {
+            try
+            {
+                companyGridView.Rows.Clear();
+                CompanyModel model = new CompanyModel();
+                List<CompanyModel> Companies = model.GetCompanies();
+
+                companyGridView.ColumnCount = 2;
+                companyGridView.Columns[0].Name = "ID";
+                companyGridView.Columns[1].Name = "Company Name";
+                companyGridView.Columns[0].Width = 50;
+
+                foreach (CompanyModel company in Companies)
+                {
+                    string id = company.Id.ToString();
+                    string name = company.CompanyName.ToString();
+
+                    companyGridView.Rows.Add(id, name);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading the existing companies from database.");
+            }
+        }
+
+        private void deleteCompanyButton_Click(object sender, EventArgs e)
+        {
+            CompanyModel model = new CompanyModel();
+            string name = companyGridView.SelectedCells[1].Value.ToString();
+            var confirmResult = MessageBox.Show("Are you sure to delete " + name + " ?", "", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.No)
+            {
+                return;
+            }
+            try
+            {
+                model.DeleteCompany(int.Parse(companyGridView.SelectedCells[0].Value.ToString()));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong. Company could not be deleted.");
+            }
+            finally
+            {
+                WireupGridView();
+            }
         }
     }
 }

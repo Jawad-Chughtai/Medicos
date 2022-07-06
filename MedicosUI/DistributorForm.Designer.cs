@@ -30,17 +30,17 @@
         {
             this.deleteDistributorButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.companyGridView = new System.Windows.Forms.DataGridView();
+            this.distributorGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.contactError = new System.Windows.Forms.Label();
+            this.contactTextbox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.distributorTitleError = new System.Windows.Forms.Label();
             this.addDistributorButton = new System.Windows.Forms.Button();
             this.distributorTitleTextbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.contactError = new System.Windows.Forms.Label();
-            this.contactTextbox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distributorGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,9 +53,10 @@
             this.deleteDistributorButton.Location = new System.Drawing.Point(897, 555);
             this.deleteDistributorButton.Name = "deleteDistributorButton";
             this.deleteDistributorButton.Size = new System.Drawing.Size(155, 39);
-            this.deleteDistributorButton.TabIndex = 24;
+            this.deleteDistributorButton.TabIndex = 5;
             this.deleteDistributorButton.Text = "Delete Distributor";
             this.deleteDistributorButton.UseVisualStyleBackColor = false;
+            this.deleteDistributorButton.Click += new System.EventHandler(this.deleteDistributorButton_Click);
             // 
             // label1
             // 
@@ -68,14 +69,20 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Existing Distributors";
             // 
-            // companyGridView
+            // distributorGridView
             // 
-            this.companyGridView.BackgroundColor = System.Drawing.Color.White;
-            this.companyGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.companyGridView.Location = new System.Drawing.Point(596, 104);
-            this.companyGridView.Name = "companyGridView";
-            this.companyGridView.Size = new System.Drawing.Size(456, 431);
-            this.companyGridView.TabIndex = 22;
+            this.distributorGridView.AllowUserToAddRows = false;
+            this.distributorGridView.AllowUserToDeleteRows = false;
+            this.distributorGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.distributorGridView.BackgroundColor = System.Drawing.Color.White;
+            this.distributorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.distributorGridView.Location = new System.Drawing.Point(596, 104);
+            this.distributorGridView.MultiSelect = false;
+            this.distributorGridView.Name = "distributorGridView";
+            this.distributorGridView.ReadOnly = true;
+            this.distributorGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.distributorGridView.Size = new System.Drawing.Size(456, 431);
+            this.distributorGridView.TabIndex = 4;
             // 
             // panel2
             // 
@@ -91,6 +98,35 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(322, 431);
             this.panel2.TabIndex = 21;
+            // 
+            // contactError
+            // 
+            this.contactError.AutoSize = true;
+            this.contactError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactError.ForeColor = System.Drawing.Color.Red;
+            this.contactError.Location = new System.Drawing.Point(19, 156);
+            this.contactError.Name = "contactError";
+            this.contactError.Size = new System.Drawing.Size(0, 17);
+            this.contactError.TabIndex = 13;
+            // 
+            // contactTextbox
+            // 
+            this.contactTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contactTextbox.Location = new System.Drawing.Point(22, 124);
+            this.contactTextbox.Name = "contactTextbox";
+            this.contactTextbox.Size = new System.Drawing.Size(284, 29);
+            this.contactTextbox.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(18, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 21);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Distributor Contact";
             // 
             // distributorTitleError
             // 
@@ -111,7 +147,7 @@
             this.addDistributorButton.Location = new System.Drawing.Point(171, 184);
             this.addDistributorButton.Name = "addDistributorButton";
             this.addDistributorButton.Size = new System.Drawing.Size(135, 39);
-            this.addDistributorButton.TabIndex = 9;
+            this.addDistributorButton.TabIndex = 3;
             this.addDistributorButton.Text = "Add Distributor";
             this.addDistributorButton.UseVisualStyleBackColor = false;
             this.addDistributorButton.Click += new System.EventHandler(this.addDistributorButton_Click);
@@ -122,7 +158,7 @@
             this.distributorTitleTextbox.Location = new System.Drawing.Point(22, 52);
             this.distributorTitleTextbox.Name = "distributorTitleTextbox";
             this.distributorTitleTextbox.Size = new System.Drawing.Size(284, 29);
-            this.distributorTitleTextbox.TabIndex = 2;
+            this.distributorTitleTextbox.TabIndex = 1;
             // 
             // label6
             // 
@@ -146,35 +182,6 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "New Distributor";
             // 
-            // contactError
-            // 
-            this.contactError.AutoSize = true;
-            this.contactError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactError.ForeColor = System.Drawing.Color.Red;
-            this.contactError.Location = new System.Drawing.Point(19, 156);
-            this.contactError.Name = "contactError";
-            this.contactError.Size = new System.Drawing.Size(0, 17);
-            this.contactError.TabIndex = 13;
-            // 
-            // contactTextbox
-            // 
-            this.contactTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.contactTextbox.Location = new System.Drawing.Point(22, 124);
-            this.contactTextbox.Name = "contactTextbox";
-            this.contactTextbox.Size = new System.Drawing.Size(284, 29);
-            this.contactTextbox.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(18, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 21);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Distributor Contact";
-            // 
             // DistributorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -184,7 +191,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.deleteDistributorButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.companyGridView);
+            this.Controls.Add(this.distributorGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,7 +201,7 @@
             this.MinimizeBox = false;
             this.Name = "DistributorForm";
             this.Text = "DistributorForm";
-            ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distributorGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -206,7 +213,7 @@
 
         private System.Windows.Forms.Button deleteDistributorButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView companyGridView;
+        private System.Windows.Forms.DataGridView distributorGridView;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label distributorTitleError;
         private System.Windows.Forms.Button addDistributorButton;

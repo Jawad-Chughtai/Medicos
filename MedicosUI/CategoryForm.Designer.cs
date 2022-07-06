@@ -30,14 +30,14 @@
         {
             this.deleteCategoryButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.companyGridView = new System.Windows.Forms.DataGridView();
+            this.categoryGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.categoryTitleError = new System.Windows.Forms.Label();
             this.addCategoryButton = new System.Windows.Forms.Button();
             this.categoryTitleTextbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,9 +50,10 @@
             this.deleteCategoryButton.Location = new System.Drawing.Point(907, 555);
             this.deleteCategoryButton.Name = "deleteCategoryButton";
             this.deleteCategoryButton.Size = new System.Drawing.Size(145, 39);
-            this.deleteCategoryButton.TabIndex = 24;
+            this.deleteCategoryButton.TabIndex = 4;
             this.deleteCategoryButton.Text = "Delete Category";
             this.deleteCategoryButton.UseVisualStyleBackColor = false;
+            this.deleteCategoryButton.Click += new System.EventHandler(this.deleteCategoryButton_Click);
             // 
             // label1
             // 
@@ -65,14 +66,20 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Existing Categories";
             // 
-            // companyGridView
+            // categoryGridView
             // 
-            this.companyGridView.BackgroundColor = System.Drawing.Color.White;
-            this.companyGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.companyGridView.Location = new System.Drawing.Point(596, 104);
-            this.companyGridView.Name = "companyGridView";
-            this.companyGridView.Size = new System.Drawing.Size(456, 431);
-            this.companyGridView.TabIndex = 22;
+            this.categoryGridView.AllowUserToAddRows = false;
+            this.categoryGridView.AllowUserToDeleteRows = false;
+            this.categoryGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.categoryGridView.BackgroundColor = System.Drawing.Color.White;
+            this.categoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.categoryGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
+            this.categoryGridView.Location = new System.Drawing.Point(596, 104);
+            this.categoryGridView.Name = "categoryGridView";
+            this.categoryGridView.ReadOnly = true;
+            this.categoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.categoryGridView.Size = new System.Drawing.Size(456, 431);
+            this.categoryGridView.TabIndex = 3;
             // 
             // panel2
             // 
@@ -105,7 +112,7 @@
             this.addCategoryButton.Location = new System.Drawing.Point(171, 121);
             this.addCategoryButton.Name = "addCategoryButton";
             this.addCategoryButton.Size = new System.Drawing.Size(135, 39);
-            this.addCategoryButton.TabIndex = 9;
+            this.addCategoryButton.TabIndex = 2;
             this.addCategoryButton.Text = "Add Category";
             this.addCategoryButton.UseVisualStyleBackColor = false;
             this.addCategoryButton.Click += new System.EventHandler(this.addCategoryButton_Click);
@@ -116,7 +123,7 @@
             this.categoryTitleTextbox.Location = new System.Drawing.Point(22, 52);
             this.categoryTitleTextbox.Name = "categoryTitleTextbox";
             this.categoryTitleTextbox.Size = new System.Drawing.Size(284, 29);
-            this.categoryTitleTextbox.TabIndex = 2;
+            this.categoryTitleTextbox.TabIndex = 1;
             // 
             // label6
             // 
@@ -149,7 +156,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.deleteCategoryButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.companyGridView);
+            this.Controls.Add(this.categoryGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,7 +166,7 @@
             this.MinimizeBox = false;
             this.Name = "CategoryForm";
             this.Text = "CategoryForm";
-            ((System.ComponentModel.ISupportInitialize)(this.companyGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -171,7 +178,7 @@
 
         private System.Windows.Forms.Button deleteCategoryButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView companyGridView;
+        private System.Windows.Forms.DataGridView categoryGridView;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label categoryTitleError;
         private System.Windows.Forms.Button addCategoryButton;
