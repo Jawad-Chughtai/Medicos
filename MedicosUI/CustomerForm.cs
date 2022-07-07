@@ -16,6 +16,7 @@ namespace MedicosUI
         public CustomerForm()
         {
             InitializeComponent();
+            WireupGridview();
         }
 
         private void addCustomerButton_Click(object sender, EventArgs e)
@@ -26,7 +27,7 @@ namespace MedicosUI
             {
                 try
                 {
-                    model.accessDatabase();
+                    model.AddCustomer();
                 }
                 catch (Exception ex)
                 {
@@ -36,6 +37,7 @@ namespace MedicosUI
                 finally
                 {
                     resetForm();
+                    WireupGridview();
                 }
             }
         }
@@ -45,9 +47,10 @@ namespace MedicosUI
         //method to validate distributor data
         private bool validateForm(CustomerModel model)
         {
-            fullNameTextbox.Text = "";
+            fullNameError.Text = "";
             contactError.Text = "";
-            if (fullNameTextbox.Text == "")
+
+            if (fullNameTextbox.Text == "" || fullNameTextbox == null)
             {
                 fullNameError.Text = "Enter Customer Name";
                 return false;
@@ -59,17 +62,28 @@ namespace MedicosUI
                 return false;
             }
 
-            else if (contactTextbox.Text.Length == 0 || contactTextbox.Text.Length == 11)
-            {
-                model.CustomerName = fullNameTextbox.Text;
-                model.CustomerContact = contactTextbox.Text;
-                return true;
-            }
-            else
+            else if (contactTextbox.Text.Length != 0 && contactTextbox.Text.Length != 11)
             {
                 contactError.Text = "Invalid Contact Number";
                 return false;
             }
+            else if (balanceTextbox.Text.Length != 0 && balanceTextbox.Text != "")
+            {
+                try
+                {
+                    model.Balance = int.Parse(balanceTextbox.Text);
+                }
+                catch
+                {
+                    balanceError.Text = "Invalid Amount";
+                    return false;
+                }
+            }
+
+            model.CustomerName = fullNameTextbox.Text;
+            model.CustomerContact = contactTextbox.Text;
+            return true;
+            
         }
 
 
@@ -80,6 +94,39 @@ namespace MedicosUI
             fullNameError.Text = "";
             contactTextbox.Text = "";
             contactError.Text = "";
+            balanceTextbox.Text = "";
+            balanceError.Text = "";
+        }
+
+        private void WireupGridview()
+        {
+            customerGridView.Rows.Clear();
+            CustomerModel model = new CustomerModel();
+            List<CustomerModel> customers = new List<CustomerModel>();
+            try
+            {
+                customers = model.GetCustomers();
+
+                customerGridView.ColumnCount = 4;
+                customerGridView.Columns[0].Name = "Id";
+                customerGridView.Columns[1].Name = "Customer Name";
+                customerGridView.Columns[2].Name = "Contact";
+                customerGridView.Columns[3].Name = "Balance";
+                customerGridView.Columns[3].DefaultCellStyle.Format = "c2";
+                customerGridView.Columns[0].Width = 50;
+
+                foreach(CustomerModel customer in customers)
+                {
+                    customerGridView.Rows.Add(customer.Id, customer.CustomerName, customer.CustomerContact, customer.Balance);
+                }
+
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading the existing customers from database.");
+            }
         }
     }
 }

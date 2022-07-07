@@ -10,23 +10,57 @@ namespace MedicosLibrary.Models
 {
     public class CustomerModel
     {
+        public int Id { get; set; }
         public string CustomerName { get; set; }
         public string CustomerContact { get; set; }
+        public double Balance { get; set; }
 
-        public void accessDatabase()
+        public void AddCustomer()
         {
-            SqlConnection con = new SqlConnection();
-            SqlCommand cmd = new SqlCommand("@spCustomer_Insert", con);
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCustomer_Insert", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@customerName", CustomerName));
-            cmd.Parameters.Add(new SqlParameter("@customerContact", CustomerContact));
-
+            cmd.Parameters.Add(new SqlParameter("@name", CustomerName));
+            cmd.Parameters.Add(new SqlParameter("@contact", CustomerContact));
+            cmd.Parameters.Add(new SqlParameter("@balance", Balance));
             try
             {
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
 
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<CustomerModel> GetCustomers()
+        {
+            List<CustomerModel> customersList = new List<CustomerModel>();
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCustomer_GetAll", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    CustomerModel model = new CustomerModel();
+                    model.Id = Convert.ToInt32(rd["id"]);
+                    model.CustomerName = rd["fullName"].ToString();
+                    model.CustomerContact = rd["contact"].ToString();
+                    model.Balance = Convert.ToDouble(rd["balance"]);
+
+                    customersList.Add(model);
+                }
+
+                return customersList;
+            }
             finally
             {
                 con.Close();
