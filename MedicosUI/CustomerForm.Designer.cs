@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.deleteCustomerButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.customerGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.balanceError = new System.Windows.Forms.Label();
+            this.balanceTextbox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.contactError = new System.Windows.Forms.Label();
             this.fullNameError = new System.Windows.Forms.Label();
             this.addCustomerButton = new System.Windows.Forms.Button();
@@ -40,9 +44,6 @@
             this.fullNameTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
-            this.balanceTextbox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.balanceError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,12 +54,13 @@
             this.deleteCustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteCustomerButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteCustomerButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.deleteCustomerButton.Location = new System.Drawing.Point(903, 555);
+            this.deleteCustomerButton.Location = new System.Drawing.Point(974, 550);
             this.deleteCustomerButton.Name = "deleteCustomerButton";
             this.deleteCustomerButton.Size = new System.Drawing.Size(149, 39);
             this.deleteCustomerButton.TabIndex = 6;
             this.deleteCustomerButton.Text = "Delete Customer";
             this.deleteCustomerButton.UseVisualStyleBackColor = false;
+            this.deleteCustomerButton.Click += new System.EventHandler(this.deleteCustomerButton_Click);
             // 
             // label5
             // 
@@ -77,11 +79,19 @@
             this.customerGridView.AllowUserToDeleteRows = false;
             this.customerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.customerGridView.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.customerGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerGridView.Location = new System.Drawing.Point(596, 104);
             this.customerGridView.Name = "customerGridView";
             this.customerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerGridView.Size = new System.Drawing.Size(456, 431);
+            this.customerGridView.Size = new System.Drawing.Size(527, 431);
             this.customerGridView.TabIndex = 5;
             // 
             // panel2
@@ -101,6 +111,35 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(322, 431);
             this.panel2.TabIndex = 12;
+            // 
+            // balanceError
+            // 
+            this.balanceError.AutoSize = true;
+            this.balanceError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.balanceError.ForeColor = System.Drawing.Color.Red;
+            this.balanceError.Location = new System.Drawing.Point(19, 236);
+            this.balanceError.Name = "balanceError";
+            this.balanceError.Size = new System.Drawing.Size(0, 17);
+            this.balanceError.TabIndex = 14;
+            // 
+            // balanceTextbox
+            // 
+            this.balanceTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.balanceTextbox.Location = new System.Drawing.Point(22, 201);
+            this.balanceTextbox.Name = "balanceTextbox";
+            this.balanceTextbox.Size = new System.Drawing.Size(284, 29);
+            this.balanceTextbox.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(18, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 21);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Balance";
             // 
             // contactError
             // 
@@ -184,35 +223,6 @@
             this.labelUser.Size = new System.Drawing.Size(157, 30);
             this.labelUser.TabIndex = 11;
             this.labelUser.Text = "New Customer";
-            // 
-            // balanceTextbox
-            // 
-            this.balanceTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.balanceTextbox.Location = new System.Drawing.Point(22, 201);
-            this.balanceTextbox.Name = "balanceTextbox";
-            this.balanceTextbox.Size = new System.Drawing.Size(284, 29);
-            this.balanceTextbox.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(18, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 21);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Balance";
-            // 
-            // balanceError
-            // 
-            this.balanceError.AutoSize = true;
-            this.balanceError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balanceError.ForeColor = System.Drawing.Color.Red;
-            this.balanceError.Location = new System.Drawing.Point(19, 236);
-            this.balanceError.Name = "balanceError";
-            this.balanceError.Size = new System.Drawing.Size(0, 17);
-            this.balanceError.TabIndex = 14;
             // 
             // CustomerForm
             // 

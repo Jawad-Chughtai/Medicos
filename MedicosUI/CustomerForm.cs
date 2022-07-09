@@ -108,14 +108,18 @@ namespace MedicosUI
                 customers = model.GetCustomers();
 
                 customerGridView.ColumnCount = 4;
-                customerGridView.Columns[0].Name = "Id";
+                customerGridView.Columns[0].Name = "ID";
                 customerGridView.Columns[1].Name = "Customer Name";
                 customerGridView.Columns[2].Name = "Contact";
                 customerGridView.Columns[3].Name = "Balance";
-                customerGridView.Columns[3].DefaultCellStyle.Format = "c2";
+                customerGridView.Columns[3].DefaultCellStyle.Format = "N0";
+                customerGridView.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                customerGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 customerGridView.Columns[0].Width = 50;
+                customerGridView.Columns[1].Width = 200;
+                customerGridView.RowHeadersVisible = false;
 
-                foreach(CustomerModel customer in customers)
+                foreach (CustomerModel customer in customers)
                 {
                     customerGridView.Rows.Add(customer.Id, customer.CustomerName, customer.CustomerContact, customer.Balance);
                 }
@@ -126,6 +130,30 @@ namespace MedicosUI
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Something went wrong while loading the existing customers from database.");
+            }
+        }
+
+        private void deleteCustomerButton_Click(object sender, EventArgs e)
+        {
+            CustomerModel model = new CustomerModel();
+            string name = customerGridView.SelectedCells[1].Value.ToString();
+            var confirmResult = MessageBox.Show("Are you sure to delete " + name + " ?", "", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.No)
+            {
+                return;
+            }
+            try
+            {
+                model.DeleteCustomer(int.Parse(customerGridView.SelectedCells[0].Value.ToString()));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong. Customer could not be deleted.");
+            }
+            finally
+            {
+                WireupGridview();
             }
         }
     }

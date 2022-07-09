@@ -137,11 +137,7 @@ namespace MedicosUI
 
                 foreach (UserModel user in Users)
                 {
-                    string id = user.Id.ToString();
-                    string name = user.UserFullName.ToString();
-                    string username = user.Username.ToString();
-
-                    userGridView.Rows.Add(id, name, username);
+                    userGridView.Rows.Add(user.Id, user.UserFullName, user.Username);
                 }
             }
             catch (Exception ex)

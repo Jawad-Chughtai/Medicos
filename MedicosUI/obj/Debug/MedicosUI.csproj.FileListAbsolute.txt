@@ -51,3 +51,4 @@ C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.c
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.csproj.CopyComplete
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.exe
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.pdb
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.ViewItems.resources

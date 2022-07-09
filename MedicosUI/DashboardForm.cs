@@ -18,6 +18,8 @@ namespace MedicosUI
             InitializeComponent(); 
             DashboardChildForm formObj = new DashboardChildForm();
             openChildForm(formObj);
+
+            menuStripNavigation.Renderer = new myRenderer();
         }
 
         //method to open child forms inside parent form
@@ -72,11 +74,6 @@ namespace MedicosUI
             openChildForm(formObj);
         }
 
-        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ItemForm formObj = new ItemForm();
-            openChildForm(formObj);
-        }
         private void invoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InvoiceForm formObj = new InvoiceForm();
@@ -116,6 +113,18 @@ namespace MedicosUI
         private void pointOfSaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             POSForm formObj = new POSForm();
+            openChildForm(formObj);
+        }
+
+        private void newItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ItemForm formObj = new ItemForm();
+            openChildForm(formObj);
+        }
+
+        private void viewItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewItems formObj = new ViewItems();
             openChildForm(formObj);
         }
     }

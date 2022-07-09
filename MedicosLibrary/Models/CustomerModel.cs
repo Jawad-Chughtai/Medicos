@@ -66,5 +66,25 @@ namespace MedicosLibrary.Models
                 con.Close();
             }
         }
+
+        public void DeleteCustomer(int id)
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCustomer_DeleteById", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

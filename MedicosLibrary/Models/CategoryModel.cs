@@ -77,5 +77,34 @@ namespace MedicosLibrary.Models
                 con.Close();
             }
         }
+
+        public List<CategoryModel> Search(string text)
+        {
+            List<CategoryModel> Categories = new List<CategoryModel>();
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCategory_Search", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter(@"text", text));
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    CategoryModel category = new CategoryModel();
+                    category.Id = Convert.ToInt32(rd["id"]);
+                    category.CategoryName = rd["categoryTitle"].ToString();
+                    Categories.Add(category);
+                }
+
+                return Categories;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

@@ -105,6 +105,7 @@
     <Compile Include="ItemForm.Designer.cs">
       <DependentUpon>ItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="myRenderer.cs" />
     <Compile Include="NewPurchaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +131,12 @@
     </Compile>
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewItems.Designer.cs">
+      <DependentUpon>ViewItems.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewPurchaseForm.cs">
       <SubType>Form</SubType>
@@ -188,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewItems.resx">
+      <DependentUpon>ViewItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPurchaseForm.resx">
       <DependentUpon>ViewPurchaseForm.cs</DependentUpon>
