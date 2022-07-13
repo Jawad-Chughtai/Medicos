@@ -40,6 +40,8 @@
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.distributorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +59,6 @@
             this.weeklyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.newItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripNavigation.SuspendLayout();
@@ -110,7 +110,7 @@
             this.menuStripNavigation.Location = new System.Drawing.Point(0, 0);
             this.menuStripNavigation.Name = "menuStripNavigation";
             this.menuStripNavigation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.menuStripNavigation.Size = new System.Drawing.Size(180, 663);
+            this.menuStripNavigation.Size = new System.Drawing.Size(180, 644);
             this.menuStripNavigation.TabIndex = 0;
             this.menuStripNavigation.Text = "menuStrip1";
             // 
@@ -230,6 +230,26 @@
             this.itemsToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
             this.itemsToolStripMenuItem.Text = "  Items";
             this.itemsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // newItemToolStripMenuItem
+            // 
+            this.newItemToolStripMenuItem.AutoToolTip = true;
+            this.newItemToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.newItemToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.newItemToolStripMenuItem.Name = "newItemToolStripMenuItem";
+            this.newItemToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.newItemToolStripMenuItem.Text = "New Item";
+            this.newItemToolStripMenuItem.Click += new System.EventHandler(this.newItemToolStripMenuItem_Click);
+            // 
+            // viewItemsToolStripMenuItem
+            // 
+            this.viewItemsToolStripMenuItem.AutoToolTip = true;
+            this.viewItemsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.viewItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.viewItemsToolStripMenuItem.Name = "viewItemsToolStripMenuItem";
+            this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(178, 30);
+            this.viewItemsToolStripMenuItem.Text = "View Items";
+            this.viewItemsToolStripMenuItem.Click += new System.EventHandler(this.viewItemsToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
@@ -438,26 +458,6 @@
             this.panel5.Size = new System.Drawing.Size(1170, 3);
             this.panel5.TabIndex = 3;
             // 
-            // newItemToolStripMenuItem
-            // 
-            this.newItemToolStripMenuItem.AutoToolTip = true;
-            this.newItemToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.newItemToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.newItemToolStripMenuItem.Name = "newItemToolStripMenuItem";
-            this.newItemToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.newItemToolStripMenuItem.Text = "New Item";
-            this.newItemToolStripMenuItem.Click += new System.EventHandler(this.newItemToolStripMenuItem_Click);
-            // 
-            // viewItemsToolStripMenuItem
-            // 
-            this.viewItemsToolStripMenuItem.AutoToolTip = true;
-            this.viewItemsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.viewItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.viewItemsToolStripMenuItem.Name = "viewItemsToolStripMenuItem";
-            this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.viewItemsToolStripMenuItem.Text = "View Items";
-            this.viewItemsToolStripMenuItem.Click += new System.EventHandler(this.viewItemsToolStripMenuItem_Click);
-            // 
             // DashboardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -475,6 +475,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ayaz Medicos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DashboardForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

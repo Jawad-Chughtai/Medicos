@@ -51,6 +51,7 @@
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\ItemBatchesModel.cs" />
     <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\POSModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -175,6 +175,16 @@ namespace MedicosUI
             POSGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             POSGridView.ColumnHeadersDefaultCellStyle.Font = new Font(POSGridView.Font, FontStyle.Bold);
 
+            //checking if item already in the gird
+            foreach(DataGridViewRow row in POSGridView.Rows)
+            {
+                if(item.ItemId == Convert.ToInt32(row.Cells[0].Value))
+                {
+                    row.Cells[3].Value = (Convert.ToDouble(row.Cells[3].Value) + Convert.ToDouble(quantityTextbox.Text)).ToString();
+                    row.Cells[4].Value = (item.UnitPrice * Convert.ToDouble(row.Cells[3].Value)).ToString("N2");
+                    return;
+                }
+            }
             //adding rows from data
             POSGridView.Rows.Add(
                 item.ItemId,

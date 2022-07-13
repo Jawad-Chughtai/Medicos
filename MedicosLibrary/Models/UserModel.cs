@@ -14,6 +14,7 @@ namespace MedicosLibrary.Models
         public string UserFullName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public bool IsAdmin { get; set; }
 
 
         //************ This method creates the user model taken from the front end into the database ******************
@@ -25,7 +26,7 @@ namespace MedicosLibrary.Models
             cmd.Parameters.Add(new SqlParameter("@fullname", UserFullName));
             cmd.Parameters.Add(new SqlParameter("@username", Username));
             cmd.Parameters.Add(new SqlParameter("@password", Password));
-
+            cmd.Parameters.Add(new SqlParameter("@IsAdmin", IsAdmin));
             con.Open();
             try
             {

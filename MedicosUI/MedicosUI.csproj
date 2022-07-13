@@ -93,6 +93,12 @@
     <Compile Include="DistributorForm.Designer.cs">
       <DependentUpon>DistributorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FirstUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstUserForm.Designer.cs">
+      <DependentUpon>FirstUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InvoiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="ItemForm.Designer.cs">
       <DependentUpon>ItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="myRenderer.cs" />
     <Compile Include="NewPurchaseForm.cs">
@@ -168,11 +180,17 @@
     <EmbeddedResource Include="DistributorForm.resx">
       <DependentUpon>DistributorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FirstUserForm.resx">
+      <DependentUpon>FirstUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InvoiceForm.resx">
       <DependentUpon>InvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemForm.resx">
       <DependentUpon>ItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPurchaseForm.resx">
       <DependentUpon>NewPurchaseForm.cs</DependentUpon>

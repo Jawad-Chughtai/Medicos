@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicosLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +14,18 @@ namespace MedicosUI
     public partial class DashboardForm : Form
     {
         Form activeForm = null;
+        public int UserId { get; set; }
+        public string Username { get; set; }
+        public bool IsAdmin { get; set; }
+
         public DashboardForm()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            UserinfotoolStripMenuItem.Text = Username;
             DashboardChildForm formObj = new DashboardChildForm();
             openChildForm(formObj);
-
             menuStripNavigation.Renderer = new myRenderer();
+            
         }
 
         //method to open child forms inside parent form
@@ -37,6 +43,7 @@ namespace MedicosUI
             formObj.TopLevel = false;
             activeForm = formObj;
         }
+        
         //Left navigation menu onClick methods to display respective child forms
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -126,6 +133,11 @@ namespace MedicosUI
         {
             ViewItems formObj = new ViewItems();
             openChildForm(formObj);
+        }
+
+        private void DashboardForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

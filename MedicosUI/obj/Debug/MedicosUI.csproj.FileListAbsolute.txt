@@ -52,3 +52,5 @@ C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.c
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.exe
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.pdb
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.ViewItems.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.LoginForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.FirstUserForm.resources
