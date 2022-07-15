@@ -86,7 +86,11 @@ namespace MedicosUI
                 categoryGridView.Columns[1].Name = "Category";
                 categoryGridView.Columns[0].Width = 50;
 
-                foreach(CategoryModel category in Categories)
+                categoryGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                categoryGridView.ColumnHeadersDefaultCellStyle.Font = new Font(categoryGridView.Font, FontStyle.Bold);
+                categoryGridView.RowHeadersWidth = 30;
+
+                foreach (CategoryModel category in Categories)
                 {
                     categoryGridView.Rows.Add(category.Id, category.CategoryName);
                 }

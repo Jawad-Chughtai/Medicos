@@ -246,7 +246,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.POSGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.POSGridView.RowTemplate.Height = 24;
+            this.POSGridView.RowTemplate.Height = 26;
             this.POSGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.POSGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.POSGridView.ShowEditingIcon = false;

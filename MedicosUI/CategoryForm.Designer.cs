@@ -77,6 +77,7 @@
             this.categoryGridView.Location = new System.Drawing.Point(596, 104);
             this.categoryGridView.Name = "categoryGridView";
             this.categoryGridView.ReadOnly = true;
+            this.categoryGridView.RowTemplate.Height = 26;
             this.categoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.categoryGridView.Size = new System.Drawing.Size(456, 431);
             this.categoryGridView.TabIndex = 3;

@@ -40,7 +40,7 @@ namespace MedicosUI
                 finally
                 {
                     resetForm();
-                    this.Close();
+                    Close();
                 }
             }
         }

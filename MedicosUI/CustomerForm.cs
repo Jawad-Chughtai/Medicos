@@ -117,7 +117,10 @@ namespace MedicosUI
                 customerGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 customerGridView.Columns[0].Width = 50;
                 customerGridView.Columns[1].Width = 200;
-                customerGridView.RowHeadersVisible = false;
+
+                customerGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                customerGridView.ColumnHeadersDefaultCellStyle.Font = new Font(customerGridView.Font, FontStyle.Bold);
+                customerGridView.RowHeadersWidth = 30;
 
                 foreach (CustomerModel customer in customers)
                 {

@@ -100,6 +100,10 @@ namespace MedicosUI
                 distributorGridView.Columns[2].Name = "Contact";
                 distributorGridView.Columns[0].Width = 50;
 
+                distributorGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                distributorGridView.ColumnHeadersDefaultCellStyle.Font = new Font(distributorGridView.Font, FontStyle.Bold);
+                distributorGridView.RowHeadersWidth = 30;
+
                 foreach (DistributorModel distributor in distributors)
                 {
                     distributorGridView.Rows.Add(distributor.Id, distributor.DistributorName, distributor.Contact);

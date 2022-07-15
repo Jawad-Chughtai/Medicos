@@ -82,6 +82,10 @@ namespace MedicosUI
                 companyGridView.Columns[1].Name = "Company Name";
                 companyGridView.Columns[0].Width = 50;
 
+                companyGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                companyGridView.ColumnHeadersDefaultCellStyle.Font = new Font(companyGridView.Font, FontStyle.Bold);
+                companyGridView.RowHeadersWidth = 30;
+
                 foreach (CompanyModel company in Companies)
                 {
                     string id = company.Id.ToString();

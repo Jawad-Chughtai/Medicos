@@ -21,7 +21,7 @@ namespace MedicosLibrary.Models
         public string CategoryName { get; set; }
         public string DistributorName { get; set; }
         public string CompanyName { get; set; }
-
+        public List<BatchModel> ItemBatches { get; set; }
         public void AddItem(ItemModel item)
         {
             SqlConnection con = dbConnection.getCon();
@@ -40,7 +40,12 @@ namespace MedicosLibrary.Models
             try
             {
                 con.Open();
-                cmd.ExecuteNonQuery();
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    string errorMessage = rd["ErrorMessage"].ToString();
+                    throw new Exception(errorMessage);
+                }
             }
 
             finally
@@ -65,16 +70,22 @@ namespace MedicosLibrary.Models
                     ItemModel item = new ItemModel();
 
                     item.Id = Convert.ToInt32(rd["id"]);
-                    item.ItemName = rd["itemName"].ToString();
-                    item.BatchTitle = rd["batchTitle"].ToString();
-                    item.UnitPrice = Convert.ToDouble(rd["unitPrice"]);
-                    item.Stock = Convert.ToInt32(rd["stock"]);
-                    item.ExpiryDate = Convert.ToDateTime(rd["expiry"]);
-                    item.CategoryName = rd["categoryTitle"].ToString();
-                    item.DistributorName = rd["distributorName"].ToString();
-                    item.CompanyName = rd["companyName"].ToString();
+                    BatchModel model = new BatchModel();
+                    item.ItemBatches = model.GetBatches(item.Id);
+                    
+                    foreach(BatchModel batch in item.ItemBatches)
+                    {
+                        item.ItemName = rd["itemName"].ToString();
+                        item.BatchTitle = batch.BatchTitle;
+                        item.UnitPrice = batch.UnitPrice;
+                        item.Stock = batch.ItemStock;
+                        item.ExpiryDate = batch.BatchExpiry;
+                        item.CategoryName = rd["categoryTitle"].ToString();
+                        item.DistributorName = rd["distributorName"].ToString();
+                        item.CompanyName = rd["companyName"].ToString();
 
-                    itemsList.Add(item);
+                        itemsList.Add(item);
+                    }
                 }
 
                 return itemsList;
@@ -102,18 +113,23 @@ namespace MedicosLibrary.Models
                 while (rd.Read())
                 {
                     ItemModel item = new ItemModel();
-
                     item.Id = Convert.ToInt32(rd["id"]);
-                    item.ItemName = rd["itemName"].ToString();
-                    item.BatchTitle = rd["batchTitle"].ToString();
-                    item.UnitPrice = Convert.ToDouble(rd["unitPrice"]);
-                    item.Stock = Convert.ToInt32(rd["stock"]);
-                    item.ExpiryDate = Convert.ToDateTime(rd["expiry"]);
-                    item.CategoryName = rd["categoryTitle"].ToString();
-                    item.DistributorName = rd["distributorName"].ToString();
-                    item.CompanyName = rd["companyName"].ToString();
+                    BatchModel model = new BatchModel();
+                    item.ItemBatches = model.GetBatches(item.Id);
 
-                    itemsList.Add(item);
+                    foreach (BatchModel batch in item.ItemBatches)
+                    {
+                        item.ItemName = rd["itemName"].ToString();
+                        item.BatchTitle = batch.BatchTitle;
+                        item.UnitPrice = batch.UnitPrice;
+                        item.Stock = batch.ItemStock;
+                        item.ExpiryDate = batch.BatchExpiry;
+                        item.CategoryName = rd["categoryTitle"].ToString();
+                        item.DistributorName = rd["distributorName"].ToString();
+                        item.CompanyName = rd["companyName"].ToString();
+
+                        itemsList.Add(item);
+                    }
                 }
 
                 return itemsList;

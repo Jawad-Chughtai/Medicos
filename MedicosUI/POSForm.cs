@@ -26,33 +26,51 @@ namespace MedicosUI
             unitPriceTextbox.Text = "";
             quantityTextbox.Text = "";
             amountTextbox.Text = "";
-            
-            List<POSModel> itemsList = new List<POSModel>();
-            POSModel model = new POSModel();
-            itemsList = model.GetItems(itemTextbox.Text);
 
-            if(itemsList.Count > 0 && itemTextbox.Text.Length > 0)
+            try
             {
-                itemsListbox.DataSource = itemsList;
+                List<POSModel> itemsList = new List<POSModel>();
+                POSModel model = new POSModel();
+                itemsList = model.GetItems(itemTextbox.Text);
 
-                itemsListbox.DisplayMember = "ListItem";
-                itemsListbox.ValueMember = "ItemId";
-                itemsListbox.Visible = true;
-                itemsListbox.AutoSize = true;
+                if (itemsList.Count > 0 && itemTextbox.Text.Length > 0)
+                {
+                    itemsListbox.DataSource = itemsList;
+
+                    itemsListbox.DisplayMember = "ListItem";
+                    itemsListbox.ValueMember = "ItemId";
+                    itemsListbox.Visible = true;
+                    itemsListbox.AutoSize = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("An error Occurred.");
+                Close();
             }
         }
 
         private void itemsListbox_Click(object sender, EventArgs e)
         {
-            POSModel item = new POSModel();
-            POSModel model = new POSModel();
-            item = model.GetItemName(Convert.ToInt32(itemsListbox.SelectedValue));
+            try
+            {
+                POSModel item = new POSModel();
+                POSModel model = new POSModel();
+                item = model.GetItemName(Convert.ToInt32(itemsListbox.SelectedValue));
 
-            itemTextbox.Text = item.ItemName + " " + item.Batch;
-            unitPriceTextbox.Text = item.UnitPrice.ToString("N0");
-            itemsListbox.Visible = false;
-            quantityTextbox.ReadOnly = false;
-            quantityTextbox.Select();
+                itemTextbox.Text = item.ItemName + " " + item.Batch;
+                unitPriceTextbox.Text = item.UnitPrice.ToString("N0");
+                itemsListbox.Visible = false;
+                quantityTextbox.ReadOnly = false;
+                quantityTextbox.Select();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("An error Occurred.");
+                Close();
+            }
         }
 
         private void quantityTextbox_TextChanged(object sender, EventArgs e)
@@ -72,6 +90,13 @@ namespace MedicosUI
             {
                 double unitPrice = Convert.ToDouble(unitPriceTextbox.Text);
                 amountTextbox.Text = (quantity * unitPrice).ToString("N2");
+            }
+            else
+            {
+                quantityTextbox.Text = "";
+                amountTextbox.Text = "";
+                itemTextbox.Text = "";
+                itemTextbox.Select();
             }
         }
 
@@ -114,16 +139,25 @@ namespace MedicosUI
             #endregion
             //input validation ends
 
-            //get data from model
-            POSModel item = new POSModel();
-            POSModel model = new POSModel();
-            item = model.GetItemDetails(Convert.ToInt32(itemsListbox.SelectedValue));
+            try
+            {
+                //get data from model
+                POSModel item = new POSModel();
+                POSModel model = new POSModel();
+                item = model.GetItemDetails(Convert.ToInt32(itemsListbox.SelectedValue));
 
-            //add data to grid view by calling its method
-            WireupPOSGridView(item);
+                //add data to grid view by calling its method
+                WireupPOSGridView(item);
 
-            //calculate total after each entry
-            CalculateTotal();
+                //calculate total after each entry
+                CalculateTotal();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("An Error Occurred.");
+                Close();
+            }
             
             //resetting the inputs
             itemTextbox.Text = "";

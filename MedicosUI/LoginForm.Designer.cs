@@ -88,7 +88,7 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.loginButton.Location = new System.Drawing.Point(94, 166);
+            this.loginButton.Location = new System.Drawing.Point(103, 166);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(123, 39);
             this.loginButton.TabIndex = 5;
@@ -157,6 +157,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Shown += new System.EventHandler(this.LoginForm_Shown);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

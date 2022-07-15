@@ -21,28 +21,58 @@ namespace MedicosUI
 
         private void WireupComboBox()
         {
-            CategoryModel category = new CategoryModel();
-            List<CategoryModel> categoryList = category.GetCategories();
-            categoryCombobox.DataSource = categoryList;
-            categoryCombobox.DisplayMember = "CategoryName";
-            categoryCombobox.ValueMember = "Id";
-            categoryCombobox.SelectedItem = null;
+            try
+            {
+                CategoryModel category = new CategoryModel();
+                List<CategoryModel> categoryList = category.GetCategories();
+                if(categoryList.Count == 0)
+                {
+                    MessageBox.Show("Please Add Categories First.");
+                    CategoryForm formObj = new CategoryForm();
+                    formObj.Show();
+                    Close();
+                }
+                categoryCombobox.DataSource = categoryList;
+                categoryCombobox.DisplayMember = "CategoryName";
+                categoryCombobox.ValueMember = "Id";
+                categoryCombobox.SelectedItem = null;
 
-            DistributorModel distributor = new DistributorModel();
-            List<DistributorModel> distributorList = distributor.GetDistributors();
-            distributorCombobox.DataSource = distributorList;
-            distributorCombobox.DisplayMember = "DistributorName";
-            distributorCombobox.ValueMember = "Id";
-            distributorCombobox.SelectedItem = null;
+                DistributorModel distributor = new DistributorModel();
+                List<DistributorModel> distributorList = distributor.GetDistributors();
+                if (distributorList.Count == 0)
+                {
+                    MessageBox.Show("Please Add Distributors First.");
+                    DistributorForm formObj = new DistributorForm();
+                    formObj.Show();
+                    Close();
+                }
+                distributorCombobox.DataSource = distributorList;
+                distributorCombobox.DisplayMember = "DistributorName";
+                distributorCombobox.ValueMember = "Id";
+                distributorCombobox.SelectedItem = null;
 
-            CompanyModel company = new CompanyModel();
-            List<CompanyModel> companyList = company.GetCompanies();
-            companyCombobox.DataSource = companyList;
-            companyCombobox.DisplayMember = "CompanyName";
-            companyCombobox.ValueMember = "Id";
-            companyCombobox.SelectedItem = null;
+                CompanyModel company = new CompanyModel();
+                List<CompanyModel> companyList = company.GetCompanies();
+                if (companyList.Count == 0)
+                {
+                    MessageBox.Show("Please Add Companies First");
+                    CompanyForm formObj = new CompanyForm();
+                    formObj.Show();
+                    Close();
+                }
+                companyCombobox.DataSource = companyList;
+                companyCombobox.DisplayMember = "CompanyName";
+                companyCombobox.ValueMember = "Id";
+                companyCombobox.SelectedItem = null;
 
-            expiryDateTime.Value = DateTime.Now.Date;
+                expiryDateTime.Value = DateTime.Now.Date;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading. Error!");
+                Close();
+            }
         }
 
         private void addItemButton_Click(object sender, EventArgs e)
@@ -67,9 +97,11 @@ namespace MedicosUI
 
         private bool ValidateForm(ItemModel item)
         {
-            int x = new int();
-            bool IsValidUnitPrice = int.TryParse(unitPriceTextbox.Text, out x);
-            bool IsValidStock = int.TryParse(stockTextbox.Text, out x);
+            #region Item Validation
+            int stockCount = new int();
+            int priceCount = new int();
+            bool IsValidUnitPrice = int.TryParse(unitPriceTextbox.Text, out priceCount);
+            bool IsValidStock = int.TryParse(stockTextbox.Text, out stockCount);
 
             itemNameError.Text = "";
             companyError.Text = "";
@@ -135,7 +167,7 @@ namespace MedicosUI
                 return false;
             }
 
-            else if (!IsValidUnitPrice)
+            else if (!IsValidUnitPrice || priceCount == 0)
             {
                 unitPriceError.Text = "Invalid Unit Price";
                 return false;
@@ -153,7 +185,7 @@ namespace MedicosUI
                 return false;
             }
 
-            else if (!IsValidStock)
+            else if (!IsValidStock || stockCount == 0)
             {
                 stockError.Text = "Invalid Stock";
                 return false;
@@ -177,7 +209,7 @@ namespace MedicosUI
                 item.ExpiryDate = expiryDateTime.Value;
                 return true;
             }
-
+            #endregion
         }
 
         private void resetFrom()

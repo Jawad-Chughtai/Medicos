@@ -15,23 +15,34 @@ namespace MedicosUI
         public static int UserId { get; set; }
         public string Username { get; set; }
         public bool IsAdmin { get; set; }
+        public string FullName { get; set; }
         public LoginForm()
         {
             InitializeComponent();
 
-            if(!CheckExistingUser())
+        }
+        private void LoginForm_Shown(object sender, EventArgs e)
+        {
+            if (!CheckExistingUser())
             {
                 FirstUserForm obj = new FirstUserForm();
                 obj.Show();
-                this.Hide();
-                return;
             }
         }
-
         private bool CheckExistingUser()
         {
-            LoginModel login = new LoginModel();
-            return login.CheckExistingUser();
+            try
+            {
+                LoginModel login = new LoginModel();
+                return login.CheckExistingUser();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Application can not run.");
+                return true;
+            }
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -51,15 +62,11 @@ namespace MedicosUI
 
                 else
                 {
-                    DashboardForm dashboardForm = new DashboardForm();
                     UserId = login.UserId;
                     Username = login.Username;
                     IsAdmin = login.IsAdmin;
-
-                    dashboardForm.UserId = UserId;
-                    dashboardForm.Username = Username;
-                    dashboardForm.IsAdmin = IsAdmin;
-
+                    FullName = login.FullName;
+                    DashboardForm dashboardForm = new DashboardForm(UserId, Username, FullName, IsAdmin);
                     dashboardForm.Show();
                     this.Hide();
                 }

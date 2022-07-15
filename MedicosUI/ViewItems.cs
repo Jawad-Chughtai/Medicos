@@ -45,7 +45,10 @@ namespace MedicosUI
                 itemsGridView.ColumnHeadersDefaultCellStyle.Font = new Font(itemsGridView.Font, FontStyle.Bold);
                 itemsGridView.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 itemsGridView.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                itemsGridView.Columns[3].DefaultCellStyle.Format = "N0";
+                itemsGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                itemsGridView.RowHeadersWidth = 30;
+
+                itemsGridView.Columns[3].DefaultCellStyle.Format = "N2";
                 itemsGridView.Columns[5].DefaultCellStyle.Format = "dd-MMM-yyyy";
                 
                 foreach (var items in itemsList)
@@ -71,26 +74,29 @@ namespace MedicosUI
 
         private void deleteItemButton_Click(object sender, EventArgs e)
         {
-            ItemModel model = new ItemModel();
-            string name = itemsGridView.SelectedCells[1].Value.ToString();
-            var confirmResult = MessageBox.Show("Are you sure to delete " + name + " ?", "", MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.No)
+            if (itemsGridView.Rows.Count > 0)
             {
-                return;
-            }
+                ItemModel model = new ItemModel();
+                string name = itemsGridView.SelectedCells[1].Value.ToString();
+                var confirmResult = MessageBox.Show("Are you sure to delete " + name + " ?", "", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.No)
+                {
+                    return;
+                }
 
-            try
-            {
-                model.DeleteItem(int.Parse(itemsGridView.SelectedCells[0].Value.ToString()));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Something went wrong. Item cannot be deleted.");
-            }
-            finally
-            {
-                WireupGridView();
+                try
+                {
+                    model.DeleteItem(int.Parse(itemsGridView.SelectedCells[0].Value.ToString()));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Something went wrong. Item cannot be deleted.");
+                }
+                finally
+                {
+                    WireupGridView();
+                }
             }
         }
 

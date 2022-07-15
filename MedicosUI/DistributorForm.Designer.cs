@@ -80,6 +80,7 @@
             this.distributorGridView.MultiSelect = false;
             this.distributorGridView.Name = "distributorGridView";
             this.distributorGridView.ReadOnly = true;
+            this.distributorGridView.RowTemplate.Height = 26;
             this.distributorGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.distributorGridView.Size = new System.Drawing.Size(456, 431);
             this.distributorGridView.TabIndex = 4;

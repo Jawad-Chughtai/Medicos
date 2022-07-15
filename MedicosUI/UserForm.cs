@@ -29,7 +29,18 @@ namespace MedicosUI
             {
                 try
                 {
+                    if(model.IsAdmin == true)
+                    {
+                        var confirmResult = MessageBox.Show("Are you sure to create User with Admin functionality ?", "", MessageBoxButtons.YesNo);
+                        if (confirmResult == DialogResult.No)
+                        {
+                            IsUserRadio.Checked = true;
+                            return;
+                        }
+                    }
+
                     model.CreateUser();
+                    resetForm();
                 }
                 catch(Exception ex)
                 {
@@ -39,7 +50,6 @@ namespace MedicosUI
                 finally
                 {
                     WireupGridView();
-                    resetForm();
                 }
             }
         }
@@ -92,11 +102,20 @@ namespace MedicosUI
                 usernameError.Text = "Username already exists. Try another.";
                 return false;
             }
+            
             else
             {
                 model.UserFullName = fullNameText.Text;
                 model.Username = usernameText.Text;
                 model.Password = passwordText.Text;
+                if (IsUserRadio.Checked == true)
+                {
+                    model.IsAdmin = false;
+                }
+                if (IsAdminRadio.Checked == true)
+                {
+                    model.IsAdmin = true;
+                }
                 return true;
             }
         }
@@ -134,6 +153,10 @@ namespace MedicosUI
                 userGridView.Columns[1].Name = "Full Name";
                 userGridView.Columns[2].Name = "Username";
                 userGridView.Columns[0].Width = 50;
+
+                userGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                userGridView.ColumnHeadersDefaultCellStyle.Font = new Font(userGridView.Font, FontStyle.Bold);
+                userGridView.RowHeadersWidth = 30;
 
                 foreach (UserModel user in Users)
                 {
@@ -219,5 +242,6 @@ namespace MedicosUI
                 MessageBox.Show("Something went wrong while loading the existing users from database.");
             }
         }
+
     }
 }

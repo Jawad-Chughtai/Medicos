@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelUser = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.confirmPasswordError = new System.Windows.Forms.Label();
@@ -51,6 +51,8 @@
             this.deleteUserButton = new System.Windows.Forms.Button();
             this.searchUserTextbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.IsUserRadio = new System.Windows.Forms.RadioButton();
+            this.IsAdminRadio = new System.Windows.Forms.RadioButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +71,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.IsAdminRadio);
+            this.panel2.Controls.Add(this.IsUserRadio);
             this.panel2.Controls.Add(this.confirmPasswordError);
             this.panel2.Controls.Add(this.passwordError);
             this.panel2.Controls.Add(this.usernameError);
@@ -133,7 +137,7 @@
             this.addUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addUserButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addUserButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.addUserButton.Location = new System.Drawing.Point(182, 338);
+            this.addUserButton.Location = new System.Drawing.Point(183, 352);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(123, 39);
             this.addUserButton.TabIndex = 5;
@@ -226,36 +230,36 @@
             this.userGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.userGridView.BackgroundColor = System.Drawing.Color.White;
             this.userGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.userGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.userGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.userGridView.Location = new System.Drawing.Point(597, 107);
             this.userGridView.MultiSelect = false;
             this.userGridView.Name = "userGridView";
             this.userGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.userGridView.RowTemplate.Height = 24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.userGridView.RowTemplate.Height = 26;
             this.userGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.userGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userGridView.ShowEditingIcon = false;
@@ -307,6 +311,32 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Search User";
             // 
+            // IsUserRadio
+            // 
+            this.IsUserRadio.AutoSize = true;
+            this.IsUserRadio.Checked = true;
+            this.IsUserRadio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsUserRadio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.IsUserRadio.Location = new System.Drawing.Point(22, 321);
+            this.IsUserRadio.Name = "IsUserRadio";
+            this.IsUserRadio.Size = new System.Drawing.Size(78, 25);
+            this.IsUserRadio.TabIndex = 14;
+            this.IsUserRadio.TabStop = true;
+            this.IsUserRadio.Text = "Is User";
+            this.IsUserRadio.UseVisualStyleBackColor = true;
+            // 
+            // IsAdminRadio
+            // 
+            this.IsAdminRadio.AutoSize = true;
+            this.IsAdminRadio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsAdminRadio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.IsAdminRadio.Location = new System.Drawing.Point(106, 321);
+            this.IsAdminRadio.Name = "IsAdminRadio";
+            this.IsAdminRadio.Size = new System.Drawing.Size(95, 25);
+            this.IsAdminRadio.TabIndex = 15;
+            this.IsAdminRadio.Text = "Is Admin";
+            this.IsAdminRadio.UseVisualStyleBackColor = true;
+            // 
             // UserForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -357,5 +387,7 @@
         private System.Windows.Forms.Label fullNameError;
         private System.Windows.Forms.TextBox searchUserTextbox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton IsAdminRadio;
+        private System.Windows.Forms.RadioButton IsUserRadio;
     }
 }

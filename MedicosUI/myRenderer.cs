@@ -20,11 +20,12 @@ namespace MedicosUI
                 Rectangle menuRectangle = new Rectangle(Point.Empty, myMenu.Item.Size);
 
                 //Fill Color
-                myMenu.Graphics.FillRectangle(Brushes.Chocolate, menuRectangle);
+                myMenu.Graphics.FillRectangle(Brushes.BlueViolet , menuRectangle);
 
                 // Border Color
                 //myMenu.Graphics.DrawRectangle(Pens.Lime, 1, 0, menuRectangle.Width - 2, menuRectangle.Height - 1);
             }
         }
+
     }
 }

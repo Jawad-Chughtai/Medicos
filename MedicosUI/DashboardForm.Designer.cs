@@ -54,7 +54,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.menuStripUserInfo = new System.Windows.Forms.MenuStrip();
             this.UserinfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weeklyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -393,37 +392,26 @@
             this.menuStripUserInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UserinfotoolStripMenuItem});
             this.menuStripUserInfo.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuStripUserInfo.Location = new System.Drawing.Point(956, 0);
+            this.menuStripUserInfo.Location = new System.Drawing.Point(961, 0);
             this.menuStripUserInfo.Name = "menuStripUserInfo";
             this.menuStripUserInfo.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.menuStripUserInfo.Size = new System.Drawing.Size(214, 61);
+            this.menuStripUserInfo.Size = new System.Drawing.Size(209, 61);
             this.menuStripUserInfo.TabIndex = 1;
             this.menuStripUserInfo.Text = "menuStripUserInfo";
             // 
             // UserinfotoolStripMenuItem
             // 
             this.UserinfotoolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
-            this.UserinfotoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logoutToolStripMenuItem});
             this.UserinfotoolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserinfotoolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.UserinfotoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("UserinfotoolStripMenuItem.Image")));
             this.UserinfotoolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UserinfotoolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.UserinfotoolStripMenuItem.Name = "UserinfotoolStripMenuItem";
-            this.UserinfotoolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.UserinfotoolStripMenuItem.Size = new System.Drawing.Size(192, 61);
-            this.UserinfotoolStripMenuItem.Text = " UserInformation";
+            this.UserinfotoolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
+            this.UserinfotoolStripMenuItem.Size = new System.Drawing.Size(187, 61);
+            this.UserinfotoolStripMenuItem.Text = "UserInformation";
             this.UserinfotoolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
-            this.logoutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(144, 28);
-            this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // monthlyToolStripMenuItem
             // 
@@ -476,6 +464,7 @@
             this.Text = "Ayaz Medicos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DashboardForm_FormClosing);
+            this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -513,7 +502,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.MenuStrip menuStripUserInfo;
         private System.Windows.Forms.ToolStripMenuItem UserinfotoolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchasetoolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPurchaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewPurchaseToolStripMenuItem;

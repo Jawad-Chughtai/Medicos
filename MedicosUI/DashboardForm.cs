@@ -16,16 +16,38 @@ namespace MedicosUI
         Form activeForm = null;
         public int UserId { get; set; }
         public string Username { get; set; }
+        public string FullName { get; set; }
         public bool IsAdmin { get; set; }
 
-        public DashboardForm()
+        public DashboardForm(int UserId, string Username, string FullName, bool IsAdmin)
         {
             InitializeComponent();
-            UserinfotoolStripMenuItem.Text = Username;
+
+
+            this.UserId = UserId;
+            this.Username = Username;
+            this.IsAdmin = IsAdmin;
+            this.FullName = FullName;
+            this.UserinfotoolStripMenuItem.Text = FullName;
+
+
             DashboardChildForm formObj = new DashboardChildForm();
             openChildForm(formObj);
             menuStripNavigation.Renderer = new myRenderer();
+            menuStripUserInfo.Renderer = new myRenderer();
+
+            if (!IsAdmin)
+            {
+                userToolStripMenuItem.Visible = false;
+                userToolStripMenuItem.Enabled = false;
+            }
+
+            batchToolStripMenuItem.Visible = false;
             
+        }
+        
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
         }
 
         //method to open child forms inside parent form
@@ -137,7 +159,8 @@ namespace MedicosUI
 
         private void DashboardForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+                Application.Exit();
         }
+
     }
 }

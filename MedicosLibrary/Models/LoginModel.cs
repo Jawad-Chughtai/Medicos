@@ -10,6 +10,7 @@ namespace MedicosLibrary.Models
     public class LoginModel
     {
         public int UserId { get; set; }
+        public string FullName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
@@ -51,6 +52,7 @@ namespace MedicosLibrary.Models
                 {
                     model.UserId = Convert.ToInt32(rd["id"]);
                     model.Username = rd["username"].ToString();
+                    model.FullName = rd["userFullName"].ToString();
                     model.Password = "";
                     model.IsAdmin = Convert.ToBoolean(rd["IsAdmin"]);
                     model.IsLoginSuccessfull = true;

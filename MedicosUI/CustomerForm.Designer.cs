@@ -90,6 +90,7 @@
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerGridView.Location = new System.Drawing.Point(596, 104);
             this.customerGridView.Name = "customerGridView";
+            this.customerGridView.RowTemplate.Height = 26;
             this.customerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerGridView.Size = new System.Drawing.Size(527, 431);
             this.customerGridView.TabIndex = 5;
