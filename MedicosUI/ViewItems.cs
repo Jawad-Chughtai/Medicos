@@ -45,6 +45,7 @@ namespace MedicosUI
                 itemsGridView.ColumnHeadersDefaultCellStyle.Font = new Font(itemsGridView.Font, FontStyle.Bold);
                 itemsGridView.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 itemsGridView.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                itemsGridView.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 itemsGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 itemsGridView.RowHeadersWidth = 30;
 
@@ -78,7 +79,8 @@ namespace MedicosUI
             {
                 ItemModel model = new ItemModel();
                 string name = itemsGridView.SelectedCells[1].Value.ToString();
-                var confirmResult = MessageBox.Show("Are you sure to delete " + name + " ?", "", MessageBoxButtons.YesNo);
+                string batch = itemsGridView.SelectedCells[2].Value.ToString();
+                var confirmResult = MessageBox.Show("Are you sure to delete " + name + " " + batch + " ?", "", MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.No)
                 {
                     return;
@@ -86,7 +88,8 @@ namespace MedicosUI
 
                 try
                 {
-                    model.DeleteItem(int.Parse(itemsGridView.SelectedCells[0].Value.ToString()));
+                    //model.DeleteItem(int.Parse(itemsGridView.SelectedCells[0].Value.ToString()));
+                    model.DeleteSingleBatch(batch);
                 }
                 catch (Exception ex)
                 {

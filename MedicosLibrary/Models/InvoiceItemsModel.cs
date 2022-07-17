@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace MedicosLibrary.Models
 {
-    class InvoiceItemsModel
+    public class InvoiceItemsModel
     {
-        public int InvoiceID { get; set; }
-        public int ItemID { get; set; }
-        public int ItemQuantity { get; set; }
-        public double Total { get; set; }
+        public int ItemId { get; set; }
+        public string ItemName { get; set; }
+        public string BatchTitle { get; set; }
+        public double Quantity { get; set; }
+        public double UnitPrice { get; set; }
+        public double TotalAmount
+        {
+            get { return TotalAmount; }
+            set { TotalAmount = Quantity * UnitPrice; }
+        }
     }
 }

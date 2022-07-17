@@ -3,13 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using iText;
 
 namespace MedicosLibrary.Models
 {
-    class InvoiceModel
+    public class InvoiceModel
     {
-        public int CustomerID { get; set; }
-        public DateTime InvoiceDate { get; set; }
+        public string InvoiceId { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public double InvoiceTotal { get; set; }
+        public double Discount { get; set; }
+        public List<InvoiceItemsModel> Items { get; set; }
 
+        public void ShowInvoice()
+        {
+
+        }
     }
+
 }

@@ -13,7 +13,7 @@ namespace MedicosUI
 {
     public partial class POSForm : Form
     {
-
+        public int MaxStock {get;set;} = 0;
         public POSForm()
         {
             InitializeComponent();
@@ -56,14 +56,16 @@ namespace MedicosUI
             try
             {
                 POSModel item = new POSModel();
-                POSModel model = new POSModel();
-                item = model.GetItemName(Convert.ToInt32(itemsListbox.SelectedValue));
+                string str = itemsListbox.Text.ToString();
+                var substr = str.Split(' ');
+                item = item.GetItemName(Convert.ToInt32(itemsListbox.SelectedValue), substr[1].ToString());
 
                 itemTextbox.Text = item.ItemName + " " + item.Batch;
                 unitPriceTextbox.Text = item.UnitPrice.ToString("N0");
                 itemsListbox.Visible = false;
                 quantityTextbox.ReadOnly = false;
                 quantityTextbox.Select();
+                MaxStock = item.Stock;
             }
             catch (Exception ex)
             {
@@ -82,6 +84,13 @@ namespace MedicosUI
             {
                 quantityTextbox.Text = "";
                 amountTextbox.Text = "";
+                return;
+            }
+
+            if(x > MaxStock)
+            {
+                MessageBox.Show("Only " + MaxStock + " items are left in stock in this batch.");
+                quantityTextbox.Text = MaxStock.ToString();
                 return;
             }
 
@@ -142,9 +151,10 @@ namespace MedicosUI
             try
             {
                 //get data from model
-                POSModel item = new POSModel();
-                POSModel model = new POSModel();
-                item = model.GetItemDetails(Convert.ToInt32(itemsListbox.SelectedValue));
+                POSModel item = new POSModel(); 
+                string str = itemsListbox.Text.ToString();
+                var substr = str.Split(' ');
+                item = item.GetItemDetails(Convert.ToInt32(itemsListbox.SelectedValue), substr[1]);
 
                 //add data to grid view by calling its method
                 WireupPOSGridView(item);
@@ -212,17 +222,17 @@ namespace MedicosUI
             //checking if item already in the gird
             foreach(DataGridViewRow row in POSGridView.Rows)
             {
-                if(item.ItemId == Convert.ToInt32(row.Cells[0].Value))
+                if(item.ItemId == Convert.ToInt32(row.Cells[0].Value) && item.ListItem == row.Cells[1].Value.ToString())
                 {
-                    row.Cells[3].Value = (Convert.ToDouble(row.Cells[3].Value) + Convert.ToDouble(quantityTextbox.Text)).ToString();
-                    row.Cells[4].Value = (item.UnitPrice * Convert.ToDouble(row.Cells[3].Value)).ToString("N2");
+                    row.Cells[3].Value = (Convert.ToDouble(row.Cells[3].Value) + Convert.ToDouble(quantityTextbox.Text)).ToString(); //qty cell
+                    row.Cells[4].Value = (item.UnitPrice * Convert.ToDouble(row.Cells[3].Value)).ToString("N2"); //total cell
                     return;
                 }
             }
             //adding rows from data
             POSGridView.Rows.Add(
                 item.ItemId,
-                item.ItemName + " " + item.Batch,
+                item.ListItem,
                 item.UnitPrice,
                 quantityTextbox.Text,
                 amountTextbox.Text,
@@ -281,8 +291,26 @@ namespace MedicosUI
 
         private void printButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Print Button Clicked..!!");
-            return;
+            List<POSModel> SaleItems = new List<POSModel>();
+            foreach(DataGridViewRow row in POSGridView.Rows)
+            {
+                string str = row.Cells[1].Value.ToString();
+                var name = str.Split(' ');
+                POSModel item = new POSModel();
+                item.ItemId = Convert.ToInt32(row.Cells[0].Value);
+                item.ItemName = name[0].ToString();
+                item.Batch = name[1].ToString();
+                item.UnitPrice = Convert.ToDouble(row.Cells[2].Value);
+                item.Quantity = Convert.ToDouble(row.Cells[3].Value);
+                item.ItemTotal = Convert.ToDouble(row.Cells[4].Value);
+                item.Expiry = Convert.ToDateTime(row.Cells[5].Value);
+
+                SaleItems.Add(item);
+            }
+            double SubTotal = Convert.ToDouble(itemsTotalLabel.Text);
+            double Discount = Convert.ToDouble(discountLabel.Text);
+            ReceiptForm form = new ReceiptForm(SaleItems, SubTotal, Discount);
+            form.Show();
         }
 
         private void POSForm_Load(object sender, EventArgs e)

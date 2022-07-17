@@ -21,6 +21,7 @@ namespace MedicosLibrary.Models
         public string CategoryName { get; set; }
         public string DistributorName { get; set; }
         public string CompanyName { get; set; }
+        public bool IsStock { get; set; }
         public List<BatchModel> ItemBatches { get; set; }
         public void AddItem(ItemModel item)
         {
@@ -67,14 +68,16 @@ namespace MedicosLibrary.Models
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    ItemModel item = new ItemModel();
+                    ItemModel model = new ItemModel();
 
-                    item.Id = Convert.ToInt32(rd["id"]);
-                    BatchModel model = new BatchModel();
-                    item.ItemBatches = model.GetBatches(item.Id);
+                    model.Id = Convert.ToInt32(rd["id"]);
+                    BatchModel batchmodel = new BatchModel();
+                    model.ItemBatches = batchmodel.GetBatches(model.Id);
                     
-                    foreach(BatchModel batch in item.ItemBatches)
+                    foreach(BatchModel batch in model.ItemBatches)
                     {
+                        ItemModel item = new ItemModel();
+                        item.Id = model.Id;
                         item.ItemName = rd["itemName"].ToString();
                         item.BatchTitle = batch.BatchTitle;
                         item.UnitPrice = batch.UnitPrice;
@@ -112,13 +115,16 @@ namespace MedicosLibrary.Models
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    ItemModel item = new ItemModel();
-                    item.Id = Convert.ToInt32(rd["id"]);
-                    BatchModel model = new BatchModel();
-                    item.ItemBatches = model.GetBatches(item.Id);
+                    ItemModel model = new ItemModel();
 
-                    foreach (BatchModel batch in item.ItemBatches)
+                    model.Id = Convert.ToInt32(rd["id"]);
+                    BatchModel batchmodel = new BatchModel();
+                    model.ItemBatches = batchmodel.GetBatches(model.Id);
+
+                    foreach (BatchModel batch in model.ItemBatches)
                     {
+                        ItemModel item = new ItemModel();
+                        item.Id = model.Id;
                         item.ItemName = rd["itemName"].ToString();
                         item.BatchTitle = batch.BatchTitle;
                         item.UnitPrice = batch.UnitPrice;
@@ -154,6 +160,73 @@ namespace MedicosLibrary.Models
                 cmd.ExecuteNonQuery();
             }
 
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void DeleteSingleBatch(string batchTitle)
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spBatch_DeleteSingle", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@batchTitle", batchTitle));
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public int ItemExists(string itemName)
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spItem_ItemExists", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@itemName", itemName));
+
+            int Id = new int();
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    Id = Convert.ToInt32(rd["id"]);
+                }
+
+                return Id;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void NewBatch(ItemModel item)
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spBatch_NewBatch", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", item.Id));
+            cmd.Parameters.Add(new SqlParameter("@batch", item.BatchTitle));
+            cmd.Parameters.Add(new SqlParameter("@stock", item.Stock));
+            cmd.Parameters.Add(new SqlParameter("@expiry", item.ExpiryDate));
+            cmd.Parameters.Add(new SqlParameter("@unitPrice", item.UnitPrice));
+            cmd.Parameters.Add(new SqlParameter("@IsStock", item.IsStock));
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
             finally
             {
                 con.Close();

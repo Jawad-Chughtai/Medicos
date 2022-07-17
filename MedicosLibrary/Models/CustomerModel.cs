@@ -35,6 +35,34 @@ namespace MedicosLibrary.Models
             }
         }
 
+        public CustomerModel GetSingleCustomer(int id)
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCustomer_GetSingle", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+
+            try
+            {
+                CustomerModel customer = new CustomerModel();
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    customer.Id = Convert.ToInt32(rd["id"]);
+                    customer.CustomerName = rd["fullName"].ToString();
+                    customer.CustomerContact = rd["contact"].ToString();
+                    customer.Balance = Convert.ToDouble(rd["balance"]);
+                }
+
+                return customer;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
         public List<CustomerModel> GetCustomers()
         {
             List<CustomerModel> customersList = new List<CustomerModel>();

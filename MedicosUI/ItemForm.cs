@@ -83,7 +83,17 @@ namespace MedicosUI
             {
                 try
                 {
-                    item.AddItem(item);
+                    int ItemId = item.ItemExists(itemNameTextbox.Text);
+                    if(ItemId == 0)
+                    {
+                        item.AddItem(item);
+                    }
+
+                    else
+                    {
+                        item.Id = ItemId;
+                        item.NewBatch(item);
+                    }
                     resetFrom();
                 }
 
@@ -207,6 +217,15 @@ namespace MedicosUI
                 item.UnitPrice = Convert.ToDouble(unitPriceTextbox.Text);
                 item.Stock = Convert.ToInt32(stockTextbox.Text);
                 item.ExpiryDate = expiryDateTime.Value;
+                if (IsValidStock && stockCount > 0)
+                {
+                    item.IsStock = true;
+                }
+                else
+                {
+                    item.IsStock = false;
+                }
+
                 return true;
             }
             #endregion
