@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.amountTextbox = new System.Windows.Forms.TextBox();
@@ -42,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.itemTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.itemsListbox = new System.Windows.Forms.ListBox();
             this.POSGridView = new System.Windows.Forms.DataGridView();
             this.removeButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -57,9 +56,11 @@
             this.totalAmountLabel = new System.Windows.Forms.Label();
             this.discountButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
+            this.itemsGridView = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.POSGridView)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -196,20 +197,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Item";
             // 
-            // itemsListbox
-            // 
-            this.itemsListbox.FormattingEnabled = true;
-            this.itemsListbox.ItemHeight = 21;
-            this.itemsListbox.Location = new System.Drawing.Point(170, 97);
-            this.itemsListbox.MaximumSize = new System.Drawing.Size(284, 235);
-            this.itemsListbox.MinimumSize = new System.Drawing.Size(284, 46);
-            this.itemsListbox.Name = "itemsListbox";
-            this.itemsListbox.Size = new System.Drawing.Size(284, 46);
-            this.itemsListbox.TabIndex = 19;
-            this.itemsListbox.TabStop = false;
-            this.itemsListbox.Visible = false;
-            this.itemsListbox.Click += new System.EventHandler(this.itemsListbox_Click);
-            // 
             // POSGridView
             // 
             this.POSGridView.AllowUserToAddRows = false;
@@ -217,35 +204,35 @@
             this.POSGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.POSGridView.BackgroundColor = System.Drawing.Color.White;
             this.POSGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.POSGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.POSGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.POSGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.POSGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.POSGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.POSGridView.Location = new System.Drawing.Point(59, 120);
             this.POSGridView.MultiSelect = false;
             this.POSGridView.Name = "POSGridView";
             this.POSGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.POSGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.POSGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.POSGridView.RowTemplate.Height = 26;
             this.POSGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.POSGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -418,6 +405,27 @@
             this.printButton.UseVisualStyleBackColor = false;
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
+            // itemsGridView
+            // 
+            this.itemsGridView.AllowUserToAddRows = false;
+            this.itemsGridView.AllowUserToDeleteRows = false;
+            this.itemsGridView.AllowUserToResizeColumns = false;
+            this.itemsGridView.AllowUserToResizeRows = false;
+            this.itemsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.itemsGridView.BackgroundColor = System.Drawing.Color.White;
+            this.itemsGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.itemsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.itemsGridView.GridColor = System.Drawing.Color.White;
+            this.itemsGridView.Location = new System.Drawing.Point(170, 97);
+            this.itemsGridView.MultiSelect = false;
+            this.itemsGridView.Name = "itemsGridView";
+            this.itemsGridView.ReadOnly = true;
+            this.itemsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.itemsGridView.Size = new System.Drawing.Size(284, 150);
+            this.itemsGridView.TabIndex = 33;
+            this.itemsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemsGridView_CellClick);
+            this.itemsGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.itemsGridView_KeyDown);
+            // 
             // POSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -425,13 +433,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1165, 665);
             this.ControlBox = false;
+            this.Controls.Add(this.itemsGridView);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.discountButton);
             this.Controls.Add(this.totalAmountLabel);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.removeButton);
-            this.Controls.Add(this.itemsListbox);
             this.Controls.Add(this.POSGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label6);
@@ -446,6 +454,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.POSGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,7 +468,6 @@
         private System.Windows.Forms.TextBox unitPriceTextbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox itemsListbox;
         private System.Windows.Forms.TextBox itemTextbox;
         private System.Windows.Forms.DataGridView POSGridView;
         private System.Windows.Forms.TextBox amountTextbox;
@@ -479,5 +487,6 @@
         private System.Windows.Forms.Label totalAmountLabel;
         private System.Windows.Forms.Button discountButton;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.DataGridView itemsGridView;
     }
 }

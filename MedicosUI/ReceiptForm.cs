@@ -88,7 +88,7 @@ namespace MedicosUI
         {
             if (Discount == 0)
             {
-                Discount = (SubTotal * 0.05);
+                Discount = Math.Round(SubTotal * 0.05);
                 discountLabel.Text = Discount.ToString("N2");
                 Totals();
             }
@@ -111,7 +111,7 @@ namespace MedicosUI
             customerCombobox.SelectedItem = null;
         }
 
-        private void customerCombobox_SelectionChangeCommitted(object sender, EventArgs e)
+        private void customerCombobox_SelectedValueChanged(object sender, EventArgs e)
         {
             try
             {
@@ -121,11 +121,27 @@ namespace MedicosUI
                 contactTextbox.Text = customer.CustomerContact;
                 BalanceTextbox.Text = customer.Balance.ToString("N2");
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Something went wrong while loading the customers");
+                contactTextbox.Text = "";
+                BalanceTextbox.Text = "";
             }
+        }
+        private void customerCombobox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    CustomerModel customer = new CustomerModel();
+            //    customer = customer.GetSingleCustomer(Convert.ToInt32(customerCombobox.SelectedValue));
+
+            //    contactTextbox.Text = customer.CustomerContact;
+            //    BalanceTextbox.Text = customer.Balance.ToString("N2");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //    MessageBox.Show("Something went wrong while loading the customers");
+            //}
         }
 
         private void recieveAmountTextbox_TextChanged(object sender, EventArgs e)
@@ -146,7 +162,7 @@ namespace MedicosUI
                 }
             }
 
-            if(amount >= (Convert.ToDouble(totalAmountLabel.Text) - 1.0))
+            if(amount >= (Convert.ToDouble(totalAmountLabel.Text)))
             {
                 changeTextbox.Text = (amount - Convert.ToDouble(totalAmountLabel.Text)).ToString();
             }
@@ -155,5 +171,14 @@ namespace MedicosUI
                 changeTextbox.Text = "";
             }
         }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            customerCombobox.SelectedItem = null;
+            contactTextbox.Text = "";
+            BalanceTextbox.Text = "";
+            recieveAmountTextbox.Focus();
+        }
+
     }
 }

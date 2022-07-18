@@ -53,6 +53,7 @@
             this.discountButton = new System.Windows.Forms.Button();
             this.BalanceTextbox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.RemoveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ReceiptGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -272,6 +273,7 @@
             this.customerCombobox.Size = new System.Drawing.Size(149, 25);
             this.customerCombobox.TabIndex = 43;
             this.customerCombobox.SelectionChangeCommitted += new System.EventHandler(this.customerCombobox_SelectionChangeCommitted);
+            this.customerCombobox.SelectedValueChanged += new System.EventHandler(this.customerCombobox_SelectedValueChanged);
             // 
             // label4
             // 
@@ -289,9 +291,9 @@
             // 
             this.contactTextbox.Location = new System.Drawing.Point(309, 9);
             this.contactTextbox.Name = "contactTextbox";
-            this.contactTextbox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.contactTextbox.Size = new System.Drawing.Size(115, 25);
             this.contactTextbox.TabIndex = 45;
+            this.contactTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -332,9 +334,9 @@
             // 
             this.BalanceTextbox.Location = new System.Drawing.Point(499, 9);
             this.BalanceTextbox.Name = "BalanceTextbox";
-            this.BalanceTextbox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BalanceTextbox.Size = new System.Drawing.Size(115, 25);
             this.BalanceTextbox.TabIndex = 50;
+            this.BalanceTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -348,12 +350,27 @@
             this.label8.Text = "Balance : ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // RemoveButton
+            // 
+            this.RemoveButton.BackColor = System.Drawing.Color.Red;
+            this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.RemoveButton.Location = new System.Drawing.Point(632, 9);
+            this.RemoveButton.Name = "RemoveButton";
+            this.RemoveButton.Size = new System.Drawing.Size(24, 25);
+            this.RemoveButton.TabIndex = 51;
+            this.RemoveButton.Text = "X";
+            this.RemoveButton.UseVisualStyleBackColor = false;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            // 
             // ReceiptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(697, 648);
+            this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.BalanceTextbox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.discountButton);
@@ -374,7 +391,7 @@
             this.Controls.Add(this.ReceiptGridView);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReceiptForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -415,5 +432,6 @@
         private System.Windows.Forms.Button discountButton;
         private System.Windows.Forms.TextBox BalanceTextbox;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button RemoveButton;
     }
 }

@@ -13,16 +13,19 @@ namespace MedicosUI
 {
     public partial class POSForm : Form
     {
-        public int MaxStock {get;set;} = 0;
+        public int StockAdded { get; set; } = 0;
+        public int MaxStock { get; set; } = 0;
+        public int SelectedId { get; set; } = 0;
+        public string SelectedBatch { get; set; }
         public POSForm()
         {
             InitializeComponent();
-            itemsListbox.Visible = false;
+            itemsGridView.Visible = false;
         }
         
         private void itemTextbox_TextChanged(object sender, EventArgs e)
         {
-            itemsListbox.Visible = false;
+            itemsGridView.Visible = false;
             unitPriceTextbox.Text = "";
             quantityTextbox.Text = "";
             amountTextbox.Text = "";
@@ -35,12 +38,20 @@ namespace MedicosUI
 
                 if (itemsList.Count > 0 && itemTextbox.Text.Length > 0)
                 {
-                    itemsListbox.DataSource = itemsList;
+                    itemsGridView.ColumnCount = 3;
+                    itemsGridView.Columns[0].Name = "Id";
+                    itemsGridView.Columns[1].Name = "Item";
+                    itemsGridView.Columns[2].Name = "Batch";
 
-                    itemsListbox.DisplayMember = "ListItem";
-                    itemsListbox.ValueMember = "ItemId";
-                    itemsListbox.Visible = true;
-                    itemsListbox.AutoSize = true;
+                    itemsGridView.Columns[0].Visible = false;
+                    itemsGridView.RowHeadersVisible = false;
+                    itemsGridView.ColumnHeadersVisible = false;
+                    itemsGridView.Rows.Clear();
+                    foreach (var item in itemsList)
+                    {
+                        itemsGridView.Rows.Add(item.ItemId, item.ItemName, item.Batch);
+                    }
+                    itemsGridView.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -51,18 +62,19 @@ namespace MedicosUI
             }
         }
 
-        private void itemsListbox_Click(object sender, EventArgs e)
+
+        private void itemsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 POSModel item = new POSModel();
-                string str = itemsListbox.Text.ToString();
-                var substr = str.Split(' ');
-                item = item.GetItemName(Convert.ToInt32(itemsListbox.SelectedValue), substr[1].ToString());
+                SelectedId = Convert.ToInt32(itemsGridView.SelectedCells[0].Value);
+                SelectedBatch = itemsGridView.SelectedCells[2].Value.ToString();
+                item = item.GetItemName(SelectedId, SelectedBatch);
 
                 itemTextbox.Text = item.ItemName + " " + item.Batch;
                 unitPriceTextbox.Text = item.UnitPrice.ToString("N0");
-                itemsListbox.Visible = false;
+                itemsGridView.Visible = false;
                 quantityTextbox.ReadOnly = false;
                 quantityTextbox.Select();
                 MaxStock = item.Stock;
@@ -77,6 +89,7 @@ namespace MedicosUI
 
         private void quantityTextbox_TextChanged(object sender, EventArgs e)
         {
+            StockAdded = 0;
             int x;
             bool IsInteger = int.TryParse(quantityTextbox.Text, out x);
 
@@ -87,10 +100,18 @@ namespace MedicosUI
                 return;
             }
 
-            if(x > MaxStock)
+            foreach (DataGridViewRow row in POSGridView.Rows)
             {
-                MessageBox.Show("Only " + MaxStock + " items are left in stock in this batch.");
-                quantityTextbox.Text = MaxStock.ToString();
+                if (Convert.ToInt32(row.Cells["Id"].Value) == SelectedId)
+                {
+                    StockAdded = Convert.ToInt32(row.Cells["Qty"].Value);
+                }
+            }
+
+            if(x > (MaxStock - StockAdded))
+            {
+                MessageBox.Show("Only " + (MaxStock - StockAdded) + " items are left in stock in this batch.");
+                quantityTextbox.Text = (MaxStock - StockAdded).ToString();
                 return;
             }
 
@@ -151,14 +172,15 @@ namespace MedicosUI
             try
             {
                 //get data from model
-                POSModel item = new POSModel(); 
-                string str = itemsListbox.Text.ToString();
-                var substr = str.Split(' ');
-                item = item.GetItemDetails(Convert.ToInt32(itemsListbox.SelectedValue), substr[1]);
+                POSModel item = new POSModel();
+                item = item.GetItemDetails(SelectedId, SelectedBatch);
 
                 //add data to grid view by calling its method
                 WireupPOSGridView(item);
-
+                
+                SelectedId = 0;
+                SelectedBatch = null;
+                
                 //calculate total after each entry
                 CalculateTotal();
             }
@@ -175,7 +197,7 @@ namespace MedicosUI
             unitPriceTextbox.Text = "";
             amountTextbox.Text = "";
 
-            itemsListbox.Visible = false;
+            //itemsListbox.Visible = false;
             return;
         }
 
@@ -185,14 +207,15 @@ namespace MedicosUI
         private void WireupPOSGridView(POSModel item)
         {
             //columns defined
-            POSGridView.ColumnCount = 7;
+            POSGridView.ColumnCount = 8;
             POSGridView.Columns[0].Name = "Id";
             POSGridView.Columns[1].Name = "Item Name";
-            POSGridView.Columns[2].Name = "UP";
-            POSGridView.Columns[3].Name = "Qty";
-            POSGridView.Columns[4].Name = "Total";
-            POSGridView.Columns[5].Name = "Expiry";
-            POSGridView.Columns[6].Name = "Company";
+            POSGridView.Columns[2].Name = "Batch";
+            POSGridView.Columns[3].Name = "UP";
+            POSGridView.Columns[4].Name = "Qty";
+            POSGridView.Columns[5].Name = "Total";
+            POSGridView.Columns[6].Name = "Expiry";
+            POSGridView.Columns[7].Name = "Company";
 
             //defined formats for different value types
             POSGridView.Columns["Expiry"].DefaultCellStyle.Format = "dd-MMM-yyyy";
@@ -211,7 +234,8 @@ namespace MedicosUI
             POSGridView.Columns["Id"].Width = 80;
             POSGridView.Columns["UP"].Width = 100;
             POSGridView.Columns["Qty"].Width = 100;
-            POSGridView.Columns["Item Name"].Width = 250;
+            POSGridView.Columns["Item Name"].Width = 150;
+            POSGridView.Columns["Batch"].Width = 100;
             POSGridView.Columns["Total"].Width = 120;
             POSGridView.Columns["Company"].Width = 120;
             
@@ -222,17 +246,18 @@ namespace MedicosUI
             //checking if item already in the gird
             foreach(DataGridViewRow row in POSGridView.Rows)
             {
-                if(item.ItemId == Convert.ToInt32(row.Cells[0].Value) && item.ListItem == row.Cells[1].Value.ToString())
+                if(item.ItemId == Convert.ToInt32(row.Cells["Id"].Value) && item.Batch == row.Cells["Batch"].Value.ToString())
                 {
-                    row.Cells[3].Value = (Convert.ToDouble(row.Cells[3].Value) + Convert.ToDouble(quantityTextbox.Text)).ToString(); //qty cell
-                    row.Cells[4].Value = (item.UnitPrice * Convert.ToDouble(row.Cells[3].Value)).ToString("N2"); //total cell
+                    row.Cells["Qty"].Value = (Convert.ToDouble(row.Cells["Qty"].Value) + Convert.ToDouble(quantityTextbox.Text)).ToString(); //qty cell
+                    row.Cells["Total"].Value = (item.UnitPrice * Convert.ToDouble(row.Cells["Qty"].Value)).ToString("N2"); //total cell
                     return;
                 }
             }
             //adding rows from data
             POSGridView.Rows.Add(
                 item.ItemId,
-                item.ListItem,
+                item.ItemName,
+                item.Batch,
                 item.UnitPrice,
                 quantityTextbox.Text,
                 amountTextbox.Text,
@@ -294,17 +319,15 @@ namespace MedicosUI
             List<POSModel> SaleItems = new List<POSModel>();
             foreach(DataGridViewRow row in POSGridView.Rows)
             {
-                string str = row.Cells[1].Value.ToString();
-                var name = str.Split(' ');
                 POSModel item = new POSModel();
-                item.ItemId = Convert.ToInt32(row.Cells[0].Value);
-                item.ItemName = name[0].ToString();
-                item.Batch = name[1].ToString();
-                item.UnitPrice = Convert.ToDouble(row.Cells[2].Value);
-                item.Quantity = Convert.ToDouble(row.Cells[3].Value);
-                item.ItemTotal = Convert.ToDouble(row.Cells[4].Value);
-                item.Expiry = Convert.ToDateTime(row.Cells[5].Value);
-
+                item.ItemId = Convert.ToInt32(row.Cells["Id"].Value);
+                item.ItemName = row.Cells["Item Name"].Value.ToString();
+                item.Batch = row.Cells["Batch"].ToString();
+                item.UnitPrice = Convert.ToDouble(row.Cells["UP"].Value);
+                item.Quantity = Convert.ToDouble(row.Cells["Qty"].Value);
+                item.ItemTotal = Convert.ToDouble(row.Cells["Total"].Value);
+                item.Expiry = Convert.ToDateTime(row.Cells["Expiry"].Value);
+                
                 SaleItems.Add(item);
             }
             double SubTotal = Convert.ToDouble(itemsTotalLabel.Text);
@@ -323,31 +346,21 @@ namespace MedicosUI
         //
         private void itemTextbox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
             {
-                if (itemsListbox.SelectedIndex > 0)
+                if (itemsGridView.Rows.Count > 0)
                 {
-                    itemsListbox.SelectedIndex--;
+                    itemsGridView.Select();
                 }
             }
-
-            if (e.KeyCode == Keys.Down)
-            {
-                try
-                {
-                    itemsListbox.SelectedIndex++;
-                }
-                catch
-                {
-                    itemsListbox.SelectedIndex = itemsListbox.SelectedIndex;
-                }
-            }
-
             if (e.KeyCode == Keys.Enter && itemTextbox.Text.Length > 0)
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
-                itemsListbox_Click(sender, new EventArgs());
+                var theColumnIndex = itemsGridView.CurrentCell.ColumnIndex;
+                var theRowIndex = itemsGridView.CurrentCell.RowIndex;
+                var args = new DataGridViewCellEventArgs(theColumnIndex, theRowIndex);
+                itemsGridView_CellClick(itemsGridView, args);
                 quantityTextbox.Select();
             }
             if (e.KeyCode == Keys.F1 && POSGridView.Rows.Count > 0)
@@ -355,6 +368,14 @@ namespace MedicosUI
                 e.Handled = true;
                 e.SuppressKeyPress = true;
                 printButton_Click(sender, new EventArgs());
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                itemsGridView.Rows.Clear();
+                itemsGridView.Visible = false;
+                itemTextbox.Select(itemTextbox.Text.Length, 0);
             }
         }
 
@@ -372,6 +393,14 @@ namespace MedicosUI
                 e.Handled = true;
                 e.SuppressKeyPress = true;
                 printButton_Click(sender, new EventArgs());
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                itemsGridView.Rows.Clear();
+                itemsGridView.Visible = false;
+                itemTextbox.Select(itemTextbox.Text.Length, 0);
             }
         }
         private void addItemButton_KeyDown(object sender, KeyEventArgs e)
@@ -406,6 +435,44 @@ namespace MedicosUI
             {
                 removeButton_Click(sender, new EventArgs());
             }
+            if (e.KeyCode == Keys.Escape)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                itemsGridView.Rows.Clear();
+                itemsGridView.Visible = false;
+                itemTextbox.Select(itemTextbox.Text.Length, 0);
+            }
         }
+
+        private void itemsGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode != Keys.Down && e.KeyCode != Keys.Up)
+            {
+                if(e.KeyCode == Keys.Escape)
+                {
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
+                    itemsGridView.Rows.Clear();
+                    itemsGridView.Visible = false;
+                    itemTextbox.Select(itemTextbox.Text.Length, 0);
+                }
+
+                else if(e.KeyCode == Keys.Enter)
+                {
+                    var theColumnIndex = itemsGridView.CurrentCell.ColumnIndex;
+                    var theRowIndex = itemsGridView.CurrentCell.RowIndex;
+                    var args = new DataGridViewCellEventArgs(theColumnIndex, theRowIndex);
+                    itemsGridView_CellClick(itemsGridView, args);
+                }
+
+                else
+                {
+                    itemTextbox.Text += e.KeyCode.ToString().ToLower();
+                    itemTextbox.Select(itemTextbox.Text.Length, 0);
+                }
+            }
+        }
+
     }
 }

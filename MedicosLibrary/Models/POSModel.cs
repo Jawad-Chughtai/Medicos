@@ -120,7 +120,6 @@ namespace MedicosLibrary.Models
                     model.UnitPrice = Convert.ToDouble(rd["unitPrice"]);
                     model.Expiry = Convert.ToDateTime(rd["expiry"]);
                     model.Company = rd["companyName"].ToString();
-                    model.ListItem = model.ItemName + " " + model.Batch;
 
                 }
 
