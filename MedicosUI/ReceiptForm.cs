@@ -16,12 +16,20 @@ namespace MedicosUI
         List<POSModel> SaleItems = new List<POSModel>();
         double SubTotal { get; set; }
         double Discount { get; set; }
-        public ReceiptForm(List<POSModel> Items, double subTotal, double discount)
+        string InvoiceId { get; set; }
+        int CustomerId { get; set; } = 0;
+        int UserId { get; set; }
+        double ReceiveAmount { get; set; }
+        double TotalAmount { get; set; }
+        double BalanceAmount { get; set; }
+        public ReceiptForm(List<POSModel> Items, double subTotal, double discount, string invoiceId, int userId)
         {
             InitializeComponent();
             SaleItems = Items;
             SubTotal = subTotal;
             Discount = discount;
+            InvoiceId = invoiceId;
+            UserId = userId;
 
             WireUpGridView();
             WireUpCustomers();
@@ -29,15 +37,14 @@ namespace MedicosUI
 
         private void ReceiptForm_Load(object sender, EventArgs e)
         {
-            string dateTime = DateTime.Now.ToString("yyMMddhhmmss");
-            invoiceTextbox.Text = dateTime; 
+            invoiceTextbox.Text = InvoiceId; 
         }
 
         private void WireUpGridView()
         {
             if(SaleItems.Count > 0)
             {
-                ReceiptGridView.ColumnCount = 6;
+                ReceiptGridView.ColumnCount = 8;
                 ReceiptGridView.Columns[0].Name = "Sr #";
                 ReceiptGridView.Columns[1].Name = "Item Name";
                 ReceiptGridView.Columns[2].Name = "UP";
@@ -45,10 +52,18 @@ namespace MedicosUI
                 ReceiptGridView.Columns[4].Name = "Total";
                 ReceiptGridView.Columns[5].Name = "Expiry";
 
+                ReceiptGridView.Columns[6].Name = "Item Id";
+                ReceiptGridView.Columns[7].Name = "Batch";
+
                 ReceiptGridView.ColumnHeadersDefaultCellStyle.Font = new Font(Font, FontStyle.Bold);
                 ReceiptGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 ReceiptGridView.RowHeadersWidth = 20;
+                ReceiptGridView.Columns["Sr #"].Width = 40;
+                ReceiptGridView.Columns["UP"].Width = 50;
+                ReceiptGridView.Columns["Qty"].Width = 50;
+                ReceiptGridView.Columns["Total"].Width = 50;
+                ReceiptGridView.Columns["Expiry"].Width = 70;
 
                 ReceiptGridView.Columns["Sr #"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 ReceiptGridView.Columns["UP"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -60,6 +75,9 @@ namespace MedicosUI
                 ReceiptGridView.Columns["Total"].DefaultCellStyle.Format = "N2";
                 ReceiptGridView.Columns["Expiry"].DefaultCellStyle.Format = "dd-MMM-yyyy";
 
+               ReceiptGridView.Columns["Item Id"].Visible = false;
+               ReceiptGridView.Columns["Batch"].Visible = false;
+
                 int count = 0;
                 foreach (var item in SaleItems)
                 {
@@ -70,7 +88,9 @@ namespace MedicosUI
                         item.UnitPrice,
                         item.Quantity,
                         item.ItemTotal,
-                        item.Expiry);
+                        item.Expiry,
+                        item.ItemId,
+                        item.Batch);
                 }
 
                 Totals();
@@ -120,6 +140,7 @@ namespace MedicosUI
 
                 contactTextbox.Text = customer.CustomerContact;
                 BalanceTextbox.Text = customer.Balance.ToString("N2");
+                CustomerId = customer.Id;
             }
             catch
             {
@@ -177,8 +198,111 @@ namespace MedicosUI
             customerCombobox.SelectedItem = null;
             contactTextbox.Text = "";
             BalanceTextbox.Text = "";
+            WireUpCustomers();
             recieveAmountTextbox.Focus();
         }
 
+        private void printButton_Click(object sender, EventArgs e)
+        {
+            double amount;
+            bool IsValid = Double.TryParse(recieveAmountTextbox.Text, out amount);
+            TotalAmount = Convert.ToDouble(totalAmountLabel.Text);
+            Discount = Convert.ToDouble(discountLabel.Text);
+
+            if (!IsValid)
+            {
+                recieveAmountTextbox.Text = "";
+                return;
+            }
+
+            ReceiveAmount = amount;
+
+            if (ReceiveAmount < TotalAmount)
+            {
+                BalanceAmount = TotalAmount - ReceiveAmount;
+                var Confirm = MessageBox.Show("Do you want to add remaining amount ( " + BalanceAmount +" ) to Customer Balance?","Receive Amount Less than Total", MessageBoxButtons.YesNo);
+                if (Confirm == DialogResult.No)
+                {
+                    recieveAmountTextbox.Text = "";
+                    BalanceAmount = 0;
+                    recieveAmountTextbox.Select();
+                    return;
+                }
+
+                if (Confirm == DialogResult.Yes)
+                {
+                    if(CustomerId == 0)
+                    {
+                        MessageBox.Show("Select Customer or Add New First.");
+                        customerCombobox.Select();
+                        return;
+                    }
+                    
+                    else CreateInvoiceModel();
+                }
+            }
+
+            else
+            {
+                CreateInvoiceModel();
+            }
+
+        }
+
+        private void CreateInvoiceModel()
+        {
+            try
+            {
+                InvoiceModel model = new InvoiceModel();
+
+                model.InvoiceId = invoiceTextbox.Text;
+                var InvoiceExists = model.InvoiceExists();
+                if (InvoiceExists)
+                {
+                    MessageBox.Show("Invoice Already Exists");
+                    return;
+                }
+                else
+                {
+                    model.CreatedBy_Id = UserId;
+                    model.CreatedAt = DateTime.Now;
+                    model.InvoiceTotal = TotalAmount;
+                    model.Discount = Discount;
+                    model.CustomerId = CustomerId;
+                    model.BalanceAmount = BalanceAmount;
+
+                    foreach (DataGridViewRow row in ReceiptGridView.Rows)
+                    {
+                        InvoiceItemsModel item = new InvoiceItemsModel();
+                        item.ItemId = Convert.ToInt32(row.Cells[6].Value.ToString());
+                        item.BatchTitle = row.Cells[7].Value.ToString();
+                        item.ItemName = row.Cells[1].Value.ToString();
+                        item.Quantity = Convert.ToInt32(row.Cells[3].Value.ToString());
+                        item.UnitPrice = Convert.ToDouble(row.Cells[2].Value.ToString());
+                        item.ItemTotal = Convert.ToDouble(row.Cells[4].Value.ToString());
+
+                        model.Items.Add(item);
+
+                    }
+
+                    var message = model.CreateSale(model);
+                    MessageBox.Show(message);
+                }
+            }
+            catch (Exception ex)
+            {
+                //throw;
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while creating Invoice. Invoice could not be created.", "Invoice Creation Failed!");
+            }
+        }
+
+        private void CreateCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerForm formObj = new CustomerForm();
+            formObj.Show();
+            formObj.FormBorderStyle = FormBorderStyle.FixedSingle;
+            formObj.ControlBox = true;
+        }
     }
 }

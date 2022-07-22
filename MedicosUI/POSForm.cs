@@ -17,10 +17,13 @@ namespace MedicosUI
         public int MaxStock { get; set; } = 0;
         public int SelectedId { get; set; } = 0;
         public string SelectedBatch { get; set; }
-        public POSForm()
+        public string dateTime { get; set; } = DateTime.Now.ToString("yyMMddhhmmss");
+        public int UserId { get; set; }
+        public POSForm(int userId)
         {
             InitializeComponent();
             itemsGridView.Visible = false;
+            UserId = userId;
         }
         
         private void itemTextbox_TextChanged(object sender, EventArgs e)
@@ -36,7 +39,7 @@ namespace MedicosUI
                 POSModel model = new POSModel();
                 itemsList = model.GetItems(itemTextbox.Text);
 
-                if (itemsList.Count > 0 && itemTextbox.Text.Length > 0)
+                if (itemsList.Count > 0)// && itemTextbox.Text.Length > 0)
                 {
                     itemsGridView.ColumnCount = 3;
                     itemsGridView.Columns[0].Name = "Id";
@@ -102,7 +105,7 @@ namespace MedicosUI
 
             foreach (DataGridViewRow row in POSGridView.Rows)
             {
-                if (Convert.ToInt32(row.Cells["Id"].Value) == SelectedId)
+                if (row.Cells["Batch"].Value.ToString() == SelectedBatch)
                 {
                     StockAdded = Convert.ToInt32(row.Cells["Qty"].Value);
                 }
@@ -322,7 +325,7 @@ namespace MedicosUI
                 POSModel item = new POSModel();
                 item.ItemId = Convert.ToInt32(row.Cells["Id"].Value);
                 item.ItemName = row.Cells["Item Name"].Value.ToString();
-                item.Batch = row.Cells["Batch"].ToString();
+                item.Batch = row.Cells["Batch"].Value.ToString();
                 item.UnitPrice = Convert.ToDouble(row.Cells["UP"].Value);
                 item.Quantity = Convert.ToDouble(row.Cells["Qty"].Value);
                 item.ItemTotal = Convert.ToDouble(row.Cells["Total"].Value);
@@ -332,7 +335,7 @@ namespace MedicosUI
             }
             double SubTotal = Convert.ToDouble(itemsTotalLabel.Text);
             double Discount = Convert.ToDouble(discountLabel.Text);
-            ReceiptForm form = new ReceiptForm(SaleItems, SubTotal, Discount);
+            ReceiptForm form = new ReceiptForm(SaleItems, SubTotal, Discount, dateTime, UserId);
             form.Show();
         }
 
@@ -340,7 +343,7 @@ namespace MedicosUI
         {
 
         }
-
+        #region Keypress Events
         //
         //  Shortcuts and keypress event handling starts here..
         //
@@ -348,7 +351,11 @@ namespace MedicosUI
         {
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
             {
-                if (itemsGridView.Rows.Count > 0)
+                if(e.KeyCode == Keys.Down && itemTextbox.Text.Length == 0)
+                {
+                    itemTextbox_TextChanged(sender, new EventArgs());
+                }
+                if (itemsGridView.RowCount > 0)
                 {
                     itemsGridView.Select();
                 }
@@ -357,11 +364,20 @@ namespace MedicosUI
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
-                var theColumnIndex = itemsGridView.CurrentCell.ColumnIndex;
-                var theRowIndex = itemsGridView.CurrentCell.RowIndex;
-                var args = new DataGridViewCellEventArgs(theColumnIndex, theRowIndex);
-                itemsGridView_CellClick(itemsGridView, args);
-                quantityTextbox.Select();
+                try
+                {
+                    var theColumnIndex = itemsGridView.CurrentCell.ColumnIndex;
+                    var theRowIndex = itemsGridView.CurrentCell.RowIndex;
+                    var args = new DataGridViewCellEventArgs(theColumnIndex, theRowIndex);
+                    itemsGridView_CellClick(itemsGridView, args);
+                    quantityTextbox.Select();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Item is not valid.");
+                    itemTextbox.Text = "";
+                    itemTextbox.Select();
+                }
             }
             if (e.KeyCode == Keys.F1 && POSGridView.Rows.Count > 0)
             {
@@ -471,8 +487,11 @@ namespace MedicosUI
                     itemTextbox.Text += e.KeyCode.ToString().ToLower();
                     itemTextbox.Select(itemTextbox.Text.Length, 0);
                 }
+
             }
         }
+
+        #endregion
 
     }
 }

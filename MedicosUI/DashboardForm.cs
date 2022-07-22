@@ -141,7 +141,7 @@ namespace MedicosUI
 
         private void pointOfSaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            POSForm formObj = new POSForm();
+            POSForm formObj = new POSForm(UserId);
             openChildForm(formObj);
         }
 

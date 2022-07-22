@@ -67,21 +67,10 @@ namespace MedicosUI
                 contactError.Text = "Invalid Contact Number";
                 return false;
             }
-            else if (balanceTextbox.Text.Length != 0 && balanceTextbox.Text != "")
-            {
-                try
-                {
-                    model.Balance = int.Parse(balanceTextbox.Text);
-                }
-                catch
-                {
-                    balanceError.Text = "Invalid Amount";
-                    return false;
-                }
-            }
 
             model.CustomerName = fullNameTextbox.Text;
             model.CustomerContact = contactTextbox.Text;
+            model.Balance = 0;
             return true;
             
         }
@@ -94,8 +83,6 @@ namespace MedicosUI
             fullNameError.Text = "";
             contactTextbox.Text = "";
             contactError.Text = "";
-            balanceTextbox.Text = "";
-            balanceError.Text = "";
         }
 
         private void WireupGridview()

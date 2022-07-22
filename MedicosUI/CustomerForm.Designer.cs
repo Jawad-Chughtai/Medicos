@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.deleteCustomerButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.customerGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.balanceError = new System.Windows.Forms.Label();
-            this.balanceTextbox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.contactError = new System.Windows.Forms.Label();
             this.fullNameError = new System.Windows.Forms.Label();
             this.addCustomerButton = new System.Windows.Forms.Button();
@@ -79,14 +76,14 @@
             this.customerGridView.AllowUserToDeleteRows = false;
             this.customerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.customerGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.customerGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.customerGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerGridView.Location = new System.Drawing.Point(596, 104);
             this.customerGridView.Name = "customerGridView";
@@ -98,9 +95,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.balanceError);
-            this.panel2.Controls.Add(this.balanceTextbox);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.contactError);
             this.panel2.Controls.Add(this.fullNameError);
             this.panel2.Controls.Add(this.addCustomerButton);
@@ -112,35 +106,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(322, 431);
             this.panel2.TabIndex = 12;
-            // 
-            // balanceError
-            // 
-            this.balanceError.AutoSize = true;
-            this.balanceError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balanceError.ForeColor = System.Drawing.Color.Red;
-            this.balanceError.Location = new System.Drawing.Point(19, 236);
-            this.balanceError.Name = "balanceError";
-            this.balanceError.Size = new System.Drawing.Size(0, 17);
-            this.balanceError.TabIndex = 14;
-            // 
-            // balanceTextbox
-            // 
-            this.balanceTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.balanceTextbox.Location = new System.Drawing.Point(22, 201);
-            this.balanceTextbox.Name = "balanceTextbox";
-            this.balanceTextbox.Size = new System.Drawing.Size(284, 29);
-            this.balanceTextbox.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(18, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 21);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Balance";
             // 
             // contactError
             // 
@@ -168,7 +133,7 @@
             this.addCustomerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addCustomerButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addCustomerButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.addCustomerButton.Location = new System.Drawing.Point(162, 253);
+            this.addCustomerButton.Location = new System.Drawing.Point(162, 180);
             this.addCustomerButton.Name = "addCustomerButton";
             this.addCustomerButton.Size = new System.Drawing.Size(144, 39);
             this.addCustomerButton.TabIndex = 4;
@@ -266,8 +231,5 @@
         private System.Windows.Forms.TextBox fullNameTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelUser;
-        private System.Windows.Forms.Label balanceError;
-        private System.Windows.Forms.TextBox balanceTextbox;
-        private System.Windows.Forms.Label label2;
     }
 }

@@ -11,12 +11,9 @@ namespace MedicosLibrary.Models
         public int ItemId { get; set; }
         public string ItemName { get; set; }
         public string BatchTitle { get; set; }
-        public double Quantity { get; set; }
+        public int Quantity { get; set; }
         public double UnitPrice { get; set; }
-        public double TotalAmount
-        {
-            get { return TotalAmount; }
-            set { TotalAmount = Quantity * UnitPrice; }
-        }
+        public double ItemTotal { get; set; }
+        public bool IsStock { get; set; }
     }
 }

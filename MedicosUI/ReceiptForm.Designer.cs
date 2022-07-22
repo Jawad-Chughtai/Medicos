@@ -54,6 +54,7 @@
             this.BalanceTextbox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.CreateCustomer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ReceiptGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,6 @@
             // 
             this.ReceiptGridView.AllowUserToAddRows = false;
             this.ReceiptGridView.AllowUserToDeleteRows = false;
-            this.ReceiptGridView.AllowUserToOrderColumns = true;
             this.ReceiptGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ReceiptGridView.BackgroundColor = System.Drawing.Color.White;
             this.ReceiptGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -70,6 +70,7 @@
             this.ReceiptGridView.Location = new System.Drawing.Point(12, 92);
             this.ReceiptGridView.MultiSelect = false;
             this.ReceiptGridView.Name = "ReceiptGridView";
+            this.ReceiptGridView.ReadOnly = true;
             this.ReceiptGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ReceiptGridView.ShowEditingIcon = false;
             this.ReceiptGridView.Size = new System.Drawing.Size(666, 418);
@@ -88,6 +89,7 @@
             this.printButton.TabIndex = 37;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = false;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
             // totalAmountLabel
             // 
@@ -228,7 +230,7 @@
             this.recieveAmountTextbox.Location = new System.Drawing.Point(100, 519);
             this.recieveAmountTextbox.Name = "recieveAmountTextbox";
             this.recieveAmountTextbox.Size = new System.Drawing.Size(134, 25);
-            this.recieveAmountTextbox.TabIndex = 39;
+            this.recieveAmountTextbox.TabIndex = 1;
             this.recieveAmountTextbox.TextChanged += new System.EventHandler(this.recieveAmountTextbox_TextChanged);
             // 
             // changeTextbox
@@ -271,7 +273,7 @@
             this.customerCombobox.Location = new System.Drawing.Point(89, 9);
             this.customerCombobox.Name = "customerCombobox";
             this.customerCombobox.Size = new System.Drawing.Size(149, 25);
-            this.customerCombobox.TabIndex = 43;
+            this.customerCombobox.TabIndex = 2;
             this.customerCombobox.SelectionChangeCommitted += new System.EventHandler(this.customerCombobox_SelectionChangeCommitted);
             this.customerCombobox.SelectedValueChanged += new System.EventHandler(this.customerCombobox_SelectedValueChanged);
             // 
@@ -315,6 +317,7 @@
             this.invoiceTextbox.ReadOnly = true;
             this.invoiceTextbox.Size = new System.Drawing.Size(134, 25);
             this.invoiceTextbox.TabIndex = 47;
+            this.invoiceTextbox.TabStop = false;
             // 
             // discountButton
             // 
@@ -364,12 +367,26 @@
             this.RemoveButton.UseVisualStyleBackColor = false;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
+            // CreateCustomer
+            // 
+            this.CreateCustomer.AutoSize = true;
+            this.CreateCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CreateCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.CreateCustomer.Location = new System.Drawing.Point(97, 37);
+            this.CreateCustomer.Name = "CreateCustomer";
+            this.CreateCustomer.Size = new System.Drawing.Size(141, 17);
+            this.CreateCustomer.TabIndex = 3;
+            this.CreateCustomer.Text = "Create New Customer";
+            this.CreateCustomer.Click += new System.EventHandler(this.CreateCustomer_Click);
+            // 
             // ReceiptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(697, 648);
+            this.Controls.Add(this.CreateCustomer);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.BalanceTextbox);
             this.Controls.Add(this.label8);
@@ -433,5 +450,6 @@
         private System.Windows.Forms.TextBox BalanceTextbox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button RemoveButton;
+        private System.Windows.Forms.Label CreateCustomer;
     }
 }
