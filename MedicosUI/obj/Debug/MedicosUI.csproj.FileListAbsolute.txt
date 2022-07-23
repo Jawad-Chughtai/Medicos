@@ -56,3 +56,6 @@ C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.L
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.FirstUserForm.resources
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.ReceiptForm.resources
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\MedicosLibrary.dll.config
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\itextsharp.dll
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\itextsharp.xml

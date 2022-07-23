@@ -19,10 +19,15 @@ namespace MedicosUI
         public string SelectedBatch { get; set; }
         public string dateTime { get; set; } = DateTime.Now.ToString("yyMMddhhmmss");
         public int UserId { get; set; }
+        public POSForm()
+        {
+
+        }
         public POSForm(int userId)
         {
             InitializeComponent();
             itemsGridView.Visible = false;
+
             UserId = userId;
         }
         
@@ -200,7 +205,7 @@ namespace MedicosUI
             unitPriceTextbox.Text = "";
             amountTextbox.Text = "";
 
-            //itemsListbox.Visible = false;
+            itemsGridView.Visible = false;
             return;
         }
 
@@ -335,7 +340,7 @@ namespace MedicosUI
             }
             double SubTotal = Convert.ToDouble(itemsTotalLabel.Text);
             double Discount = Convert.ToDouble(discountLabel.Text);
-            ReceiptForm form = new ReceiptForm(SaleItems, SubTotal, Discount, dateTime, UserId);
+            ReceiptForm form = new ReceiptForm(SaleItems, SubTotal, Discount, dateTime, UserId, this);
             form.Show();
         }
 

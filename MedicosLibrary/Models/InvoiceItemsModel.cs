@@ -15,5 +15,6 @@ namespace MedicosLibrary.Models
         public double UnitPrice { get; set; }
         public double ItemTotal { get; set; }
         public bool IsStock { get; set; }
+        public int UpdatedStock { get; set; }
     }
 }

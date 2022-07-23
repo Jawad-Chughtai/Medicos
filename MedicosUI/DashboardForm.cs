@@ -18,7 +18,10 @@ namespace MedicosUI
         public string Username { get; set; }
         public string FullName { get; set; }
         public bool IsAdmin { get; set; }
+        public DashboardForm()
+        {
 
+        }
         public DashboardForm(int UserId, string Username, string FullName, bool IsAdmin)
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace MedicosUI
 
             DashboardChildForm formObj = new DashboardChildForm();
             openChildForm(formObj);
+
             menuStripNavigation.Renderer = new myRenderer();
             menuStripUserInfo.Renderer = new myRenderer();
 

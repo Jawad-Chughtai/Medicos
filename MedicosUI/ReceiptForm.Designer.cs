@@ -232,6 +232,7 @@
             this.recieveAmountTextbox.Size = new System.Drawing.Size(134, 25);
             this.recieveAmountTextbox.TabIndex = 1;
             this.recieveAmountTextbox.TextChanged += new System.EventHandler(this.recieveAmountTextbox_TextChanged);
+            this.recieveAmountTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.recieveAmountTextbox_KeyDown);
             // 
             // changeTextbox
             // 
@@ -413,6 +414,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receipt";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReceiptForm_FormClosing);
             this.Load += new System.EventHandler(this.ReceiptForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ReceiptGridView)).EndInit();
             this.panel1.ResumeLayout(false);

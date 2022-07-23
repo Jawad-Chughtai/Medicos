@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using iText;
 
 namespace MedicosLibrary.Models
 {
@@ -15,9 +14,12 @@ namespace MedicosLibrary.Models
         public int CreatedBy_Id { get; set; }
         public string CreatedBy_Name { get; set; }
         public DateTime CreatedAt { get; set; }
-        public double InvoiceTotal { get; set; }
+        public double InvoiceSubTotal { get; set; }
         public double Discount { get; set; }
+        public double InvoiceTotal { get; set; }
+        public double ReceivedAmount { get; set; }
         public int CustomerId { get; set; }
+        public string CustomerName { get; set; }
         public double BalanceAmount { get; set; }
         public List<InvoiceItemsModel> Items { get; set; } = new List<InvoiceItemsModel>();
 
@@ -49,57 +51,34 @@ namespace MedicosLibrary.Models
         }
         public string CreateSale(InvoiceModel invoice)
         {
-            var message = "Successful";
             try
             {
-                if (StockAvailable(invoice))
+                if (!StockAvailable(invoice))
                 {
-                    if (CreateInvoice(invoice))
-                    {
-                        if (CreateInvoiceItems(invoice))
-                        {
-                            if (UpdateStock(invoice))
-                            {
-                                if (invoice.BalanceAmount == 0)
-                                {
-                                    message = "successful";
-                                }
-                                else
-                                {
-                                    UpdateCustomer(invoice);
-                                }
-                            }
-                            else
-                            {
-                                message = "stock could not be updated.";
-
-                                DeleteInvoiceItems(invoice);
-                                DeleteInvoice(invoice);
-
-                            }
-                        }
-
-                        else
-                        {
-                            message = "Invoice Items could not be created.";
-                            DeleteInvoiceItems(invoice);
-                            DeleteInvoice(invoice);
-                        }
-                    }
-
-                    else
-                    {
-                        message = "Invoice could not be created";
-                    }
+                    return "Stock for some item is not available.";
                 }
-
-
+                else if (!CreateInvoice(invoice))
+                {
+                    return "Invoice could not be created.";
+                }
+                else if (!CreateInvoiceItems(invoice))
+                {
+                    return "Invoice Items could not be created.";
+                }
+                else if (UpdateStock(invoice))
+                {
+                    if (invoice.BalanceAmount > 0)
+                    {
+                        UpdateCustomer(invoice);
+                    }
+                    return "Invoice Created Successfully.";
+                }
                 else
                 {
-                    message = "Stock Not Available";
+                    DeleteInvoiceItems(invoice);
+                    DeleteInvoice(invoice);
+                    return "Transaction Failed.";
                 }
-
-                return message;
             }
             catch
             {
@@ -125,7 +104,8 @@ namespace MedicosLibrary.Models
                 SqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
-                    if (Convert.ToInt32(rd["stock"]) < item.Quantity)
+                    var Stock = Convert.ToInt32(rd["stock"]);
+                    if (Stock < item.Quantity)
                     {
                         result = false;
                     }
@@ -146,6 +126,10 @@ namespace MedicosLibrary.Models
             cmd.Parameters.Add(new SqlParameter("@CustomerId", invoice.CustomerId));
             cmd.Parameters.Add(new SqlParameter("@UserId", invoice.CreatedBy_Id));
             cmd.Parameters.Add(new SqlParameter("@CreatedAt", invoice.CreatedAt));
+            cmd.Parameters.Add(new SqlParameter("@Discount", invoice.Discount));
+            cmd.Parameters.Add(new SqlParameter("@subTotal", invoice.InvoiceSubTotal));
+            cmd.Parameters.Add(new SqlParameter("@received", invoice.ReceivedAmount));
+
             try
             {
                 con.Open();
@@ -203,42 +187,30 @@ namespace MedicosLibrary.Models
             bool result = true;
             foreach(var item in invoice.Items)
             {
-                bool IsStock = new bool();
-                int Stock = new int();
-
-                SqlConnection con = dbConnection.getCon();
-                SqlCommand get_cmd = new SqlCommand("spBatch_GetStockOnSale", con);
+                SqlConnection get_con = dbConnection.getCon();
+                SqlCommand get_cmd = new SqlCommand("spBatch_GetStockOnSale", get_con);
                 get_cmd.CommandType = CommandType.StoredProcedure;
                 get_cmd.Parameters.Add(new SqlParameter("@batch", item.BatchTitle));
-
-
-                SqlCommand update_cmd = new SqlCommand("spBatch_UpdateStockOnSale", con);
-                update_cmd.CommandType = CommandType.StoredProcedure;
-                update_cmd.Parameters.Add(new SqlParameter("@batch", item.BatchTitle));
-                update_cmd.Parameters.Add(new SqlParameter("@Qty", Stock));
-                update_cmd.Parameters.Add(new SqlParameter("@IsStock", IsStock));
-
+                
                 try
                 {
-                    con.Open();
+                    get_con.Open();
                     SqlDataReader rd = get_cmd.ExecuteReader();
                     if (rd.Read())
                     {
-                        Stock = Convert.ToInt32(rd["stock"]) - item.Quantity;
-                       
-                        if (Stock > 0)
+                        int PreviousStock = Convert.ToInt32(rd["stock"]);
+                        item.UpdatedStock = PreviousStock - item.Quantity;
+
+                        if (item.UpdatedStock > 0)
                         {
-                            IsStock = true;
+                            item.IsStock = true;
                         }
                         else
                         {
-                            IsStock = false;
+                            item.IsStock = false;
                         }
 
                     }
-                    con.Close();
-                    con.Open();
-                    update_cmd.ExecuteNonQuery();
                 }
                 catch
                 {
@@ -247,13 +219,37 @@ namespace MedicosLibrary.Models
                 }
                 finally
                 {
-                    con.Close();
+                    get_con.Close();
                 }
+
+                SqlConnection update_con = dbConnection.getCon();
+                SqlCommand update_cmd = new SqlCommand("spBatch_UpdateStockOnSale", update_con);
+                update_cmd.CommandType = CommandType.StoredProcedure;
+                update_cmd.Parameters.Add(new SqlParameter("@batch", item.BatchTitle));
+                update_cmd.Parameters.Add(new SqlParameter("@UpdatedStock", item.UpdatedStock));
+                update_cmd.Parameters.Add(new SqlParameter("@IsStock", item.IsStock));
+
+                try
+                {
+                    update_con.Open();
+                    update_cmd.ExecuteNonQuery();
+                }
+
+                catch
+                {
+                    result = false;
+                    throw;
+                }
+                finally
+                {
+                    update_con.Close();
+                }
+                
             }
             return result;
         }
 
-        private void DeleteInvoiceItems(InvoiceModel invoice)
+        public void DeleteInvoiceItems(InvoiceModel invoice)
         {
             SqlConnection con = dbConnection.getCon();
             SqlCommand cmd = new SqlCommand("spInvoiceItems_DeleteOnFail", con);
@@ -277,7 +273,7 @@ namespace MedicosLibrary.Models
 
         }
 
-        private void DeleteInvoice(InvoiceModel invoice)
+        public void DeleteInvoice(InvoiceModel invoice)
         {
             SqlConnection con = dbConnection.getCon();
             SqlCommand cmd = new SqlCommand("spInvoice_DeleteOnFail", con);

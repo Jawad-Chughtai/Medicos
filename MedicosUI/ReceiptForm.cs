@@ -1,4 +1,5 @@
-﻿using MedicosLibrary.Models;
+﻿using MedicosLibrary;
+using MedicosLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,9 @@ namespace MedicosUI
         double ReceiveAmount { get; set; }
         double TotalAmount { get; set; }
         double BalanceAmount { get; set; }
-        public ReceiptForm(List<POSModel> Items, double subTotal, double discount, string invoiceId, int userId)
+
+        Form FormObj = new Form();
+        public ReceiptForm(List<POSModel> Items, double subTotal, double discount, string invoiceId, int userId, POSForm formObj)
         {
             InitializeComponent();
             SaleItems = Items;
@@ -30,6 +33,7 @@ namespace MedicosUI
             Discount = discount;
             InvoiceId = invoiceId;
             UserId = userId;
+            FormObj = formObj;
 
             WireUpGridView();
             WireUpCustomers();
@@ -248,13 +252,11 @@ namespace MedicosUI
             }
 
         }
-
         private void CreateInvoiceModel()
         {
+            InvoiceModel model = new InvoiceModel();
             try
             {
-                InvoiceModel model = new InvoiceModel();
-
                 model.InvoiceId = invoiceTextbox.Text;
                 var InvoiceExists = model.InvoiceExists();
                 if (InvoiceExists)
@@ -266,10 +268,12 @@ namespace MedicosUI
                 {
                     model.CreatedBy_Id = UserId;
                     model.CreatedAt = DateTime.Now;
+                    model.InvoiceSubTotal = SubTotal;
                     model.InvoiceTotal = TotalAmount;
                     model.Discount = Discount;
                     model.CustomerId = CustomerId;
                     model.BalanceAmount = BalanceAmount;
+                    model.ReceivedAmount = ReceiveAmount;
 
                     foreach (DataGridViewRow row in ReceiptGridView.Rows)
                     {
@@ -284,16 +288,31 @@ namespace MedicosUI
                         model.Items.Add(item);
 
                     }
+                    //var message = model.CreateSale(model);
+                    var message = "Invoice Created Successfully.";
+                    if (message == "Invoice Created Successfully.")
+                    {
+                        var appPath = Application.StartupPath;
 
-                    var message = model.CreateSale(model);
-                    MessageBox.Show(message);
+                        ReceiptGenerator receiptGenerator = new ReceiptGenerator();
+                        receiptGenerator.PrintReceipt(model, appPath);
+
+
+                        MessageBox.Show(message);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(message, "Error in Transaction", MessageBoxButtons.OK ,MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                //throw;
+                model.DeleteInvoiceItems(model);
+                model.DeleteInvoice(model);
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Something went wrong while creating Invoice. Invoice could not be created.", "Invoice Creation Failed!");
+                MessageBox.Show("Something went wrong while creating Invoice. Invoice could not be created.", "Invoice Creation Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -303,6 +322,21 @@ namespace MedicosUI
             formObj.Show();
             formObj.FormBorderStyle = FormBorderStyle.FixedSingle;
             formObj.ControlBox = true;
+        }
+
+        private void recieveAmountTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                printButton_Click(sender, new EventArgs());
+            }
+        }
+
+        private void ReceiptForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormObj.Close();
         }
     }
 }
