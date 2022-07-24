@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.deleteInvoiceButton = new System.Windows.Forms.Button();
+            this.viewInvoiceButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.customerGridView = new System.Windows.Forms.DataGridView();
+            this.invoiceGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.customerNameError = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.customerName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.invoiceDateTime = new System.Windows.Forms.DateTimePicker();
             this.dateError = new System.Windows.Forms.Label();
@@ -44,48 +44,56 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
             this.invoiceAvailableError = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
+            this.dateSearchButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // deleteInvoiceButton
+            // viewInvoiceButton
             // 
-            this.deleteInvoiceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
-            this.deleteInvoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteInvoiceButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteInvoiceButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.deleteInvoiceButton.Location = new System.Drawing.Point(903, 555);
-            this.deleteInvoiceButton.Name = "deleteInvoiceButton";
-            this.deleteInvoiceButton.Size = new System.Drawing.Size(149, 39);
-            this.deleteInvoiceButton.TabIndex = 20;
-            this.deleteInvoiceButton.Text = "Delete Invoice";
-            this.deleteInvoiceButton.UseVisualStyleBackColor = false;
+            this.viewInvoiceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.viewInvoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewInvoiceButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewInvoiceButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.viewInvoiceButton.Location = new System.Drawing.Point(931, 541);
+            this.viewInvoiceButton.Name = "viewInvoiceButton";
+            this.viewInvoiceButton.Size = new System.Drawing.Size(149, 39);
+            this.viewInvoiceButton.TabIndex = 20;
+            this.viewInvoiceButton.Text = "View Invoice";
+            this.viewInvoiceButton.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(591, 71);
+            this.label5.Location = new System.Drawing.Point(468, 71);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 30);
             this.label5.TabIndex = 19;
             this.label5.Text = "Invoice";
             // 
-            // customerGridView
+            // invoiceGridView
             // 
-            this.customerGridView.BackgroundColor = System.Drawing.Color.White;
-            this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerGridView.Location = new System.Drawing.Point(596, 104);
-            this.customerGridView.Name = "customerGridView";
-            this.customerGridView.Size = new System.Drawing.Size(456, 431);
-            this.customerGridView.TabIndex = 18;
+            this.invoiceGridView.AllowUserToAddRows = false;
+            this.invoiceGridView.AllowUserToDeleteRows = false;
+            this.invoiceGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.invoiceGridView.BackgroundColor = System.Drawing.Color.White;
+            this.invoiceGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.invoiceGridView.Location = new System.Drawing.Point(473, 104);
+            this.invoiceGridView.MultiSelect = false;
+            this.invoiceGridView.Name = "invoiceGridView";
+            this.invoiceGridView.ReadOnly = true;
+            this.invoiceGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.invoiceGridView.Size = new System.Drawing.Size(607, 431);
+            this.invoiceGridView.TabIndex = 18;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.dateSearchButton);
             this.panel2.Controls.Add(this.customerNameError);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.customerName);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.invoiceDateTime);
             this.panel2.Controls.Add(this.dateError);
@@ -110,13 +118,13 @@
             this.customerNameError.TabIndex = 15;
             this.customerNameError.Text = "Customer name error";
             // 
-            // textBox1
+            // customerName
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(22, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(284, 29);
-            this.textBox1.TabIndex = 14;
+            this.customerName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.customerName.Location = new System.Drawing.Point(22, 136);
+            this.customerName.Name = "customerName";
+            this.customerName.Size = new System.Drawing.Size(284, 29);
+            this.customerName.TabIndex = 14;
             // 
             // label3
             // 
@@ -133,7 +141,7 @@
             // 
             this.invoiceDateTime.CustomFormat = "dd-MM-yyyy";
             this.invoiceDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.invoiceDateTime.Location = new System.Drawing.Point(22, 218);
+            this.invoiceDateTime.Location = new System.Drawing.Point(22, 268);
             this.invoiceDateTime.MaxDate = new System.DateTime(2029, 12, 25, 23, 59, 59, 0);
             this.invoiceDateTime.MinDate = new System.DateTime(2022, 4, 1, 0, 0, 0, 0);
             this.invoiceDateTime.Name = "invoiceDateTime";
@@ -146,7 +154,7 @@
             this.dateError.AutoSize = true;
             this.dateError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateError.ForeColor = System.Drawing.Color.Red;
-            this.dateError.Location = new System.Drawing.Point(19, 250);
+            this.dateError.Location = new System.Drawing.Point(19, 300);
             this.dateError.Name = "dateError";
             this.dateError.Size = new System.Drawing.Size(66, 17);
             this.dateError.TabIndex = 11;
@@ -169,19 +177,20 @@
             this.searchInvoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchInvoiceButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchInvoiceButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.searchInvoiceButton.Location = new System.Drawing.Point(162, 286);
+            this.searchInvoiceButton.Location = new System.Drawing.Point(162, 171);
             this.searchInvoiceButton.Name = "searchInvoiceButton";
             this.searchInvoiceButton.Size = new System.Drawing.Size(144, 39);
             this.searchInvoiceButton.TabIndex = 9;
             this.searchInvoiceButton.Text = "Search Invoice";
             this.searchInvoiceButton.UseVisualStyleBackColor = false;
+            this.searchInvoiceButton.Click += new System.EventHandler(this.searchInvoiceButton_Click);
             // 
             // contactLabel
             // 
             this.contactLabel.AutoSize = true;
             this.contactLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactLabel.ForeColor = System.Drawing.Color.Black;
-            this.contactLabel.Location = new System.Drawing.Point(18, 195);
+            this.contactLabel.Location = new System.Drawing.Point(18, 245);
             this.contactLabel.Name = "contactLabel";
             this.contactLabel.Size = new System.Drawing.Size(101, 21);
             this.contactLabel.TabIndex = 3;
@@ -222,11 +231,25 @@
             this.invoiceAvailableError.AutoSize = true;
             this.invoiceAvailableError.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceAvailableError.ForeColor = System.Drawing.Color.Red;
-            this.invoiceAvailableError.Location = new System.Drawing.Point(851, 84);
+            this.invoiceAvailableError.Location = new System.Drawing.Point(879, 84);
             this.invoiceAvailableError.Name = "invoiceAvailableError";
             this.invoiceAvailableError.Size = new System.Drawing.Size(201, 17);
             this.invoiceAvailableError.TabIndex = 13;
             this.invoiceAvailableError.Text = "Invoice is not available in database";
+            // 
+            // dateSearchButton
+            // 
+            this.dateSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.dateSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dateSearchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateSearchButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.dateSearchButton.Location = new System.Drawing.Point(162, 303);
+            this.dateSearchButton.Name = "dateSearchButton";
+            this.dateSearchButton.Size = new System.Drawing.Size(144, 39);
+            this.dateSearchButton.TabIndex = 16;
+            this.dateSearchButton.Text = "Search Date";
+            this.dateSearchButton.UseVisualStyleBackColor = false;
+            this.dateSearchButton.Click += new System.EventHandler(this.dateSearchButton_Click);
             // 
             // InvoiceForm
             // 
@@ -236,9 +259,9 @@
             this.ClientSize = new System.Drawing.Size(1165, 665);
             this.ControlBox = false;
             this.Controls.Add(this.invoiceAvailableError);
-            this.Controls.Add(this.deleteInvoiceButton);
+            this.Controls.Add(this.viewInvoiceButton);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.customerGridView);
+            this.Controls.Add(this.invoiceGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.labelUser);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -248,7 +271,7 @@
             this.MinimizeBox = false;
             this.Name = "InvoiceForm";
             this.Text = "InvoiceForm";
-            ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -258,9 +281,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button deleteInvoiceButton;
+        private System.Windows.Forms.Button viewInvoiceButton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView customerGridView;
+        private System.Windows.Forms.DataGridView invoiceGridView;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DateTimePicker invoiceDateTime;
         private System.Windows.Forms.Label dateError;
@@ -272,7 +295,8 @@
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label invoiceAvailableError;
         private System.Windows.Forms.Label customerNameError;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox customerName;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button dateSearchButton;
     }
 }

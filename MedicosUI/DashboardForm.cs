@@ -161,9 +161,21 @@ namespace MedicosUI
             openChildForm(formObj);
         }
 
+        private void receiptDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReceiptDetails formObj = new ReceiptDetails();
+            formObj.Show();
+        }
+
+        private void customerBalanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateCustomerBalance updateCustomerBalance = new UpdateCustomerBalance();
+            updateCustomerBalance.Show();
+        }
+
         private void DashboardForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-                Application.Exit();
+            Application.Exit();
         }
 
     }

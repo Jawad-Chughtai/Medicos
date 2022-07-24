@@ -52,26 +52,27 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.receiptDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripUserInfo = new System.Windows.Forms.MenuStrip();
             this.UserinfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weeklyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.receiptDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerBalanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripNavigation.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
-            this.menuStripUserInfo.SuspendLayout();
             this.panel6.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.menuStripUserInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -393,6 +394,55 @@
             this.panel4.Size = new System.Drawing.Size(1170, 61);
             this.panel4.TabIndex = 1;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.menuStrip1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Location = new System.Drawing.Point(891, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(70, 61);
+            this.panel6.TabIndex = 2;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setupToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 38);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(70, 23);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // setupToolStripMenuItem
+            // 
+            this.setupToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.setupToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.setupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updatesToolStripMenuItem,
+            this.receiptDetailsToolStripMenuItem,
+            this.customerBalanceToolStripMenuItem});
+            this.setupToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.setupToolStripMenuItem.Image = global::MedicosUI.Properties.Resources.icons8_gear_100;
+            this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
+            this.setupToolStripMenuItem.Text = "Settings";
+            // 
+            // updatesToolStripMenuItem
+            // 
+            this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
+            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updatesToolStripMenuItem.Text = "Updates";
+            // 
+            // receiptDetailsToolStripMenuItem
+            // 
+            this.receiptDetailsToolStripMenuItem.Name = "receiptDetailsToolStripMenuItem";
+            this.receiptDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.receiptDetailsToolStripMenuItem.Text = "Receipt Details";
+            this.receiptDetailsToolStripMenuItem.Click += new System.EventHandler(this.receiptDetailsToolStripMenuItem_Click);
+            // 
             // menuStripUserInfo
             // 
             this.menuStripUserInfo.BackColor = System.Drawing.Color.Transparent;
@@ -417,7 +467,7 @@
             this.UserinfotoolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.UserinfotoolStripMenuItem.Name = "UserinfotoolStripMenuItem";
             this.UserinfotoolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
-            this.UserinfotoolStripMenuItem.Size = new System.Drawing.Size(187, 37);
+            this.UserinfotoolStripMenuItem.Size = new System.Drawing.Size(187, 61);
             this.UserinfotoolStripMenuItem.Text = "UserInformation";
             this.UserinfotoolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -454,50 +504,12 @@
             this.panel5.Size = new System.Drawing.Size(1170, 3);
             this.panel5.TabIndex = 3;
             // 
-            // panel6
+            // customerBalanceToolStripMenuItem
             // 
-            this.panel6.Controls.Add(this.menuStrip1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(70, 61);
-            this.panel6.TabIndex = 2;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setupToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 38);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(70, 23);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // setupToolStripMenuItem
-            // 
-            this.setupToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.setupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updatesToolStripMenuItem,
-            this.receiptDetailsToolStripMenuItem});
-            this.setupToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
-            this.setupToolStripMenuItem.Text = "Settings";
-            // 
-            // receiptDetailsToolStripMenuItem
-            // 
-            this.receiptDetailsToolStripMenuItem.Name = "receiptDetailsToolStripMenuItem";
-            this.receiptDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.receiptDetailsToolStripMenuItem.Text = "Receipt Details";
-            // 
-            // updatesToolStripMenuItem
-            // 
-            this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
-            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.updatesToolStripMenuItem.Text = "Updates";
+            this.customerBalanceToolStripMenuItem.Name = "customerBalanceToolStripMenuItem";
+            this.customerBalanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customerBalanceToolStripMenuItem.Text = "Customer Balance";
+            this.customerBalanceToolStripMenuItem.Click += new System.EventHandler(this.customerBalanceToolStripMenuItem_Click);
             // 
             // DashboardForm
             // 
@@ -526,11 +538,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.menuStripUserInfo.ResumeLayout(false);
-            this.menuStripUserInfo.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.menuStripUserInfo.ResumeLayout(false);
+            this.menuStripUserInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -571,6 +583,7 @@
         private System.Windows.Forms.ToolStripMenuItem setupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receiptDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerBalanceToolStripMenuItem;
     }
 }
 

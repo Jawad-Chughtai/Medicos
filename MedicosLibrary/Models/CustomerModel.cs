@@ -114,5 +114,59 @@ namespace MedicosLibrary.Models
                 con.Close();
             }
         }
+
+        public List<CustomerModel> GetCustomersWithBalance()
+        {
+            List<CustomerModel> Customers = new List<CustomerModel>();
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCustomer_GetWithBalance", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                
+                while (rd.Read())
+                {
+                    CustomerModel customer = new CustomerModel();
+                    customer.Id = Convert.ToInt32(rd["id"]);
+                    customer.CustomerName = rd["fullName"].ToString();
+
+                    Customers.Add(customer);
+                }
+
+                return Customers;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        public void UpdateBalance(int Id, double Balance)
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spCustomer_UpdateBalance", con);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", Id));
+            cmd.Parameters.Add(new SqlParameter("@balance", Balance));
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+        }
     }
 }

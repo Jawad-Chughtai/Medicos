@@ -15,7 +15,6 @@ namespace MedicosLibrary
         private string Path { get; set; }
         private InvoiceModel Invoice { get; set; }
         private string StoreName { get; set; }
-        private string Slogan { get; set; }
         private string Details { get; set; }
         private string Contact { get; set; }
         private string Address { get; set; }
@@ -31,7 +30,6 @@ namespace MedicosLibrary
                 if (rd.Read())
                 {
                     StoreName = rd["storeName"].ToString();
-                    Slogan = rd["slogan"].ToString();
                     Details = rd["bottomLine"].ToString();
                     Contact = rd["contact"].ToString();
                     Address = rd["address"].ToString();
@@ -81,7 +79,7 @@ namespace MedicosLibrary
             Invoice = invoice;
             Path = path + "/Invoices/"; // Path of the file
             
-            GetData(); // Get Customer Name, User Name and Details to print
+            GetData(); // Get Customer Name, User Name and Business Details to print
 
 
             if (!Directory.Exists(Path))
@@ -386,9 +384,10 @@ namespace MedicosLibrary
                 BottomTable.SpacingBefore = 30;
                 BottomTable.SpacingAfter = 10;
                 BottomTable.WidthPercentage = 70;
+                BottomTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
                 Cell1.Phrase = new Phrase(Details, font_detail_heading);
-                Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
+                Cell1.HorizontalAlignment = Element.ALIGN_CENTER;
                 Cell1.Colspan = 1;
                 BottomTable.AddCell(Cell1);
 

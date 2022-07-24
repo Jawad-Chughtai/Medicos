@@ -99,7 +99,7 @@ namespace MedicosUI
                 customerGridView.Columns[1].Name = "Customer Name";
                 customerGridView.Columns[2].Name = "Contact";
                 customerGridView.Columns[3].Name = "Balance";
-                customerGridView.Columns[3].DefaultCellStyle.Format = "N0";
+                customerGridView.Columns[3].DefaultCellStyle.Format = "N2";
                 customerGridView.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 customerGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 customerGridView.Columns[0].Width = 50;

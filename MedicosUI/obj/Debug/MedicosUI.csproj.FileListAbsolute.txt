@@ -59,3 +59,5 @@ C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\MedicosLibr
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\itextsharp.dll
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\itextsharp.xml
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.ReceiptDetails.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.UpdateCustomerBalance.resources

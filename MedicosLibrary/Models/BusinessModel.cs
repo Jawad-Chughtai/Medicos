@@ -38,5 +38,62 @@ namespace MedicosLibrary.Models
                 con.Close();
             }
         }
+
+        public BusinessModel GetDetails()
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spReceiptDetails_GetDetails", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                BusinessModel model = new BusinessModel();
+                while (rd.Read())
+                {
+                    model.BusinessName = rd["storeName"].ToString();
+                    model.Address = rd["contact"].ToString();
+                    model.Contact = rd["address"].ToString();
+                    model.BottomLine = rd["bottomLine"].ToString();
+                }
+                return model;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        
+        public bool Update(BusinessModel model)
+        {
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spReceiptDetails_Update", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@Name", model.BusinessName));
+            cmd.Parameters.Add(new SqlParameter("@Contact", model.Contact));
+            cmd.Parameters.Add(new SqlParameter("@Address", model.Address));
+            cmd.Parameters.Add(new SqlParameter("@BottomLine", model.BottomLine));
+            cmd.Parameters.Add(new SqlParameter("@Image", model.Image));
+
+            try
+            {
+                con.Open();
+                var rowsAffected = cmd.ExecuteNonQuery();
+                if(rowsAffected > 0)
+                {
+                    return true;
+                }
+            }
+            finally
+            {
+                con.Close();
+
+            }
+
+            return false;
+        }
     }
 }

@@ -288,8 +288,7 @@ namespace MedicosUI
                         model.Items.Add(item);
 
                     }
-                    //var message = model.CreateSale(model);
-                    var message = "Invoice Created Successfully.";
+                    var message = model.CreateSale(model);
                     if (message == "Invoice Created Successfully.")
                     {
                         var appPath = Application.StartupPath;

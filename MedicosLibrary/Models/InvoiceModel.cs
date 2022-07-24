@@ -319,6 +319,110 @@ namespace MedicosLibrary.Models
                 con.Close();
             }
         }
+
+        public List<InvoiceModel> GetAllInvoices()
+        {
+            List<InvoiceModel> invoices = new List<InvoiceModel>();
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spInvoice_GetAllInvoices", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    InvoiceModel invoice = new InvoiceModel();
+                    invoice.InvoiceId = rd["InvoiceId"].ToString();
+                    invoice.CustomerName = rd["fullName"].ToString();
+                    invoice.InvoiceSubTotal = Convert.ToDouble(rd["subTotal"]);
+                    invoice.Discount = Convert.ToDouble(rd["discount"]);
+                    invoice.CreatedAt = Convert.ToDateTime(rd["createdAt"]);
+
+                    invoices.Add(invoice);
+                }
+
+
+                return invoices;
+            }
+            finally 
+            { 
+                con.Close(); 
+            }
+        }
+
+        public List<InvoiceModel> SearchInvoices(DateTime date)
+        {
+            List<InvoiceModel> Invoices = new List<InvoiceModel>();
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spInvoice_SearchByDate", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@date", date));
+
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    InvoiceModel invoice = new InvoiceModel();
+                    invoice.InvoiceId = rd["InvoiceId"].ToString();
+                    invoice.CustomerName = rd["fullName"].ToString();
+                    invoice.InvoiceSubTotal = Convert.ToDouble(rd["subTotal"]);
+                    invoice.Discount = Convert.ToDouble(rd["discount"]);
+                    invoice.CreatedAt = Convert.ToDateTime(rd["createdAt"]);
+
+                    Invoices.Add(invoice);
+                }
+
+                return Invoices;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+        public List<InvoiceModel> SearchInvoices(string id, string name)
+        {
+            List<InvoiceModel> Invoices = new List<InvoiceModel>();
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spInvoice_SearchById", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            cmd.Parameters.Add(new SqlParameter("@name", name));
+
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    InvoiceModel invoice = new InvoiceModel();
+                    invoice.InvoiceId = rd["InvoiceId"].ToString();
+                    invoice.CustomerName = rd["fullName"].ToString();
+                    invoice.InvoiceSubTotal = Convert.ToDouble(rd["subTotal"]);
+                    invoice.Discount = Convert.ToDouble(rd["discount"]);
+                    invoice.CreatedAt = Convert.ToDateTime(rd["createdAt"]);
+
+                    Invoices.Add(invoice);
+                }
+
+                return Invoices;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 
 }
