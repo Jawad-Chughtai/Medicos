@@ -38,6 +38,7 @@ namespace MedicosUI
                 addressTextbox.Text = Details.Address;
                 contactTextbox.Text = Details.Contact;
                 bottomNoteTextbox.Text = Details.BottomLine;
+                imageLabel.Text = Details.Image;
             }
 
             catch(Exception ex)
@@ -114,7 +115,7 @@ namespace MedicosUI
                 business.Contact = contactTextbox.Text;
                 business.Address = addressTextbox.Text;
                 business.BottomLine = bottomNoteTextbox.Text;
-                if (imageLabel.Text.Length > 0)
+                if (FileName.Length > 0)
                 {
                     business.Image = FileName;
                 }

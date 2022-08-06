@@ -95,5 +95,31 @@ namespace MedicosLibrary.Models
 
             return false;
         }
+
+        public string GetImagePath()
+        {
+            var FilePath = "";
+
+            SqlConnection con = dbConnection.getCon();
+            SqlCommand cmd = new SqlCommand("spGetBusinessImage", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    FilePath = rd["img"].ToString();
+                }
+
+                return FilePath;
+            }
+
+            finally 
+            { 
+                con.Close(); 
+            }
+        }
     }
 }

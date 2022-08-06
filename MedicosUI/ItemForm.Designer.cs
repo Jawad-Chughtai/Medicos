@@ -211,7 +211,7 @@
             this.addItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addItemButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addItemButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.addItemButton.Location = new System.Drawing.Point(494, 494);
+            this.addItemButton.Location = new System.Drawing.Point(493, 493);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(123, 39);
             this.addItemButton.TabIndex = 9;

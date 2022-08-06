@@ -300,29 +300,13 @@ namespace MedicosLibrary
                 SpacerCell.Phrase = new Phrase("", font);
                 TotalTable.AddCell(SpacerCell);
 
-                Cell1.Phrase = new Phrase("Sub Total : ", font_detail_heading);
+                Cell1.Phrase = new Phrase("Sub Total : ", font);
                 Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
                 Cell1.Colspan = 1;
                 TotalTable.AddCell(Cell1);
 
 
-                Cell1.Phrase = new Phrase(Invoice.InvoiceSubTotal.ToString("N2"), font);
-                Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
-                Cell1.Colspan = 1;
-                TotalTable.AddCell(Cell1);
-
-                SpacerCell.Colspan = 3;
-                SpacerCell.Border = 0;
-                SpacerCell.Phrase = new Phrase("", font);
-                TotalTable.AddCell(SpacerCell);
-
-                Cell1.Phrase = new Phrase("GST 17% : ", font_detail_heading);
-                Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
-                Cell1.Colspan = 1;
-                TotalTable.AddCell(Cell1);
-
-
-                Cell1.Phrase = new Phrase("", font);
+                Cell1.Phrase = new Phrase(Invoice.InvoiceSubTotal.ToString("N2"), font_heading);
                 Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
                 Cell1.Colspan = 1;
                 TotalTable.AddCell(Cell1);
@@ -332,13 +316,13 @@ namespace MedicosLibrary
                 SpacerCell.Phrase = new Phrase("", font);
                 TotalTable.AddCell(SpacerCell);
 
-                Cell1.Phrase = new Phrase("Discount : ", font_detail_heading);
+                Cell1.Phrase = new Phrase("GST 17% : ", font);
                 Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
                 Cell1.Colspan = 1;
                 TotalTable.AddCell(Cell1);
 
 
-                Cell1.Phrase = new Phrase(Invoice.Discount.ToString("N2"), font);
+                Cell1.Phrase = new Phrase("", font_heading);
                 Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
                 Cell1.Colspan = 1;
                 TotalTable.AddCell(Cell1);
@@ -348,13 +332,29 @@ namespace MedicosLibrary
                 SpacerCell.Phrase = new Phrase("", font);
                 TotalTable.AddCell(SpacerCell);
 
-                Cell1.Phrase = new Phrase("Total : ", font_detail_heading);
+                Cell1.Phrase = new Phrase("Discount : ", font);
                 Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
                 Cell1.Colspan = 1;
                 TotalTable.AddCell(Cell1);
 
 
-                Cell1.Phrase = new Phrase(Invoice.InvoiceTotal.ToString("N2"), font);
+                Cell1.Phrase = new Phrase(Invoice.Discount.ToString("N2"), font_heading);
+                Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
+                Cell1.Colspan = 1;
+                TotalTable.AddCell(Cell1);
+
+                SpacerCell.Colspan = 3;
+                SpacerCell.Border = 0;
+                SpacerCell.Phrase = new Phrase("", font);
+                TotalTable.AddCell(SpacerCell);
+
+                Cell1.Phrase = new Phrase("Total : ", font);
+                Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
+                Cell1.Colspan = 1;
+                TotalTable.AddCell(Cell1);
+
+
+                Cell1.Phrase = new Phrase(Invoice.InvoiceTotal.ToString("N2"), font_heading);
                 Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
                 Cell1.Colspan = 1;
                 TotalTable.AddCell(Cell1);
@@ -366,13 +366,13 @@ namespace MedicosLibrary
                     SpacerCell.Phrase = new Phrase("", font);
                     TotalTable.AddCell(SpacerCell);
 
-                    Cell1.Phrase = new Phrase("Balance : ", font_detail_heading);
+                    Cell1.Phrase = new Phrase("Balance : ", font);
                     Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
                     Cell1.Colspan = 1;
                     TotalTable.AddCell(Cell1);
 
 
-                    Cell1.Phrase = new Phrase(Invoice.BalanceAmount.ToString("N2"), font);
+                    Cell1.Phrase = new Phrase(Invoice.BalanceAmount.ToString("N2"), font_heading);
                     Cell1.HorizontalAlignment = Element.ALIGN_LEFT;
                     Cell1.Colspan = 1;
                     TotalTable.AddCell(Cell1);

@@ -33,7 +33,7 @@ namespace MedicosUI
             this.FullName = FullName;
             this.UserinfotoolStripMenuItem.Text = FullName;
 
-
+            WireUpLogo();
             DashboardChildForm formObj = new DashboardChildForm();
             openChildForm(formObj);
 
@@ -49,7 +49,28 @@ namespace MedicosUI
             batchToolStripMenuItem.Visible = false;
             
         }
-        
+        private void WireUpLogo()
+        {
+            if (logoBox.Image != null)
+            {
+                logoBox.Image.Dispose();
+                logoBox.Image = null;
+            }
+
+            try
+            {
+                BusinessModel model = new BusinessModel();
+                var FilePath = model.GetImagePath();
+
+                logoBox.Image = Image.FromFile(FilePath);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading the image.");
+            }
+        }
         private void DashboardForm_Load(object sender, EventArgs e)
         {
         }
@@ -125,12 +146,6 @@ namespace MedicosUI
             openChildForm(formObj);
         }
 
-        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BackupForm formObj = new BackupForm();
-            openChildForm(formObj);
-        }
-
         private void newPurchaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewPurchaseForm formObj = new NewPurchaseForm();
@@ -178,5 +193,16 @@ namespace MedicosUI
             Application.Exit();
         }
 
+        private void updatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateApplicationForm formObj = new UpdateApplicationForm();
+            formObj.Show();
+        }
+
+        private void backupToolstrip_Click(object sender, EventArgs e)
+        {
+            BackupForm formObj = new BackupForm();
+            formObj.Show();
+        }
     }
 }

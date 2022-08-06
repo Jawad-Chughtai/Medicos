@@ -65,6 +65,7 @@ namespace MedicosUI
 
         private void searchInvoiceButton_Click(object sender, EventArgs e)
         {
+            invoiceAvailableError.Text = "";
             invoiceGridView.Rows.Clear();
             InvoiceModel Invoice = new InvoiceModel();
             try
@@ -90,6 +91,7 @@ namespace MedicosUI
 
         private void dateSearchButton_Click(object sender, EventArgs e)
         {
+            invoiceAvailableError.Text = "";
             invoiceGridView.Rows.Clear();
             InvoiceModel Invoice = new InvoiceModel();
             try
@@ -108,6 +110,21 @@ namespace MedicosUI
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Something went wrong while searching invoice.");
+            }
+        }
+
+        private void viewInvoiceButton_Click(object sender, EventArgs e)
+        {
+            string InvoiceId = invoiceGridView.SelectedCells[0].Value.ToString();
+            InvoiceViewForm formObj = new InvoiceViewForm(InvoiceId);
+            try
+            {
+                formObj.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading invoice.");
             }
         }
     }

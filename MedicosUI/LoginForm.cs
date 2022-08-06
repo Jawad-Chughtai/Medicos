@@ -19,7 +19,7 @@ namespace MedicosUI
         public LoginForm()
         {
             InitializeComponent();
-
+            WireUpLogo();
         }
         private void LoginForm_Shown(object sender, EventArgs e)
         {
@@ -79,6 +79,28 @@ namespace MedicosUI
             }
         }
 
+        private void WireUpLogo()
+        {
+            if(loginPictureBox.Image != null)
+            {
+                loginPictureBox.Image.Dispose();
+                loginPictureBox.Image = null;
+            }
+
+            try
+            {
+                BusinessModel model = new BusinessModel();
+                var FilePath = model.GetImagePath();
+
+                loginPictureBox.Image = Image.FromFile(FilePath);
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("Something went wrong while loading the image.");
+            }
+        }
         private void passwordTextbox_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)

@@ -110,6 +110,7 @@ namespace MedicosUI
             #region Item Validation
             int stockCount = new int();
             int priceCount = new int();
+
             bool IsValidUnitPrice = int.TryParse(unitPriceTextbox.Text, out priceCount);
             bool IsValidStock = int.TryParse(stockTextbox.Text, out stockCount);
 
@@ -121,7 +122,6 @@ namespace MedicosUI
             unitPriceError.Text = "";
             stockError.Text = "";
             expiryDateError.Text = "";
-
 
             if (itemNameTextbox.Text == "" || itemNameTextbox.Text.Length == 0)
             {
@@ -217,6 +217,7 @@ namespace MedicosUI
                 item.UnitPrice = Convert.ToDouble(unitPriceTextbox.Text);
                 item.Stock = Convert.ToInt32(stockTextbox.Text);
                 item.ExpiryDate = expiryDateTime.Value;
+
                 if (IsValidStock && stockCount > 0)
                 {
                     item.IsStock = true;

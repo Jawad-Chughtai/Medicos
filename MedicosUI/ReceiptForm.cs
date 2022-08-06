@@ -14,6 +14,8 @@ namespace MedicosUI
 {
     public partial class ReceiptForm : Form
     {
+        int counter = 0;
+
         List<POSModel> SaleItems = new List<POSModel>();
         double SubTotal { get; set; }
         double Discount { get; set; }
@@ -298,6 +300,7 @@ namespace MedicosUI
 
 
                         MessageBox.Show(message);
+                        counter = 1;
                         this.Close();
                     }
                     else
@@ -335,7 +338,11 @@ namespace MedicosUI
 
         private void ReceiptForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FormObj.Close();
+            if (counter == 1)
+            {
+                FormObj.Close();
+
+            }
         }
     }
 }

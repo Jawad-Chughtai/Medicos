@@ -48,27 +48,27 @@
             this.companyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.logoBox = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerBalanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receiptDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupToolstrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripUserInfo = new System.Windows.Forms.MenuStrip();
             this.UserinfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weeklyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.customerBalanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripNavigation.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -111,13 +111,12 @@
             this.distributorToolStripMenuItem,
             this.companyToolStripMenuItem,
             this.userToolStripMenuItem,
-            this.invoiceToolStripMenuItem,
-            this.backupToolStripMenuItem});
+            this.invoiceToolStripMenuItem});
             this.menuStripNavigation.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStripNavigation.Location = new System.Drawing.Point(0, 0);
             this.menuStripNavigation.Name = "menuStripNavigation";
             this.menuStripNavigation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.menuStripNavigation.Size = new System.Drawing.Size(180, 644);
+            this.menuStripNavigation.Size = new System.Drawing.Size(180, 595);
             this.menuStripNavigation.TabIndex = 0;
             this.menuStripNavigation.Text = "menuStrip1";
             // 
@@ -348,40 +347,24 @@
             this.invoiceToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.invoiceToolStripMenuItem.Click += new System.EventHandler(this.invoiceToolStripMenuItem_Click);
             // 
-            // backupToolStripMenuItem
-            // 
-            this.backupToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.backupToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backupToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.backupToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("backupToolStripMenuItem.Image")));
-            this.backupToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.backupToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(169, 49);
-            this.backupToolStripMenuItem.Text = "  Backup";
-            this.backupToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.logoBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(180, 73);
             this.panel2.TabIndex = 0;
             // 
-            // pictureBox1
+            // logoBox
             // 
-            this.pictureBox1.Image = global::MedicosUI.Properties.Resources.ayazMedicosLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.logoBox.Location = new System.Drawing.Point(-4, 8);
+            this.logoBox.Name = "logoBox";
+            this.logoBox.Size = new System.Drawing.Size(191, 57);
+            this.logoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoBox.TabIndex = 0;
+            this.logoBox.TabStop = false;
             // 
             // panel4
             // 
@@ -421,27 +404,43 @@
             this.setupToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.setupToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.setupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updatesToolStripMenuItem,
+            this.customerBalanceToolStripMenuItem,
             this.receiptDetailsToolStripMenuItem,
-            this.customerBalanceToolStripMenuItem});
+            this.backupToolstrip,
+            this.updatesToolStripMenuItem});
             this.setupToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.setupToolStripMenuItem.Image = global::MedicosUI.Properties.Resources.icons8_gear_100;
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
             this.setupToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
             this.setupToolStripMenuItem.Text = "Settings";
             // 
-            // updatesToolStripMenuItem
+            // customerBalanceToolStripMenuItem
             // 
-            this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
-            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.updatesToolStripMenuItem.Text = "Updates";
+            this.customerBalanceToolStripMenuItem.Name = "customerBalanceToolStripMenuItem";
+            this.customerBalanceToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.customerBalanceToolStripMenuItem.Text = "Customer Balance";
+            this.customerBalanceToolStripMenuItem.Click += new System.EventHandler(this.customerBalanceToolStripMenuItem_Click);
             // 
             // receiptDetailsToolStripMenuItem
             // 
             this.receiptDetailsToolStripMenuItem.Name = "receiptDetailsToolStripMenuItem";
-            this.receiptDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.receiptDetailsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.receiptDetailsToolStripMenuItem.Text = "Receipt Details";
             this.receiptDetailsToolStripMenuItem.Click += new System.EventHandler(this.receiptDetailsToolStripMenuItem_Click);
+            // 
+            // backupToolstrip
+            // 
+            this.backupToolstrip.Name = "backupToolstrip";
+            this.backupToolstrip.Size = new System.Drawing.Size(171, 22);
+            this.backupToolstrip.Text = "Backup Restore";
+            this.backupToolstrip.Click += new System.EventHandler(this.backupToolstrip_Click);
+            // 
+            // updatesToolStripMenuItem
+            // 
+            this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
+            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.updatesToolStripMenuItem.Text = "Check for Updates";
+            this.updatesToolStripMenuItem.Click += new System.EventHandler(this.updatesToolStripMenuItem_Click);
             // 
             // menuStripUserInfo
             // 
@@ -504,13 +503,6 @@
             this.panel5.Size = new System.Drawing.Size(1170, 3);
             this.panel5.TabIndex = 3;
             // 
-            // customerBalanceToolStripMenuItem
-            // 
-            this.customerBalanceToolStripMenuItem.Name = "customerBalanceToolStripMenuItem";
-            this.customerBalanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.customerBalanceToolStripMenuItem.Text = "Customer Balance";
-            this.customerBalanceToolStripMenuItem.Click += new System.EventHandler(this.customerBalanceToolStripMenuItem_Click);
-            // 
             // DashboardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -527,6 +519,7 @@
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ayaz Medicos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DashboardForm_FormClosing);
             this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.panel1.ResumeLayout(false);
@@ -535,7 +528,7 @@
             this.menuStripNavigation.ResumeLayout(false);
             this.menuStripNavigation.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoBox)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -554,7 +547,7 @@
         private System.Windows.Forms.MenuStrip menuStripNavigation;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.ToolStripMenuItem pointOfSaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem batchToolStripMenuItem;
@@ -565,7 +558,6 @@
         private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invoiceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.MenuStrip menuStripUserInfo;
         private System.Windows.Forms.ToolStripMenuItem UserinfotoolStripMenuItem;
@@ -584,6 +576,7 @@
         private System.Windows.Forms.ToolStripMenuItem updatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receiptDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerBalanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backupToolstrip;
     }
 }
 

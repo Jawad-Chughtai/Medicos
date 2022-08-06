@@ -175,7 +175,7 @@ namespace MedicosUI
                 return;
             }
             #endregion
-            //input validation ends
+            // input validation ends
 
             try
             {
@@ -199,7 +199,7 @@ namespace MedicosUI
                 Close();
             }
             
-            //resetting the inputs
+            // resetting the inputs
             itemTextbox.Text = "";
             quantityTextbox.Text = "";
             unitPriceTextbox.Text = "";
@@ -324,6 +324,10 @@ namespace MedicosUI
 
         private void printButton_Click(object sender, EventArgs e)
         {
+            if(POSGridView.Rows.Count == 0)
+            {
+                return;
+            }
             List<POSModel> SaleItems = new List<POSModel>();
             foreach(DataGridViewRow row in POSGridView.Rows)
             {

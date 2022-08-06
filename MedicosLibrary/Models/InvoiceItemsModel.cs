@@ -16,5 +16,6 @@ namespace MedicosLibrary.Models
         public double ItemTotal { get; set; }
         public bool IsStock { get; set; }
         public int UpdatedStock { get; set; }
+        public DateTime Expiry { get; set; }
     }
 }

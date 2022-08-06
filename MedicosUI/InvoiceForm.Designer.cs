@@ -32,6 +32,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.invoiceGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dateSearchButton = new System.Windows.Forms.Button();
             this.customerNameError = new System.Windows.Forms.Label();
             this.customerName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
             this.invoiceAvailableError = new System.Windows.Forms.Label();
-            this.dateSearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,7 @@
             this.viewInvoiceButton.TabIndex = 20;
             this.viewInvoiceButton.Text = "View Invoice";
             this.viewInvoiceButton.UseVisualStyleBackColor = false;
+            this.viewInvoiceButton.Click += new System.EventHandler(this.viewInvoiceButton_Click);
             // 
             // label5
             // 
@@ -106,6 +107,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(322, 431);
             this.panel2.TabIndex = 17;
+            // 
+            // dateSearchButton
+            // 
+            this.dateSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
+            this.dateSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dateSearchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateSearchButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.dateSearchButton.Location = new System.Drawing.Point(162, 303);
+            this.dateSearchButton.Name = "dateSearchButton";
+            this.dateSearchButton.Size = new System.Drawing.Size(144, 39);
+            this.dateSearchButton.TabIndex = 16;
+            this.dateSearchButton.Text = "Search Date";
+            this.dateSearchButton.UseVisualStyleBackColor = false;
+            this.dateSearchButton.Click += new System.EventHandler(this.dateSearchButton_Click);
             // 
             // customerNameError
             // 
@@ -236,20 +251,6 @@
             this.invoiceAvailableError.Size = new System.Drawing.Size(201, 17);
             this.invoiceAvailableError.TabIndex = 13;
             this.invoiceAvailableError.Text = "Invoice is not available in database";
-            // 
-            // dateSearchButton
-            // 
-            this.dateSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(239)))));
-            this.dateSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dateSearchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateSearchButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.dateSearchButton.Location = new System.Drawing.Point(162, 303);
-            this.dateSearchButton.Name = "dateSearchButton";
-            this.dateSearchButton.Size = new System.Drawing.Size(144, 39);
-            this.dateSearchButton.TabIndex = 16;
-            this.dateSearchButton.Text = "Search Date";
-            this.dateSearchButton.UseVisualStyleBackColor = false;
-            this.dateSearchButton.Click += new System.EventHandler(this.dateSearchButton_Click);
             // 
             // InvoiceForm
             // 

@@ -21,6 +21,7 @@ namespace MedicosLibrary.Models
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public double BalanceAmount { get; set; }
+        public string CustomerContact { get; set; }
         public List<InvoiceItemsModel> Items { get; set; } = new List<InvoiceItemsModel>();
 
         public bool InvoiceExists()

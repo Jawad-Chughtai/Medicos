@@ -61,3 +61,5 @@ C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\BouncyCastl
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\bin\Debug\itextsharp.xml
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.ReceiptDetails.resources
 C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.UpdateCustomerBalance.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.UpdateApplicationForm.resources
+C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\MedicosUI\obj\Debug\MedicosUI.InvoiceViewForm.resources

@@ -35,7 +35,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.receiveAmountTextbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // customerCombobox
@@ -43,7 +46,7 @@
             this.customerCombobox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.customerCombobox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.customerCombobox.FormattingEnabled = true;
-            this.customerCombobox.Location = new System.Drawing.Point(52, 48);
+            this.customerCombobox.Location = new System.Drawing.Point(52, 64);
             this.customerCombobox.Name = "customerCombobox";
             this.customerCombobox.Size = new System.Drawing.Size(265, 29);
             this.customerCombobox.TabIndex = 1;
@@ -54,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(48, 24);
+            this.label1.Location = new System.Drawing.Point(48, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 21);
             this.label1.TabIndex = 2;
@@ -71,7 +74,7 @@
             this.customerGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerGridView.GridColor = System.Drawing.Color.White;
-            this.customerGridView.Location = new System.Drawing.Point(52, 125);
+            this.customerGridView.Location = new System.Drawing.Point(52, 141);
             this.customerGridView.Name = "customerGridView";
             this.customerGridView.ReadOnly = true;
             this.customerGridView.RowTemplate.Height = 29;
@@ -86,7 +89,7 @@
             this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.updateButton.Location = new System.Drawing.Point(362, 188);
+            this.updateButton.Location = new System.Drawing.Point(362, 204);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(133, 35);
             this.updateButton.TabIndex = 3;
@@ -99,7 +102,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(48, 170);
+            this.label2.Location = new System.Drawing.Point(48, 186);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 21);
             this.label2.TabIndex = 7;
@@ -107,7 +110,7 @@
             // 
             // receiveAmountTextbox
             // 
-            this.receiveAmountTextbox.Location = new System.Drawing.Point(52, 194);
+            this.receiveAmountTextbox.Location = new System.Drawing.Point(52, 210);
             this.receiveAmountTextbox.Name = "receiveAmountTextbox";
             this.receiveAmountTextbox.Size = new System.Drawing.Size(265, 29);
             this.receiveAmountTextbox.TabIndex = 2;
@@ -118,18 +121,38 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(48, 101);
+            this.label3.Location = new System.Drawing.Point(48, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 21);
             this.label3.TabIndex = 9;
             this.label3.Text = "Customer Details :";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(558, 5);
+            this.panel1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(66)))), ((int)(((byte)(79)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(558, 5);
+            this.panel2.TabIndex = 11;
             // 
             // UpdateCustomerBalance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(558, 254);
+            this.ClientSize = new System.Drawing.Size(558, 286);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.receiveAmountTextbox);
             this.Controls.Add(this.label2);
@@ -146,6 +169,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Customer Balance";
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +184,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox receiveAmountTextbox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -22,6 +22,7 @@ namespace MedicosLibrary.Models
         public string DistributorName { get; set; }
         public string CompanyName { get; set; }
         public bool IsStock { get; set; }
+        public string Barcode { get; set; }
         public List<BatchModel> ItemBatches { get; set; }
         public void AddItem(ItemModel item)
         {
@@ -37,7 +38,6 @@ namespace MedicosLibrary.Models
             cmd.Parameters.Add(new SqlParameter("@UnitPrice", item.UnitPrice));
             cmd.Parameters.Add(new SqlParameter("@Stock", item.Stock));
             cmd.Parameters.Add(new SqlParameter("@ExpiryDate", item.ExpiryDate));
-
             try
             {
                 con.Open();
