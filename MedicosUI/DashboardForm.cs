@@ -55,7 +55,7 @@ namespace MedicosUI
 
         private async Task CheckForUpdates()
         {
-            using(var manager = new UpdateManager(@"https://github.com/Jawad-Chughtai/Medicos"))
+            using(var manager = new UpdateManager(@"https://github.com/Jawad-Chughtai/Medicos/tree/main/Releases"))
             {
                 await manager.UpdateApp();
             }
