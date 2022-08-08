@@ -406,8 +406,7 @@
             this.setupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerBalanceToolStripMenuItem,
             this.receiptDetailsToolStripMenuItem,
-            this.backupToolstrip,
-            this.updatesToolStripMenuItem});
+            this.backupToolstrip});
             this.setupToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.setupToolStripMenuItem.Image = global::MedicosUI.Properties.Resources.icons8_gear_100;
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
@@ -417,30 +416,23 @@
             // customerBalanceToolStripMenuItem
             // 
             this.customerBalanceToolStripMenuItem.Name = "customerBalanceToolStripMenuItem";
-            this.customerBalanceToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.customerBalanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customerBalanceToolStripMenuItem.Text = "Customer Balance";
             this.customerBalanceToolStripMenuItem.Click += new System.EventHandler(this.customerBalanceToolStripMenuItem_Click);
             // 
             // receiptDetailsToolStripMenuItem
             // 
             this.receiptDetailsToolStripMenuItem.Name = "receiptDetailsToolStripMenuItem";
-            this.receiptDetailsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.receiptDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.receiptDetailsToolStripMenuItem.Text = "Receipt Details";
             this.receiptDetailsToolStripMenuItem.Click += new System.EventHandler(this.receiptDetailsToolStripMenuItem_Click);
             // 
             // backupToolstrip
             // 
             this.backupToolstrip.Name = "backupToolstrip";
-            this.backupToolstrip.Size = new System.Drawing.Size(171, 22);
+            this.backupToolstrip.Size = new System.Drawing.Size(180, 22);
             this.backupToolstrip.Text = "Backup Restore";
             this.backupToolstrip.Click += new System.EventHandler(this.backupToolstrip_Click);
-            // 
-            // updatesToolStripMenuItem
-            // 
-            this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
-            this.updatesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.updatesToolStripMenuItem.Text = "Check for Updates";
-            this.updatesToolStripMenuItem.Click += new System.EventHandler(this.updatesToolStripMenuItem_Click);
             // 
             // menuStripUserInfo
             // 

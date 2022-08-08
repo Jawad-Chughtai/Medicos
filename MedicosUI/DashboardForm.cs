@@ -1,4 +1,5 @@
 ﻿using MedicosLibrary.Models;
+using Squirrel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,8 +48,19 @@ namespace MedicosUI
             }
 
             batchToolStripMenuItem.Visible = false;
+
+            CheckForUpdates();
             
         }
+
+        private async Task CheckForUpdates()
+        {
+            using(var manager = new UpdateManager(@"https://github.com/Jawad-Chughtai/Medicos"))
+            {
+                await manager.UpdateApp();
+            }
+        }
+
         private void WireUpLogo()
         {
             if (logoBox.Image != null)
@@ -191,12 +203,6 @@ namespace MedicosUI
         private void DashboardForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void updatesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UpdateApplicationForm formObj = new UpdateApplicationForm();
-            formObj.Show();
         }
 
         private void backupToolstrip_Click(object sender, EventArgs e)

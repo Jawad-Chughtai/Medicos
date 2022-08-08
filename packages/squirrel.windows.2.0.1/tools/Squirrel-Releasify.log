@@ -1,0 +1,9 @@
+﻿[09/08/22 03:54:37] info: Program: Starting Squirrel Updater: --releasify Medicos.1.0.0.nupkg
+[09/08/22 03:54:37] info: Program: Bootstrapper EXE found at:C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\packages\squirrel.windows.2.0.1\tools\Setup.exe
+[09/08/22 03:54:37] info: Program: Creating release package: C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\Releases\Medicos.1.0.0.nupkg
+[09/08/22 03:54:37] info: ReleasePackage: Creating release package: C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\Releases\Medicos.1.0.0.nupkg => C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\Releases\Medicos-1.0.0-full.nupkg
+[09/08/22 03:54:38] info: ReleasePackage: Extracting dependent packages: []
+[09/08/22 03:54:38] info: ReleasePackage: Removing unnecessary data
+[09/08/22 03:54:38] info: ReleasePackage: No release notes found in C:\Users\Jawad Chughtai\AppData\Local\SquirrelTemp\tempa\Medicos.nuspec
+[09/08/22 03:54:40] info: Program: Building embedded zip file for Setup.exe
+[09/08/22 03:54:47] info: Program: Finished Squirrel Updater
