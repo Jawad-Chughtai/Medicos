@@ -46,9 +46,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(445, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 21);
+            this.label1.Size = new System.Drawing.Size(137, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "This is to check if updating works";
+            this.label1.Text = "this is update # 02";
             // 
             // DashboardChildForm
             // 
