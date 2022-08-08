@@ -7,3 +7,29 @@
 [09/08/22 03:54:38] info: ReleasePackage: No release notes found in C:\Users\Jawad Chughtai\AppData\Local\SquirrelTemp\tempa\Medicos.nuspec
 [09/08/22 03:54:40] info: Program: Building embedded zip file for Setup.exe
 [09/08/22 03:54:47] info: Program: Finished Squirrel Updater
+[09/08/22 04:08:32] info: Program: Starting Squirrel Updater: --releasify Medicos.1.0.1.nupkg
+[09/08/22 04:08:32] info: Program: Bootstrapper EXE found at:C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\packages\squirrel.windows.2.0.1\tools\Setup.exe
+[09/08/22 04:08:32] info: Program: Creating release package: C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\Releases\Medicos.1.0.1.nupkg
+[09/08/22 04:08:32] info: ReleasePackage: Creating release package: C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\Releases\Medicos.1.0.1.nupkg => C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\Releases\Medicos-1.0.1-full.nupkg
+[09/08/22 04:08:32] info: ReleasePackage: Extracting dependent packages: []
+[09/08/22 04:08:32] info: ReleasePackage: Removing unnecessary data
+[09/08/22 04:08:32] info: ReleasePackage: No release notes found in C:\Users\Jawad Chughtai\AppData\Local\SquirrelTemp\tempa\Medicos.nuspec
+[09/08/22 04:08:34] info: DeltaPackageBuilder: Extracting .\Releases\Medicos-1.0.0-full.nupkg and C:\Users\Jawad Chughtai\Documents\GitHub\Medicos\Releases\Medicos-1.0.1-full.nupkg into C:\Users\Jawad Chughtai\AppData\Local\SquirrelTemp\tempb
+[09/08/22 04:08:35] info: DeltaPackageBuilder: \lib\net45\BouncyCastle.Crypto.dll hasn't changed, writing dummy file
+[09/08/22 04:08:35] info: DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.dll hasn't changed, writing dummy file
+[09/08/22 04:08:35] info: DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.MsDelta.dll hasn't changed, writing dummy file
+[09/08/22 04:08:35] info: DeltaPackageBuilder: \lib\net45\DeltaCompressionDotNet.PatchApi.dll hasn't changed, writing dummy file
+[09/08/22 04:08:36] info: DeltaPackageBuilder: \lib\net45\itextsharp.dll hasn't changed, writing dummy file
+[09/08/22 04:08:36] info: DeltaPackageBuilder: \lib\net45\MedicosLibrary.dll hasn't changed, writing dummy file
+[09/08/22 04:08:36] info: DeltaPackageBuilder: \lib\net45\MedicosLibrary.dll.config hasn't changed, writing dummy file
+[09/08/22 04:08:36] info: DeltaPackageBuilder: \lib\net45\MedicosUI.exe hasn't changed, writing dummy file
+[09/08/22 04:08:36] info: DeltaPackageBuilder: \lib\net45\MedicosUI.exe.config hasn't changed, writing dummy file
+[09/08/22 04:08:36] info: DeltaPackageBuilder: \lib\net45\MedicosUI_ExecutionStub.exe hasn't changed, writing dummy file
+[09/08/22 04:08:36] info: DeltaPackageBuilder: \lib\net45\Mono.Cecil.dll hasn't changed, writing dummy file
+[09/08/22 04:08:36] info: DeltaPackageBuilder: \lib\net45\Mono.Cecil.Mdb.dll hasn't changed, writing dummy file
+[09/08/22 04:08:37] info: DeltaPackageBuilder: \lib\net45\Mono.Cecil.Rocks.dll hasn't changed, writing dummy file
+[09/08/22 04:08:37] info: DeltaPackageBuilder: \lib\net45\NuGet.Squirrel.dll hasn't changed, writing dummy file
+[09/08/22 04:08:37] info: DeltaPackageBuilder: \lib\net45\SharpCompress.dll hasn't changed, writing dummy file
+[09/08/22 04:08:37] info: DeltaPackageBuilder: \lib\net45\Squirrel.dll hasn't changed, writing dummy file
+[09/08/22 04:08:37] info: Program: Building embedded zip file for Setup.exe
+[09/08/22 04:08:43] info: Program: Finished Squirrel Updater

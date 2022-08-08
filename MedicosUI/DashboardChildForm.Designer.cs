@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -40,12 +41,22 @@
             this.panel1.Size = new System.Drawing.Size(600, 289);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(445, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(239, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "This is to check if updating works";
+            // 
             // DashboardChildForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1165, 665);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -54,12 +65,13 @@
             this.ShowIcon = false;
             this.Text = "DashboardChildForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-
+        private System.Windows.Forms.Label label1;
     }
 }
