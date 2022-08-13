@@ -44,11 +44,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(445, 82);
+            this.label1.Location = new System.Drawing.Point(488, 83);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 21);
+            this.label1.Size = new System.Drawing.Size(145, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "this is update # 02";
+            this.label1.Text = "This is version 1.0.5";
             // 
             // DashboardChildForm
             // 

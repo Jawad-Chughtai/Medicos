@@ -49,13 +49,13 @@ namespace MedicosUI
 
             batchToolStripMenuItem.Visible = false;
 
-            CheckForUpdates();
+            _ = CheckForUpdates();
             
         }
 
         private async Task CheckForUpdates()
         {
-            using(var manager = new UpdateManager(@"https://github.com/Jawad-Chughtai/Medicos/tree/main/Releases"))
+            using(var manager = new UpdateManager(@"D:\Temp\Releases"))
             {
                 await manager.UpdateApp();
             }
